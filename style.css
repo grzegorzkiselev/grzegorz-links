@@ -51,24 +51,12 @@ a:hover {
 }
 
 #resize-container{
-
   position: fixed;
   top: 0;
   top: 0;
   width: 100%;
   height: 100%;
-
-  display: none;
   z-index: 9001;
-
-  background-color: #f0eadc;
-  
-  /* background: #ff4962; /* Old browsers */
-  /* background: -moz-linear-gradient(45deg, #ff4962 0%, #ff40f5 100%); FF3.6-15 */
-  /* background: -webkit-linear-gradient(45deg, #ff4962 0%,#ff40f5 100%); Chrome10-25,Safari5.1-6 */
-  /* background: linear-gradient(45deg, #ff4962 0%,#ff40f5 100%); W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff4962', endColorstr='#ff40f5',GradientType=1 ); IE6-9 fallback on horizontal gradient */ */
-
 }
 
 #resize-container.show{
@@ -82,6 +70,7 @@ a:hover {
 }
 
 #resize-value{
+  display: block;
   color: #161616;
   position: absolute;
   bottom: 4.4vh;
@@ -258,6 +247,10 @@ a:hover {
   bottom: 2.1vh;
 }
 
+#resize-value-hide {
+  display: none;
+}
+
 @media all and (max-width: 1000px) and (min-width: 0px) {
   
   body {
@@ -291,4 +284,20 @@ a:hover {
     z-index: 999;
   }
 
+#resize-value-hide {
+  display: block;
+  color: #161616;
+  position: absolute;
+  bottom: 5.3vh;
+  right: 3vw;
+  text-align: right;
+}
+
+#resize-value{
+  display: none;
+  color: #161616;
+  position: absolute;
+  bottom: 5.3vh;
+  right: 3.5vw;
+  text-align: right;
 }
