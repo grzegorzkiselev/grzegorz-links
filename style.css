@@ -12,6 +12,13 @@ video {
   vertical-align: middle;
 }
 
+@font-face {
+  font-family: "HelveticaNeue"; 
+  src: url("./HelveticaNeue.ttс") format("truetype"); 
+  font-style: normal; 
+  font-weight: normal; 
+  } 
+
 html{
   height: 100%;
 }
