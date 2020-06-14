@@ -42,7 +42,7 @@ body {
 .content {
   position: fixed;
   left: 8.89vw;
-  top: 3vh;
+  top: 3.8vh;
   width: auto;
   display: grid;
 }
@@ -86,7 +86,7 @@ a:hover {
   display: block;
   color: #161616;
   position: absolute;
-  bottom: 4.4vh;
+  bottom: 3.6vh;
   right: 3.5vw;
   text-align: right;
 }
@@ -264,7 +264,7 @@ a:hover {
   display: none;
 }
 
-@media all and (max-width: 1000px) and (pointer: coarse) {
+@media screen and (max-width: 1000px) and (min-width: 0px) and (pointer:coarse) {
   
   body {
     margin: 0;
@@ -279,7 +279,7 @@ a:hover {
   .content {
     position: fixed;
     left: 8.89vw;
-    top: 2.37vh;
+    top: 2.71vh;
     width: auto;
     display: grid;
   }
@@ -301,7 +301,7 @@ a:hover {
   display: block;
   color: #161616;
   position: absolute;
-  bottom: 5.3vh;
+  bottom: 4.96vh;
   right: 3vw;
   text-align: right;
 }
