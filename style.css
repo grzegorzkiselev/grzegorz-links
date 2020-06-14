@@ -268,7 +268,7 @@ a:hover {
   
   body {
     margin: 0;
-    font: 30px/29px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: 29px/29px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     background-color: #f3f2ed;
     height: 100%;
@@ -301,7 +301,7 @@ a:hover {
   display: block;
   color: #161616;
   position: absolute;
-  bottom: 4.9vh;
+  bottom: 4.85vh;
   right: 3vw;
   text-align: right;
 }
