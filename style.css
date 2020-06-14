@@ -13,11 +13,14 @@ video {
 }
 
 @font-face {
-  font-family: 'HelveticaNeue';
-  src: local('Helvetica Neue Medium'), local('Helvetica-Neue-Medium'),
-      url('fonts/HelveticaNeueCyr-Medium.woff2') format('woff2'),
-      url('fonts/HelveticaNeueCyr-Medium.woff') format('woff'),
-      url('fonts/HelveticaNeueCyr-Medium.ttf') format('truetype');
+  font-family: "HelveticaNeue";
+  src: url("./fonts/HelveticaNeueCyr-Roman.eot"); /* IE9 Compat Modes */
+  src: url("./fonts/HelveticaNeueCyr-Roman.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("./fonts/HelveticaNeueCyr-Roman.otf") format("opentype"), /* Open Type Font */
+    url("./fonts/HelveticaNeueCyr-Roman.svg") format("svg"), /* Legacy iOS */
+    url("./fonts/HelveticaNeueCyr-Roman.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("./fonts/HelveticaNeueCyr-Roman.woff") format("woff"), /* Modern Browsers */
+    url("./fonts/HelveticaNeueCyr-Roman.woff2") format("woff2"); /* Modern Browsers */
   font-weight: normal;
   font-style: normal;
 }
@@ -261,7 +264,7 @@ a:hover {
   display: none;
 }
 
-@media all and (max-width: 1000px) and (min-width: 0px) {
+@media all and (max-width: 1000px) and (pointer: coarse) {
   
   body {
     margin: 0;
