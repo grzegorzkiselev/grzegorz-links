@@ -13,11 +13,14 @@ video {
 }
 
 @font-face {
-  font-family: "HelveticaNeue"; 
-  src: url("./fonts/HelveticaNeue.ttс") format("truetype"); 
-  font-style: normal; 
-  font-weight: normal; 
-  } 
+  font-family: 'HelveticaNeue';
+  src: local('Helvetica Neue Medium'), local('Helvetica-Neue-Medium'),
+      url('fonts/HelveticaNeueCyr-Medium.woff2') format('woff2'),
+      url('fonts/HelveticaNeueCyr-Medium.woff') format('woff'),
+      url('fonts/HelveticaNeueCyr-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 html{
   height: 100%;
