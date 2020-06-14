@@ -257,3 +257,38 @@ a:hover {
 #grid-line-b-7{
   bottom: 2.1vh;
 }
+
+@media all and (max-width: 1000px) and (min-width: 0px) {
+  
+  body {
+    margin: 0;
+    font: 32px/29px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: #f3f2ed;
+    height: 100%;
+    overflow-x: hidden;
+    letter-spacing: 0.8pt;
+  }
+
+  .content {
+    position: fixed;
+    left: 8.89vw;
+    top: 2.3vh;
+    width: auto;
+    display: grid;
+  }
+  
+  a {
+    /* text-decoration: none; */
+    word-break: break-all;
+    color: #161616;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    margin-bottom: 0.63vh;
+    outline: none;
+    padding-right: 2.1vw;
+    z-index: 999;
+  }
+
+}
