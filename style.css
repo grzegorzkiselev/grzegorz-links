@@ -14,7 +14,7 @@ video {
 
 @font-face {
   font-family: "HelveticaNeue"; 
-  src: url("./HelveticaNeue.ttс") format("truetype"); 
+  src: url("./fonts/HelveticaNeue.ttс") format("truetype"); 
   font-style: normal; 
   font-weight: normal; 
   } 
@@ -273,7 +273,7 @@ a:hover {
   .content {
     position: fixed;
     left: 8.89vw;
-    top: 2.3vh;
+    top: 2.37vh;
     width: auto;
     display: grid;
   }
