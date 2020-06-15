@@ -268,7 +268,7 @@ a:hover {
   
   body {
     margin: 0;
-    font: 29px/3.55vh "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: 29px/3vh "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     background-color: #f3f2ed;
     height: 100%;
