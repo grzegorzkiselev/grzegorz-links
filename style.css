@@ -31,7 +31,7 @@ html{
 
 body {
   margin: 0;
-  font: 48px/56px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 48px/44px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   background-color: #f3f2ed;
   height: 100%;
@@ -42,7 +42,7 @@ body {
 .content {
   position: fixed;
   left: 8.89vw;
-  top: 3.8vh;
+  top: 4.6vh;
   width: auto;
   display: grid;
 }
@@ -53,7 +53,7 @@ a {
   display: inline-block;
   vertical-align: top;
   text-align: left;
-  margin-bottom: 1.63vh;
+  margin-bottom: 3.1vh;
   outline: none;
   padding: 0;
   z-index: 999;
@@ -268,7 +268,7 @@ a:hover {
   
   body {
     margin: 0;
-    font: 29px/29px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: 29px/28.5px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     background-color: #f3f2ed;
     height: 100%;
@@ -279,7 +279,7 @@ a:hover {
   .content {
     position: fixed;
     left: 8.89vw;
-    top: 2.75vh;
+    top: 2.9vh;
     width: auto;
     display: grid;
   }
@@ -291,7 +291,7 @@ a:hover {
     display: inline-block;
     vertical-align: top;
     text-align: left;
-    margin-bottom: 0.63vh;
+    margin-bottom: 0.5vh;
     outline: none;
     padding-right: 2.1vw;
     z-index: 999;
@@ -301,7 +301,7 @@ a:hover {
   display: block;
   color: #161616;
   position: absolute;
-  bottom: 4.85vh;
+  bottom: 4.7vh;
   right: 3vw;
   text-align: right;
 }
