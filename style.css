@@ -268,11 +268,7 @@ a:hover {
   
   body {
     margin: 0;
-<<<<<<< HEAD
-    font: 29px/3.3vh "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-=======
-    font: 29px/3.2vh "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
->>>>>>> parent of fc833da... revert to px
+    font: 29px/29px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     background-color: #f3f2ed;
     height: 100%;
