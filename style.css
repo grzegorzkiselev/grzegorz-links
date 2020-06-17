@@ -261,7 +261,7 @@ a:hover {
   display: none;
 }
 
-@media screen and (max-width: 1300px) and (min-width: 0px) and (pointer:coarse) {
+@media screen and (max-width: 1300px) and (pointer: coarse) {
   
   body {
     margin: 0;
@@ -310,4 +310,18 @@ a:hover {
   right: 3.5vw;
   text-align: right;
 }
+}
+
+@media screen and (max-width: 1300px) and (min-width: 0px) and (pointer: coarse) and (orientation: landscape) {
+  a {
+    /* text-decoration: none; */
+    word-break: break-all;
+    color: #161616;
+    display: inline-block;
+    text-align: left;
+    margin-bottom: calc(23.6vh - 9vh - 1ch);
+    outline: none;
+    padding-right: 2.1vw;
+    z-index: 999;
+  }
 }
