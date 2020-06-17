@@ -297,20 +297,20 @@ a:hover {
     z-index: 999;
   }
 
-#resize-value-hide {
+/* #resize-value-hide {
   display: block;
   color: #161616;
   position: absolute;
   bottom: 4.75vh;
   right: 3vw;
   text-align: right;
-}
+} */
 
 #resize-value{
-  display: none;
+  display: block;
   color: #161616;
   position: absolute;
-  bottom: 5.5vh;
+  bottom: 4.75vh;
   right: 3.5vw;
   text-align: right;
 }

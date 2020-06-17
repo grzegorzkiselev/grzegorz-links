@@ -57,25 +57,21 @@ document.addEventListener("DOMContentLoaded", function(event){
 		var screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 
 		// resizeValue.innerHTML = screenWidth +' &mdash; '+screenHeight;
-		resizeValue.innerHTML = Math.round((screenWidth / screenHeight)*1000)/1000	;
+		resizeValue.innerHTML = Math.round((screenWidth / screenHeight)*1000)/1000;
 
 	}
 
-	windowResizeStopFunction = function(){
-
-		
-		resizeContainer.classList.remove("show");
-
-
-	}
+	window.addEventListener('load', function(event){
+			windowResizeFunction();
+	});
 
 	window.addEventListener('resize', function(event){
-  		
-  		if(!isMobile){
-  			windowResizeFunction();
-  		}
+			windowResizeFunction();
+	});
 
-  	});
+	windowResizeStopFunction = function(){
+		resizeContainer.classList.remove("show");
+	}
 
 	menuBuildFunction();
 
