@@ -50,7 +50,7 @@ a {
   color: #161616;
   display: inline-block;
   text-align: left;
-  margin-bottom: calc((14.591vh + 0.02em) - 1ch);
+  margin-bottom: calc((23.6vh - 9vh) - 1ch + 0.02em);
   outline: none;
   padding: 0;
   z-index: 999;
@@ -265,7 +265,7 @@ a:hover {
   
   body {
     margin: 0;
-    font: 29px/29px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: 32px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     background-color: #f3f2ed;
     height: 100%;
@@ -276,7 +276,7 @@ a:hover {
   .content {
     position: fixed;
     left: 8.89vw;
-    top: 2.75vh;
+    top: 9vh;
     width: auto;
     display: grid;
   }
@@ -287,7 +287,7 @@ a:hover {
     color: #161616;
     display: inline-block;
     text-align: left;
-    margin-bottom: 0.5vh;
+    margin-bottom: calc(14.591vh - 9vh - 1ch);
     outline: none;
     padding-right: 2.1vw;
     z-index: 999;
