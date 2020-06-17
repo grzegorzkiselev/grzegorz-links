@@ -306,7 +306,7 @@ a:hover {
   display: block;
   color: #161616;
   position: absolute;
-  bottom: 4.75vh;
+  bottom: calc(5.6vh + 0.02em);
   right: 3.5vw;
   text-align: right;
 }
