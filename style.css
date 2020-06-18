@@ -5,6 +5,7 @@
   box-sizing: border-box; 
   vertical-align: text-top;
   line-height: 1ch;
+  overscroll-behavior: none;
 }
 
 
