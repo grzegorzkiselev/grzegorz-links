@@ -1,28 +1,31 @@
 * {
-  margin: 0; 
-  padding: 0; 
-  -webkit-tap-highlight-color: rgba(0,0,0,0); 
-  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
   vertical-align: text-top;
   line-height: 1ch;
   overscroll-behavior: none;
 }
 
-
 @font-face {
   font-family: "HelveticaNeue";
   src: url("./fonts/HelveticaNeueCyr-Roman.eot"); /* IE9 Compat Modes */
-  src: url("./fonts/HelveticaNeueCyr-Roman.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-    url("./fonts/HelveticaNeueCyr-Roman.otf") format("opentype"), /* Open Type Font */
-    url("./fonts/HelveticaNeueCyr-Roman.svg") format("svg"), /* Legacy iOS */
-    url("./fonts/HelveticaNeueCyr-Roman.ttf") format("truetype"), /* Safari, Android, iOS */
-    url("./fonts/HelveticaNeueCyr-Roman.woff") format("woff"), /* Modern Browsers */
-    url("./fonts/HelveticaNeueCyr-Roman.woff2") format("woff2"); /* Modern Browsers */
+  src: url("./fonts/HelveticaNeueCyr-Roman.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("./fonts/HelveticaNeueCyr-Roman.otf") format("opentype"),
+    /* Open Type Font */ url("./fonts/HelveticaNeueCyr-Roman.svg") format("svg"),
+    /* Legacy iOS */ url("./fonts/HelveticaNeueCyr-Roman.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */ url("./fonts/HelveticaNeueCyr-Roman.woff")
+      format("woff"),
+    /* Modern Browsers */ url("./fonts/HelveticaNeueCyr-Roman.woff2")
+      format("woff2"); /* Modern Browsers */
   font-weight: normal;
   font-style: normal;
 }
 
-html{
+html {
   height: 100%;
 }
 
@@ -30,7 +33,7 @@ body {
   margin: 0;
   font: 48px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  background-color: #f3f2ed;
+  background-color: var(--back-color);
   height: 100%;
   overflow-x: hidden;
   letter-spacing: 0.8pt;
@@ -48,7 +51,7 @@ a {
   padding: 0px;
   margin: 0px;
   /* text-decoration: none; */
-  color: #161616;
+  color: var(--font-color);
   display: inline-block;
   text-align: left;
   margin-bottom: calc((23.6vh - 9vh) - 1ch + 0.02em);
@@ -58,10 +61,10 @@ a {
 }
 
 a:hover {
-  color: #699ac6;
+  color: var(--hover-color);
 }
 
-#resize-container{
+#resize-container {
   position: fixed;
   top: 0;
   top: 0;
@@ -70,191 +73,188 @@ a:hover {
   z-index: 9001;
 }
 
-#resize-container.show{
+#resize-container.show {
   display: block;
 }
 
-#resize-text{
-  color: #161616;
+#resize-text {
+  color: var(--font-color);
   /* left: 3.2vw; */
   /* top: 2.9vh; */
 }
 
-#resize-value{
+#resize-value {
   display: block;
-  color: #161616;
+  color: var(--font-color);
   position: absolute;
   bottom: 5.6vh;
   right: 3.4vw;
   text-align: right;
 }
 
-.grid-line-l{
+.grid-line-l {
   position: absolute;
   width: 1px;
   height: 100%;
-  background-color:aqua;
+  background-color: var(--ruler-color);
   opacity: 0.6;
-
 }
 
-#grid-line-l-0{
+#grid-line-l-0 {
   top: 0px;
   left: 61.8vw;
 }
 
-#grid-line-l-1{
+#grid-line-l-1 {
   top: 0px;
   left: 38.2vw;
 }
 
-#grid-line-l-2{
+#grid-line-l-2 {
   top: 0px;
   left: 23.6vw;
 }
 
-#grid-line-l-3{
+#grid-line-l-3 {
   top: 0px;
   left: 14.6vw;
 }
 
-#grid-line-l-4{
+#grid-line-l-4 {
   top: 0px;
   left: 9vw;
 }
 
-#grid-line-l-5{
+#grid-line-l-5 {
   top: 0px;
   left: 5.6vw;
 }
 
-#grid-line-l-6{
+#grid-line-l-6 {
   top: 0px;
   left: 3.5vw;
 }
 
-#grid-line-l-7{
+#grid-line-l-7 {
   top: 0px;
   left: 2.1vw;
 }
 
-.grid-line-r{
+.grid-line-r {
   position: absolute;
   width: 1px;
   height: 100%;
-  background-color:aqua;
+  background-color: var(--ruler-color);
   opacity: 0.6;
 }
 
-#grid-line-r-2{
+#grid-line-r-2 {
   top: 0px;
   right: 23.6vw;
 }
 
-#grid-line-r-3{
+#grid-line-r-3 {
   top: 0px;
   right: 14.6vw;
 }
 
-#grid-line-r-4{
+#grid-line-r-4 {
   top: 0px;
   right: 9vw;
 }
 
-#grid-line-r-5{
+#grid-line-r-5 {
   top: 0px;
   right: 5.6vw;
 }
 
-#grid-line-r-6{
+#grid-line-r-6 {
   top: 0px;
   right: 3.5vw;
 }
 
-#grid-line-r-7{
+#grid-line-r-7 {
   top: 0px;
   right: 2.1vw;
 }
 
-
-.grid-line-t{
+.grid-line-t {
   position: absolute;
   width: 100%;
   height: 1px;
-  background-color:aqua;
+  background-color: var(--ruler-color);
   opacity: 0.6;
-
 }
 
-#grid-line-t-0{
+#grid-line-t-0 {
   top: 61.8vh;
 }
 
-#grid-line-t-1{
+#grid-line-t-1 {
   top: 38.2vh;
 }
 
-#grid-line-t-2{
+#grid-line-t-2 {
   top: 23.6vh;
 }
 
-#grid-line-t-3{
+#grid-line-t-3 {
   top: 14.6vh;
 }
 
-#grid-line-t-4{
+#grid-line-t-4 {
   top: 9vh;
 }
 
-#grid-line-t-5{
+#grid-line-t-5 {
   top: 5.6vh;
 }
 
-#grid-line-t-6{
+#grid-line-t-6 {
   top: 3.5vh;
 }
 
-#grid-line-t-7{
+#grid-line-t-7 {
   top: 2.1vh;
 }
 
-.grid-line-b{
+.grid-line-b {
   position: absolute;
   width: 100%;
   height: 1px;
-  background-color:aqua;
+  background-color: var(--ruler-color);
   opacity: 0.6;
 }
 
-#grid-line-b-0{
+#grid-line-b-0 {
   bottom: 61.8vh;
 }
 
-#grid-line-b-1{
+#grid-line-b-1 {
   bottom: 38.1vh;
 }
 
-#grid-line-b-2{
+#grid-line-b-2 {
   bottom: 23.6vh;
 }
 
-#grid-line-b-3{
+#grid-line-b-3 {
   bottom: 14.6vh;
 }
 
-#grid-line-b-4{
+#grid-line-b-4 {
   bottom: 9vh;
 }
 
-#grid-line-b-5{
+#grid-line-b-5 {
   bottom: 5.6vh;
 }
 
-#grid-line-b-6{
+#grid-line-b-6 {
   bottom: 3.5vh;
 }
 
-#grid-line-b-7{
+#grid-line-b-7 {
   bottom: 2.1vh;
 }
 
@@ -263,7 +263,6 @@ a:hover {
 }
 
 @media screen and (max-width: 1300px) and (pointer: coarse) {
-  
   body {
     margin: 0;
     font: 32px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -281,11 +280,11 @@ a:hover {
     width: auto;
     display: grid;
   }
-  
+
   a {
     /* text-decoration: none; */
     word-break: break-all;
-    color: #161616;
+    color: var(--hover-color);
     display: inline-block;
     text-align: left;
     margin-bottom: calc(14.591vh - 9vh - 1ch);
@@ -294,30 +293,30 @@ a:hover {
     z-index: 999;
   }
 
-/* #resize-value-hide {
+  /* #resize-value-hide {
   display: block;
-  color: #161616;
+  color: var(--hover-color);
   position: absolute;
   bottom: 4.75vh;
   right: 3vw;
   text-align: right;
 } */
 
-#resize-value{
-  display: block;
-  color: #161616;
-  position: absolute;
-  bottom: calc(5.6vh + 0.02em);
-  right: 3.5vw;
-  text-align: right;
-}
+  #resize-value {
+    display: block;
+    color: var(--font-color);
+    position: absolute;
+    bottom: calc(5.6vh + 0.02em);
+    right: 3.5vw;
+    text-align: right;
+  }
 }
 
 @media screen and (max-width: 1300px) and (min-width: 0px) and (pointer: coarse) and (orientation: landscape) {
   a {
     /* text-decoration: none; */
     word-break: break-all;
-    color: #161616;
+    color: var(--hover-color);
     display: inline-block;
     text-align: left;
     margin-bottom: calc(23.6vh - 9vh - 1ch);
