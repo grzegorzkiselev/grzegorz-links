@@ -267,7 +267,7 @@ a:hover {
     margin: 0;
     font: 32px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
-    background-color: #f3f2ed;
+    background-color: var(--back-color);
     height: 100%;
     overflow-x: hidden;
     letter-spacing: 0.4pt;
@@ -284,7 +284,7 @@ a:hover {
   a {
     /* text-decoration: none; */
     word-break: break-all;
-    color: var(--hover-color);
+    color: var(--font-color);
     display: inline-block;
     text-align: left;
     margin-bottom: calc(14.591vh - 9vh - 1ch);
@@ -316,7 +316,7 @@ a:hover {
   a {
     /* text-decoration: none; */
     word-break: break-all;
-    color: var(--hover-color);
+    color: var(--font-color);
     display: inline-block;
     text-align: left;
     margin-bottom: calc(23.6vh - 9vh - 1ch);
