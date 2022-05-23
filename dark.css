@@ -1,6 +1,6 @@
 :root {
-  --back-color: #161616;
-  --font-color: #f3f2ed;
+  --back-color: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(7, 75, 187, 1) 7.3%, rgba(2, 0, 36, 1) 14.6%, rgba(7, 75, 187, 1) 21.9%, rgba(2, 0, 36, 1) 29.2%, rgba(7, 75, 187, 1) 39.6%, rgba(2, 0, 36, 1) 50%, rgba(7, 75, 187, 1) 60.4%, rgba(2, 0, 36, 1) 70.8%, rgba(7, 75, 187, 1) 78.1%, rgba(2, 0, 36, 1) 85.4%, rgba(7, 75, 187, 1) 92.7%, rgba(2, 0, 36, 1) 100%);
+  --font-color: #FbF6Fa;
   --hover-color: #699ac6;
   --ruler-color: aqua;
 }
