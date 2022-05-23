@@ -6,6 +6,7 @@
   vertical-align: text-top;
   line-height: 1ch;
   overscroll-behavior: none;  
+  scroll-behavior: auto;
 }
 
 @font-face {
@@ -27,6 +28,7 @@
 
 html {
   height: 100%;
+  scroll-behavior: auto;
 }
 
 body {
@@ -42,11 +44,12 @@ body {
   height: 100%;
   overflow-x: hidden;
   letter-spacing: 0.4pt;
+  scroll-behavior: auto;
 }
 
 .rect {
   width: 100%;
-  position: absolute;
+  position: fixed;
 }
 
 #f {
@@ -59,7 +62,7 @@ body {
   background-color: blue;
 } */
 #t {
-  bottom: 0;
+  bottom: 0 !important;
   height: 23.6vh;
   background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(7, 75, 187, 1) 4.5%, rgba(2, 0, 36, 1) 9%, rgba(7, 75, 187, 1) 13.5%, rgba(2, 0, 36, 1) 18%, rgba(7, 75, 187, 1) 22.5%, rgba(2, 0, 36, 1) 27%, rgba(7, 75, 187, 1) 31.5%, rgba(2, 0, 36, 1) 36%, rgba(7, 75, 187, 1) 40.5%, rgba(2, 0, 36, 1) 45%, rgba(7, 75, 187, 1) 50%, rgba(2, 0, 36, 1) 55%, rgba(7, 75, 187, 1) 59.5%, rgba(2, 0, 36, 1) 64%, rgba(7, 75, 187, 1) 69.5%, rgba(2, 0, 36, 1) 74%, rgba(7, 75, 187, 1) 78.5%, rgba(2, 0, 36, 1) 83%, rgba(7, 75, 187, 1) 87.5%, rgba(2, 0, 36, 1) 92%, rgba(7, 75, 187, 1) 96.5%, rgba(2, 0, 36, 1) 100%);
 }
@@ -73,6 +76,10 @@ body {
   display: grid;
 }
 
+  .webgl {
+    width: 100% !important;
+    height: auto !important;
+  }
 a, p {
   padding: 0px;
   margin: 0px;
@@ -116,20 +123,21 @@ a:hover {
 }
 
 #resize-container {
-  position: fixed;
+  position: absolute;
   top: 0;
   top: 0;
   width: 100%;
   height: 100%;
   z-index: 9001;
+  scroll-behavior: auto;
 }
 
 #resize-container.show {
   display: block;
+  scroll-behavior: auto;
 }
 
 #resize-text {
-  
   color: var(--font-color);
   /* left: 3.2vw; */
   /* top: 2.9vh; */
@@ -138,7 +146,7 @@ a:hover {
 #resize-value {
   display: block;
   color: var(--font-color);
-  position: absolute;
+  position: fixed;
   bottom: 6.1vh;
   right: 3.4vw;
   text-align: right;
@@ -146,7 +154,7 @@ a:hover {
 }
 
 .grid-line-l {
-  position: absolute;
+  position: fixed;
   z-index: 1;
   width: 1px;
   height: 100%;
@@ -195,7 +203,7 @@ a:hover {
 }
 
 .grid-line-r {
-  position: absolute;
+  position: fixed;
   z-index: 1;
   width: 1px;
   height: 100%;
@@ -234,7 +242,7 @@ a:hover {
 }
 
 .grid-line-t {
-  position: absolute;
+  position: fixed;
   z-index: 1;
   width: 100%;
   height: 1px;
@@ -275,7 +283,7 @@ a:hover {
 }
 
 .grid-line-b {
-  position: absolute;
+  position: fixed;
   z-index: 1;
   width: 100%;
   height: 1px;
@@ -362,7 +370,7 @@ a:hover {
   #resize-value {
     display: block;
     color: var(--font-color);
-    position: absolute;
+    position: fixed;
     bottom: calc(5.6vh + 0.02em);
     right: 3.5vw;
     text-align: right;

@@ -13,15 +13,6 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
  isMobile = true;
 }
 
-
-window.addEventListener(onscroll, () => { 
-	console.log("hi");
-})
-
-const content = document.querySelector(".content");
-
-
-
 document.addEventListener("DOMContentLoaded", function(event){
 
 	var main = document.getElementById("main-container");
@@ -44,8 +35,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 		var screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 
 		// resizeValue.innerHTML = screenWidth +' &mdash; '+screenHeight;
-		resizeValue.innerHTML = Math.round((screenWidth / screenHeight)*1000)/1000;
-
+		resizeValue.innerHTML = Math.round((screenWidth / screenHeight) * 1000) / 1000;
 	}
 
 	window.addEventListener('load', function(event){
@@ -60,12 +50,11 @@ document.addEventListener("DOMContentLoaded", function(event){
 		resizeContainer.classList.remove("show");
 	}
 
-	var doc = window.document,
-		context = doc.querySelector('.js-loop'),
-		disableScroll = false,
-		scrollHeight = 0,
-		scrollPos = 0,
-		clonesHeight = 0,
-		i = 0;
-
+	// var doc = window.document,
+	// 	context = doc.querySelector('.js-loop'),
+	// 	disableScroll = false,
+	// 	scrollHeight = 0,
+	// 	scrollPos = 0,
+	// 	clonesHeight = 0,
+	// 	i = 0;
 });
