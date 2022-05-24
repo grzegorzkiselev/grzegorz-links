@@ -1,5 +1,6 @@
 import './style.css'
-import "./webgl+shader.js"
+import './cubes.js'
+import './flowers.js'
 
 var transitionEasingCubic = [0.645, 0.045, 0.355, 1];
 var transitionEasingQuart = [0.77, 0, 0.175, 1];
