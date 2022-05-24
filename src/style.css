@@ -346,6 +346,19 @@ canvas {
     display: grid;
   }
 
+.display {
+  width: 88.75vw;
+  /* height: 52.8vh !important; */
+  margin: 0 -3.1vw;
+  display: grid;
+  row-gap: 3.1vw;
+  grid-template-columns: 1fr !important;
+  font-size: 48px;
+  line-height: 104%;
+  margin-bottom: calc(14.591vh - 9vh - 1ch);
+  /* background-color: green; */
+}
+
   a {
     /* text-decoration: none; */
     word-break: break-all;
