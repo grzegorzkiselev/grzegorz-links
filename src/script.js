@@ -17,14 +17,14 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
  isMobile = true;
 }
 
-document.addEventListener("DOMContentLoaded", function (event) {
-	
-	var main = document.getElementById("main-container");
+var main = document.getElementById("main-container");
 
 	var resizeContainer = document.getElementById("resize-container");
 	var resizeText = document.getElementById("resize-text");
 	var resizeValue = document.getElementById("resize-value");
 	var resizeValueMobile = document.getElementById("resize-value-mobile");
+	
+document.addEventListener("DOMContentLoaded", function (event) {
 
 	// currentPage = main.dataset.page;
 
@@ -63,3 +63,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		i = 0;
 
 }, false);
+
+
+let grid = document.querySelector(".grid");
+let toggleGrid = document.querySelector(".toggle-grid");
+
+toggleGrid.addEventListener("mouseleave", () => { 
+	grid.classList.add("hidden");
+})
+toggleGrid.addEventListener("mouseenter", () => { 
+	grid.classList.remove("hidden");
+})
