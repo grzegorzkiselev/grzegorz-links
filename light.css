@@ -8,8 +8,8 @@
     --font-color: #074BBB;
     --project-background: white;
     --selection-color: #6282F0;
-    --hover-color: #6282F0;
-    --ruler-color: aqua;
     --selection-text-color: #93A71E;
     --selection-background-color: rgba(98, 130, 240, 0.35);
+    --hover-color: #6282F0;
+    --ruler-color: aqua;
 }
