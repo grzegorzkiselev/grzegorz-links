@@ -373,6 +373,10 @@ canvas {
     /* background-color: green; */
   }
 
+  #t {
+    visibility: hidden;
+  }
+
   p, a {
     /* text-decoration: none; */
     word-break: normal;
