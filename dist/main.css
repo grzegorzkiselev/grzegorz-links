@@ -373,7 +373,7 @@ canvas {
     /* background-color: green; */
   }
 
-  project.blurred {
+  .project.blurred {
     display: none;
   }
 
