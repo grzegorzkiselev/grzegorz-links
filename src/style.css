@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css2?family=PT+Serif:ital@0;1&display=swap);
-
+:root {
+--ruler-color: aqua;
+}
 
 /* (90deg, rgba(2, 0, 36, 1) 0%, rgba(7, 75, 187, 1) 4.5%, rgba(2, 0, 36, 1) 9%, rgba(7, 75, 187, 1) 13.5%, rgba(2, 0, 36, 1) 18%, rgba(7, 75, 187, 1) 22.5%, rgba(2, 0, 36, 1) 27%, rgba(7, 75, 187, 1) 31.5%, rgba(2, 0, 36, 1) 36%, rgba(7, 75, 187, 1) 40.5%, rgba(2, 0, 36, 1) 45%, rgba(7, 75, 187, 1) 50%, rgba(2, 0, 36, 1) 55%, rgba(7, 75, 187, 1) 59.5%, rgba(2, 0, 36, 1) 64%, rgba(7, 75, 187, 1) 69.5%, rgba(2, 0, 36, 1) 74%, rgba(7, 75, 187, 1) 78.5%, rgba(2, 0, 36, 1) 83%, rgba(7, 75, 187, 1) 87.5%, rgba(2, 0, 36, 1) 92%, rgba(7, 75, 187, 1) 96.5%, rgba(2, 0, 36, 1) 100%) */
 
@@ -79,7 +81,7 @@ p {
   width: fit-content !important;
   text-decoration-color: var(--font-color);
   text-decoration-thickness: 1px;
-  text-underline-offset: 0.75ch;
+  text-underline-offset: 1.03ch;
   /* text-decoration: none; */
   color: var(--font-color);
   display: inline-block;
@@ -98,7 +100,7 @@ p {
 }
 
 a:hover {
-  color: var(--hover-color);
+  /* color: var(--hover-color); */
   text-decoration: none;
   transition: color 0.01s linear;
   transition: text-decoration 0.01s linear;
@@ -388,6 +390,7 @@ canvas {
 
   p,
   a {
+    text-underline-offset: 1.3ch;
     word-break: normal;
     color: var(--font-color);
     display: inline-block;
@@ -412,6 +415,7 @@ canvas {
 
   p,
   a {
+    text-underline-offset: 1.03ch;
     word-break: normal;
     color: var(--font-color);
     display: inline-block;
