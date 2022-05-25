@@ -1,4 +1,6 @@
 import './style.css'
+// import './light.css'
+// import './dark.css'
 import './cubes.js'
 import './flowers.js'
 
@@ -64,13 +66,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 }, false);
 
+// let grid = document.querySelector(".grid");
+// let toggleGrid = document.querySelector(".toggle-grid");
 
-let grid = document.querySelector(".grid");
-let toggleGrid = document.querySelector(".toggle-grid");
-
-toggleGrid.addEventListener("mouseleave", () => { 
-	grid.classList.add("hidden");
-})
-toggleGrid.addEventListener("mouseenter", () => { 
-	grid.classList.remove("hidden");
-})
+// toggleGrid.addEventListener("mouseleave", () => { 
+// 	grid.classList.add("hidden");
+// })
+// toggleGrid.addEventListener("mouseenter", () => { 
+// 	grid.classList.remove("hidden");
+// })
