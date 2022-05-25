@@ -352,6 +352,10 @@ canvas {
     overflow-x: hidden;
   }
 
+  .project.blurred {
+    display: none !important;
+  }
+
   .content {
     position: absolute;
     left: 8.7vw;
@@ -373,9 +377,6 @@ canvas {
     /* background-color: green; */
   }
 
-  .project.blurred {
-    display: none;
-  }
 
   p, a {
     /* text-decoration: none; */
