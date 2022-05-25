@@ -10,7 +10,7 @@
   box-sizing: border-box;
   vertical-align: text-top;
   line-height: 1ch;
-  overscroll-behavior: none;  
+  overscroll-behavior: none;
   scroll-behavior: auto;
 }
 
@@ -47,6 +47,7 @@ body {
   height: 23.6vh;
   background: var(--f-background);
 }
+
 /* #s {
   height: 100%;
   background: var(--back-color);
@@ -71,11 +72,14 @@ body {
   height: auto !important;
 }
 
-a, p {
+a,
+p {
   padding: 0px;
   margin: 0px;
   width: fit-content !important;
-  /* max-width: 50% !important; */
+  text-decoration-color: var(--font-color);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.75ch;
   /* text-decoration: none; */
   color: var(--font-color);
   display: inline-block;
@@ -86,6 +90,7 @@ a, p {
   z-index: 999;
   line-height: 103%;
   transition: color 0.1s linear;
+  transition: text-decoration 0.01s linear;
 }
 
 #start {
@@ -93,8 +98,10 @@ a, p {
 }
 
 a:hover {
-  color: var(--hover-color);
-  transition: color 0.1s linear;
+  /* color: var(--hover-color); */
+  text-decoration: none;
+  transition: color 0.01s linear;
+  transition: text-decoration 0.01s linear;
 }
 
 .display {
@@ -154,6 +161,7 @@ canvas {
 .toggle-grid {
   cursor: help;
 }
+
 #resize-value {
   display: block;
   color: var(--font-color);
@@ -378,8 +386,8 @@ canvas {
   }
 
 
-  p, a {
-    /* text-decoration: none; */
+  p,
+  a {
     word-break: normal;
     color: var(--font-color);
     display: inline-block;
@@ -401,8 +409,9 @@ canvas {
 }
 
 @media screen and (max-width: 1300px) and (min-width: 0px) and (pointer: coarse) and (orientation: landscape) {
-  p, a {
-    /* word-break: break-all; */
+
+  p,
+  a {
     word-break: normal;
     color: var(--font-color);
     display: inline-block;
@@ -411,23 +420,20 @@ canvas {
     outline: none;
     padding-right: 2.1vw;
     z-index: 999;
-}
+  }
 
-    .project.blurred {
-      display: block !important;
-    }
+  .project.blurred {
+    display: block !important;
+  }
 
-.display {
-  width: 88.75vw;
-  margin: 0 -3.1vw;
-  display: grid;
-  column-gap: 3.1vw;
-  grid-template-columns: 1fr 1fr 1fr !important;
-  font-size: 18px;
-  line-height: 103%;
-  margin-bottom: calc(14.591vh - 9vh - 0.2ch);
+  .display {
+    width: 88.75vw;
+    margin: 0 -3.1vw;
+    display: grid;
+    column-gap: 3.1vw;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    font-size: 18px;
+    line-height: 103%;
+    margin-bottom: calc(14.591vh - 9vh - 0.2ch);
   }
 }
-
-
-/*# sourceMappingURL=main.css.map*/
