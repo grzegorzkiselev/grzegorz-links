@@ -413,6 +413,10 @@ canvas {
     z-index: 999;
 }
 
+    .project.blurred {
+      display: block !important;
+    }
+
 .display {
   width: 88.75vw;
   margin: 0 -3.1vw;
