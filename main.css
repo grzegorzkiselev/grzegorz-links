@@ -373,8 +373,8 @@ canvas {
     /* background-color: green; */
   }
 
-  #t {
-    visibility: hidden;
+  project.blurred {
+    display: none;
   }
 
   p, a {
