@@ -1,6 +1,7 @@
 import './style.css'
 // import './light.css'
 // import './dark.css'
+import './me.js'
 import './cubes.js'
 import './flowers.js'
 
