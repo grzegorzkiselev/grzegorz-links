@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css2?family=PT+Serif:ital@0;1&display=swap);
-
 /* (90deg, rgba(2, 0, 36, 1) 0%, rgba(7, 75, 187, 1) 4.5%, rgba(2, 0, 36, 1) 9%, rgba(7, 75, 187, 1) 13.5%, rgba(2, 0, 36, 1) 18%, rgba(7, 75, 187, 1) 22.5%, rgba(2, 0, 36, 1) 27%, rgba(7, 75, 187, 1) 31.5%, rgba(2, 0, 36, 1) 36%, rgba(7, 75, 187, 1) 40.5%, rgba(2, 0, 36, 1) 45%, rgba(7, 75, 187, 1) 50%, rgba(2, 0, 36, 1) 55%, rgba(7, 75, 187, 1) 59.5%, rgba(2, 0, 36, 1) 64%, rgba(7, 75, 187, 1) 69.5%, rgba(2, 0, 36, 1) 74%, rgba(7, 75, 187, 1) 78.5%, rgba(2, 0, 36, 1) 83%, rgba(7, 75, 187, 1) 87.5%, rgba(2, 0, 36, 1) 92%, rgba(7, 75, 187, 1) 96.5%, rgba(2, 0, 36, 1) 100%) */
 
 * {
@@ -439,5 +438,7 @@ canvas {
     margin-bottom: calc(14.591vh - 9vh - 0.2ch);
   }
 }
+
+/*# sourceMappingURL=main.css.map*/
 
 /*# sourceMappingURL=main.css.map*/
