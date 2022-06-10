@@ -157,7 +157,7 @@ gltfLoader.load(
         mesh.rotation.y = Math.PI * 0.5
         mesh.material = material
         mesh.customDepthMaterial = depthMaterial
-        console.log(gltf.scene);
+        // console.log(gltf.scene);
         scene.add(mesh)
 
         // Update materials

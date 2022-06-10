@@ -1,9 +1,21 @@
-import './style.css'
-// import './light.css'
-// import './dark.css'
-import './me.js'
-import './cubes.js'
-import './flowers.js'
+
+import "./styles/style.css"
+import "./three/me.js"
+import "./three/cubes.js"
+import "./three/flowers.js"
+import LocomotiveScroll from 'locomotive-scroll';
+import Menu from './hover/menu.js';
+
+let isMobile = false;
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+ isMobile = true;
+}
+
+// menu (<nav> element)
+const menuEl = document.querySelector('.menu');
+if(!isMobile) {
+	new Menu(menuEl);
+}
 
 var transitionEasingCubic = [0.645, 0.045, 0.355, 1];
 var transitionEasingQuart = [0.77, 0, 0.175, 1];
@@ -12,13 +24,10 @@ var transitionEasingCustom0 = [0.85, 0, 0.1, 1];
 
 var testIntroY = '-48px';
 
-var isMobile = false;
+
 
 // Are we mobile...
 
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
- isMobile = true;
-}
 
 var main = document.getElementById("main-container");
 
@@ -76,3 +85,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
 // toggleGrid.addEventListener("mouseenter", () => { 
 // 	grid.classList.remove("hidden");
 // })
+
