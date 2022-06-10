@@ -1,5 +1,12 @@
 @import url(https://fonts.googleapis.com/css2?family=PT+Serif:ital@0;1&display=swap);
-/* (90deg, rgba(2, 0, 36, 1) 0%, rgba(7, 75, 187, 1) 4.5%, rgba(2, 0, 36, 1) 9%, rgba(7, 75, 187, 1) 13.5%, rgba(2, 0, 36, 1) 18%, rgba(7, 75, 187, 1) 22.5%, rgba(2, 0, 36, 1) 27%, rgba(7, 75, 187, 1) 31.5%, rgba(2, 0, 36, 1) 36%, rgba(7, 75, 187, 1) 40.5%, rgba(2, 0, 36, 1) 45%, rgba(7, 75, 187, 1) 50%, rgba(2, 0, 36, 1) 55%, rgba(7, 75, 187, 1) 59.5%, rgba(2, 0, 36, 1) 64%, rgba(7, 75, 187, 1) 69.5%, rgba(2, 0, 36, 1) 74%, rgba(7, 75, 187, 1) 78.5%, rgba(2, 0, 36, 1) 83%, rgba(7, 75, 187, 1) 87.5%, rgba(2, 0, 36, 1) 92%, rgba(7, 75, 187, 1) 96.5%, rgba(2, 0, 36, 1) 100%) */
+:root {  
+  --ruler-color: aqua;
+  --project-background: white;
+  --selection-color: #6282F0;
+  --hover-color: #6282F0;
+  --selection-text-color: #93A71E;
+  --selection-background-color: rgba(98, 130, 240, 0.35);  
+}
 
 * {
   margin: 0;
@@ -65,9 +72,17 @@ body {
   display: grid;
 }
 
+nav {
+  display: grid;
+}
+
 .webgl {
   width: 100% !important;
   height: auto !important;
+}
+
+.menu__item {
+  width: fit-content !important;
 }
 
 a,
@@ -76,16 +91,17 @@ p {
   margin: 0px;
   width: fit-content !important;
   text-decoration-color: var(--font-color);
+  text-underline-offset: calc(5.6vh - 2.1vh);
   text-decoration-thickness: 1px;
-  text-underline-offset: 1.03ch;
+  /* text-underline-offset: 1.03ch; */
   /* text-decoration: none; */
   color: var(--font-color);
   display: inline-block;
   text-align: left;
-  margin-bottom: calc(((23.6vh - 9vh) - 1.65ch) / 2);
+  margin-bottom: calc(5.6vh - 0.24ch);
   outline: none;
   padding: 0;
-  z-index: 999;
+  z-index: 1;
   line-height: 103%;
   transition: color 0.1s linear;
   transition: text-decoration 0.01s linear;
@@ -101,6 +117,20 @@ a:hover {
   text-decoration: none;
   transition: color 0.01s linear;
   transition: text-decoration 0.01s linear;
+  animation: blink 0.5s infinite;
+}
+
+@keyframes blink {
+  0%,
+  49%,
+  to {
+    opacity: 1
+  }
+
+  50%,
+  99% {
+    opacity: 0
+  }
 }
 
 .display {
@@ -108,6 +138,7 @@ a:hover {
   margin: 0 -3.1vw;
   display: grid;
   column-gap: 3.1vw;
+  row-gap: 3.1vw;
   grid-template-columns: 1fr 1fr 1fr !important;
   font-size: 48px;
   line-height: 104%;
@@ -142,7 +173,7 @@ canvas {
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 9001;
+  z-index: 10;
   scroll-behavior: auto;
 }
 
@@ -161,14 +192,42 @@ canvas {
   cursor: help;
 }
 
+
+.hover-reveal {
+  position: fixed;
+  z-index: -1;
+  width: 270px;
+  height: 540px;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.hover-reveal__inner {
+  overflow: hidden;
+}
+
+.hover-reveal__inner,
+.hover-reveal__img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hover-reveal__img {
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
 #resize-value {
   display: block;
   color: var(--font-color);
   position: fixed;
-  bottom: 6.4vh;
+  bottom: 6.3vh;
   right: 3.4vw;
   text-align: right;
-  z-index: 11000;
+  z-index: 3;
 }
 
 .grid-line-l {
@@ -384,7 +443,6 @@ canvas {
     /* background-color: green; */
   }
 
-
   p,
   a {
     text-underline-offset: 1.3ch;
@@ -395,10 +453,18 @@ canvas {
     margin-bottom: calc(14.591vh - 9vh - 0.2ch);
     outline: none;
     padding-right: 2.1vw;
-    z-index: 999;
+    z-index: 1;
   }
 
-  #resize-value {
+a:hover {
+  /* color: var(--hover-color); */
+  text-decoration: none;
+  transition: color 0.01s linear;
+  transition: text-decoration 0.01s linear;
+  animation: blink 0.5s infinite;
+}
+
+#resize-value {
     display: block;
     color: var(--font-color);
     position: fixed;
@@ -420,7 +486,15 @@ canvas {
     margin-bottom: calc(14.591vh - 9vh - 0.2ch);
     outline: none;
     padding-right: 2.1vw;
-    z-index: 999;
+    z-index: 1;
+  }
+
+  a:hover {
+    /* color: var(--hover-color); */
+    text-decoration: none;
+    transition: color 0.01s linear;
+    transition: text-decoration 0.01s linear;
+    animation: blink 0.5s infinite;
   }
 
   .project.blurred {
@@ -440,5 +514,7 @@ canvas {
 }
 
 /*# sourceMappingURL=main.css.map*/
+
+
 
 /*# sourceMappingURL=main.css.map*/
