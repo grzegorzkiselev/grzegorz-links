@@ -1,9 +1,12 @@
 
 import "./styles/style.css"
+
 import "./three/me.js"
 import "./three/cubes.js"
 import "./three/flowers.js"
+
 import LocomotiveScroll from 'locomotive-scroll';
+
 import Menu from './hover/menu.js';
 
 let isMobile = false;
@@ -72,4 +75,3 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		i = 0;
 
 }, false);
-

@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css2?family=PT+Serif:ital@0;1&display=swap);
-
 :root {  
   --ruler-color: aqua;
   --project-background: white;
@@ -85,6 +84,28 @@ nav {
 .menu__item {
   width: fit-content !important;
 }
+.menu__item:focus-visible, h3:focus-visible, a:hover, a:focus-visible {
+  transition: color 0.01s linear;
+  text-decoration: none;
+  transition: text-decoration 0.01s linear;
+  animation: blink 0.5s infinite;
+}
+@keyframes blink {
+  0%,
+  49%,
+  to {
+    opacity: 1
+  }
+
+  50%,
+  99% {
+    opacity: 0
+  }
+}
+
+.display-none {
+  display: none;
+}
 
 a,
 p {
@@ -108,30 +129,13 @@ p {
   transition: text-decoration 0.01s linear;
 }
 
+h3 {
+  font-weight: inherit;
+}
+
 #start {
   margin-top: -1.55ch;
   margin-bottom: 5.1vh;
-}
-
-a:hover {
-  /* color: var(--hover-color); */
-  text-decoration: none;
-  transition: color 0.01s linear;
-  transition: text-decoration 0.01s linear;
-  animation: blink 0.5s infinite;
-}
-
-@keyframes blink {
-  0%,
-  49%,
-  to {
-    opacity: 1
-  }
-
-  50%,
-  99% {
-    opacity: 0
-  }
 }
 
 .display {
@@ -515,4 +519,3 @@ a:hover {
 }
 
 /*# sourceMappingURL=main.css.map*/
-

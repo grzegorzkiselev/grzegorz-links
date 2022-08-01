@@ -3,10 +3,6 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 const random = require("canvas-sketch-util/random");
 const palettes = require("nice-color-palettes");
 
-/**
- * Base
- */
-// Canvas
 const canvas = document.querySelector('canvas.cubes')
 
 // Scene

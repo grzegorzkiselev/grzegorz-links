@@ -28,7 +28,7 @@ body {
   margin: 0;
   /* font-family:  */
   font: 48px 'PT Serif', serif;
-  font-weight: 100; 
+  font-weight: 100;
   -webkit-font-smoothing: antialiased;
   background: rgb(2, 0, 36);
   background: var(--back-color);
@@ -36,10 +36,6 @@ body {
   overflow-x: hidden;
   letter-spacing: -0.2pt;
   scroll-behavior: auto;
-}
-
-.display-none {
-  display: none;
 }
 
 ::selection {
@@ -88,16 +84,29 @@ nav {
 .menu__item {
   width: fit-content !important;
 }
-.menu__item:focus-visible {
-  text-decoration: none;
+.menu__item:focus-visible, h3:focus-visible, a:hover, a:focus-visible {
   transition: color 0.01s linear;
+  text-decoration: none;
   transition: text-decoration 0.01s linear;
   animation: blink 0.5s infinite;
 }
+@keyframes blink {
+  0%,
+  49%,
+  to {
+    opacity: 1
+  }
 
-h3 {
-  font-weight: inherit;
+  50%,
+  99% {
+    opacity: 0
+  }
 }
+
+.display-none {
+  display: none;
+}
+
 a,
 p {
   padding: 0px;
@@ -120,29 +129,13 @@ p {
   transition: text-decoration 0.01s linear;
 }
 
+h3 {
+  font-weight: inherit;
+}
+
 #start {
   margin-top: -1.55ch;
   margin-bottom: 5.1vh;
-}
-
-a:hover {
-  text-decoration: none;
-  transition: color 0.01s linear;
-  transition: text-decoration 0.01s linear;
-  animation: blink 0.5s infinite;
-}
-
-@keyframes blink {
-  0%,
-  49%,
-  to {
-    opacity: 1
-  }
-
-  50%,
-  99% {
-    opacity: 0
-  }
 }
 
 .display {
@@ -526,7 +519,5 @@ a:hover {
 }
 
 /*# sourceMappingURL=main.css.map*/
-
-
 
 /*# sourceMappingURL=main.css.map*/

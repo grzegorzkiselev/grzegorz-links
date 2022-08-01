@@ -17,7 +17,7 @@ const textureLoader = new THREE.TextureLoader()
 const gltfLoader = new GLTFLoader()
 const cubeTextureLoader = new THREE.CubeTextureLoader()
 const dracoLoader = new DRACOLoader()
-dracoLoader.setDecoderPath("./draco/")
+dracoLoader.setDecoderPath("/draco/")
 gltfLoader.setDRACOLoader(dracoLoader)
 
 /**
@@ -41,12 +41,12 @@ const updateAllMaterials = () =>
  * Environment map
  */
 const environmentMap = cubeTextureLoader.load([
-    './textures/environmentMaps/0/px.jpg',
-    './textures/environmentMaps/0/nx.jpg',
-    './textures/environmentMaps/0/py.jpg',
-    './textures/environmentMaps/0/ny.jpg',
-    './textures/environmentMaps/0/pz.jpg',
-    './textures/environmentMaps/0/nz.jpg'
+    '/textures/environmentMaps/0/px.jpg',
+    '/textures/environmentMaps/0/nx.jpg',
+    '/textures/environmentMaps/0/py.jpg',
+    '/textures/environmentMaps/0/ny.jpg',
+    '/textures/environmentMaps/0/pz.jpg',
+    '/textures/environmentMaps/0/nz.jpg'
 ])
 environmentMap.encoding = THREE.sRGBEncoding
 
@@ -58,11 +58,11 @@ scene.environment = environmentMap
  */
 
 // Textures
-const mapTexture = textureLoader.load('./models/Draco/textures/color.jpg')
+const mapTexture = textureLoader.load('/models/Draco/textures/color.jpg')
 mapTexture.encoding = THREE.sRGBEncoding;
 mapTexture.flipY = false;
 
-const normalTexture = textureLoader.load('./models/Draco/textures/normal.jpg')
+const normalTexture = textureLoader.load('/models/Draco/textures/normal.jpg')
 
 // Material
 const material = new THREE.MeshStandardMaterial( {
@@ -148,18 +148,16 @@ depthMaterial.onBeforeCompile = (shader) => {
  * Models
  */
 gltfLoader.load(
-    './models/Draco/me.glb',
+    '/models/Draco/me.glb',
     (gltf) =>
     {
-        // Model
         const mesh = gltf.scene.children[0]
-        mesh.rotation.y = Math.PI * 0.5
+        mesh.rotation.y = Math.PI * 1
+        mesh.scale.set(3, 3, 3)
         mesh.material = material
         mesh.customDepthMaterial = depthMaterial
-        // console.log(gltf.scene);
         scene.add(mesh)
 
-        // Update materials
         updateAllMaterials()
     }
 )
