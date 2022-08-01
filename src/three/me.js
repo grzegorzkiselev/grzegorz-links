@@ -9,8 +9,6 @@ const canvas = document.querySelector('canvas.me')
 // Scene
 const scene = new THREE.Scene()
 
-console.log("че такое")
-
 /**
  * Loaders
  */
