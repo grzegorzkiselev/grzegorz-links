@@ -24,10 +24,7 @@ var transitionEasingCustom0 = [0.85, 0, 0.1, 1];
 
 var testIntroY = '-48px';
 
-
-
 // Are we mobile...
-
 
 var main = document.getElementById("main-container");
 
@@ -75,14 +72,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		i = 0;
 
 }, false);
-
-// let grid = document.querySelector(".grid");
-// let toggleGrid = document.querySelector(".toggle-grid");
-
-// toggleGrid.addEventListener("mouseleave", () => { 
-// 	grid.classList.add("hidden");
-// })
-// toggleGrid.addEventListener("mouseenter", () => { 
-// 	grid.classList.remove("hidden");
-// })
 
