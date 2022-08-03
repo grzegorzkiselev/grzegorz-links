@@ -3,7 +3,7 @@ import { map, lerp, clamp, getMousePos } from './utils';
 
 let images = [];
 let image;
-for (let i = 1; i <= document.querySelectorAll(".menu__item").length; i++) {
+for (let i = 1; i <= document.querySelectorAll(".links__link").length; i++) {
     image = Object.entries(require(`../../static/img/${i}.jpg`))
     images.push(image[0])
 }
@@ -19,7 +19,7 @@ export default class MenuItem {
         this.DOM = {el: el};
         this.inMenuPosition = inMenuPosition;
         this.animatableProperties = animatableProperties;
-        this.DOM.textInner = this.DOM.el.querySelector('.menu__item-textinner');
+        this.DOM.textInner = this.DOM.el.querySelector('.links__link-textinner');
         this.layout();
         this.initEvents();
     }

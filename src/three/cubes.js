@@ -79,7 +79,7 @@ const sceneScale = 1;
 /**
  * Sizes
  */
-const frame = document.querySelector(".project");
+const frame = document.querySelector(".display__project");
 
 const sizes = {
 	width: frame.clientWidth * 2,

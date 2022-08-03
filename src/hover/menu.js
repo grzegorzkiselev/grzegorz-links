@@ -3,7 +3,7 @@ import MenuItem from './menuItem';
 export default class Menu {
     constructor(el) {
         this.DOM = {el: el};
-        this.DOM.menuItems = this.DOM.el.querySelectorAll('.menu__item');
+        this.DOM.menuItems = this.DOM.el.querySelectorAll('.links__link');
         this.animatableProperties = {
             tx: {previous: 0, current: 0, amt: 0.08},
             ty: {previous: 0, current: 0, amt: 0.08},

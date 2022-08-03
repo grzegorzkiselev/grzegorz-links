@@ -1,17 +1,15 @@
 import "./styles/style.css"
-
-import "./three/me.js"
-import "./three/cubes.js"
-import "./three/flowers.js"
-
 import Menu from './hover/menu.js';
+import("./three/me.js")
+import("./three/cubes.js")
+import("./three/flowers.js")
 
 let isMobile = false;
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
- isMobile = true;
+    isMobile = true;
 }
 
-const menuEl = document.querySelector('.menu');
+const menuEl = document.querySelector('.links');
 if(!isMobile) {
     new Menu(menuEl);
 }

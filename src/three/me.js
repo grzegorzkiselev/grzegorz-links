@@ -10,15 +10,20 @@ const canvas = document.querySelector('canvas.me')
 // Scene
 const scene = new THREE.Scene()
 
-const blurred = document.querySelectorAll(".blurred")
+const blurred = document.querySelector(".blurred")
+// const blurred = document.querySelectorAll(".blurred")
 
 // Loaders
 const loadingManager = new THREE.LoadingManager(
     () => {
         gsap.delayedCall(1.5, () => {
             gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 3, value: 0 });
-            blurred.forEach((b) => b.style.webkitFilter = "blur(0px)")
+            blurred.style.webkitFilter = "blur(0px)"
         })
+        // gsap.delayedCall(1.5, () => {
+        //     gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 3, value: 0 });
+        //     blurred.forEach((b) => b.style.webkitFilter = "blur(0px)")
+        // })
     }
 )
 const textureLoader = new THREE.TextureLoader(loadingManager)
@@ -184,14 +189,14 @@ scene.add(ambientLight)
 
 const directionalLight = new THREE.DirectionalLight('#ffffff', 3)
 directionalLight.castShadow = true
-directionalLight.shadow.mapSize.set(128, 128)
+directionalLight.shadow.mapSize.set(512, 512)
 directionalLight.shadow.camera.far = 4
 directionalLight.shadow.normalBias = 0.05
 directionalLight.position.set(0.25, 2, -2.25)
 scene.add(directionalLight)
 
 // Sizes
-const frame = document.querySelector(".project");
+const frame = document.querySelector(".display__project");
 
 const sizes = {
     width: frame.clientWidth * 2,
@@ -201,15 +206,35 @@ const sizes = {
 window.addEventListener('resize', () => {
     // Update sizes
     sizes.width = frame.clientWidth
-    sizes.height = frame.clientWidth
+    sizes.height = frame.clientHeight
 
     // Update camera
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
+	camera.aspect = sizes.width / sizes.height
+	
+	// Ortho zoom
+	const zoom = 1.0;
+
+	// Bounds
+	camera.left = -zoom * camera.aspect;
+	camera.right = zoom * camera.aspect;
+	camera.top = zoom;
+	camera.bottom = -zoom;
+
+	// Near/Far
+	camera.near = -100;
+	camera.far = 100;
+
+	// Set position & look at world center
+	camera.position.set(zoom, zoom, zoom);
+	// camera.position.set(0, 0, 1);
+	camera.lookAt(new THREE.Vector3());
+
+	// Update the camera
+	camera.updateProjectionMatrix();
 
     // Update renderer
     renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+	renderer.setPixelRatio(2)
 })
 
 // Base camera
@@ -226,15 +251,14 @@ const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
     antialias: true
 })
+renderer.setSize(sizes.width, sizes.height)
 renderer.setClearColor("hsl(0, 0%, 95%)", 1);
-renderer.shadowMap.enabled = true
-renderer.shadowMap.type = THREE.PCFShadowMap
-renderer.physicallyCorrectLights = true
 renderer.outputEncoding = THREE.sRGBEncoding
 renderer.toneMapping = THREE.ACESFilmicToneMapping
 renderer.toneMappingExposure = 1
-renderer.setSize(sizes.width, sizes.height)
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+renderer.shadowMap.enabled = true
+renderer.shadowMap.type = THREE.PCFShadowMap
+renderer.physicallyCorrectLights = true
 
 // Animation
 const clock = new THREE.Clock()
