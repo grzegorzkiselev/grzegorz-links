@@ -49,7 +49,7 @@ body {
     background-color: var(--selection-background-color);
 }
 
-.rect {
+.background__rect {
     position: fixed;
     width: 100%;
 }
@@ -152,7 +152,7 @@ body {
   }
 }
 
-.project {
+.display__project {
     height: 52.8vh !important;
     background-color: hsl(0, 0%, 95%);
     cursor: grab;
@@ -167,7 +167,7 @@ body {
 
 .blurred:hover {
     -webkit-filter: blur(2px);
-    -webkit-transition: -webkit-filter 8s;
+    -webkit-transition: -webkit-filter 3s;
 }
 
 canvas {
@@ -175,7 +175,7 @@ canvas {
     width: 100% !important;
 }
 
-.menu {
+.links {
     display: grid;
     row-gap: 5.6vh;
     margin-bottom: 5.6vh;
@@ -186,7 +186,7 @@ h3 {
     margin-block-end: 0 !important;
 }
 
-.menu__item {
+.links__link {
     display: block;
     width: fit-content !important;
     height: min-content;
@@ -196,7 +196,7 @@ h3 {
     line-height: 100%;
 }
 
-.menu__item a {
+.links__link a {
     z-index: 1;
     display: block;
     width: fit-content !important;
@@ -216,14 +216,14 @@ h3 {
 }
 
 @media screen and (max-width: 1300px) and (pointer: coarse) {
-    .menu__item a {
+    .links__link a {
         --fontSize: 24px;
         margin-top: calc(var(--fontSize) * -0.375);
         margin-bottom: calc(var(--fontSize) * -0.125);
     }
 }
 
-.menu__item:focus-visible,
+.links__link:focus-visible,
 h3:focus-visible,
 a:hover,
 a:focus-visible {
