@@ -15,8 +15,8 @@ const blurred = document.querySelectorAll(".blurred")
 // Loaders
 const loadingManager = new THREE.LoadingManager(
     () => {
-        gsap.delayedCall(0.5, () => {
-            // gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 3, value: 0 });
+        gsap.delayedCall(1.5, () => {
+            gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 3, value: 0 });
             blurred.forEach((b) => b.style.webkitFilter = "blur(0px)")
         })
     }
@@ -30,11 +30,13 @@ gltfLoader.setDRACOLoader(dracoLoader)
 
 // Preloader
 const overlayMaterial = new THREE.ShaderMaterial({
-        transparent: true,
-        uniforms: {
-            uAlpha: { value: 0 }
-        },
-        vertexShader: `
+    transparent: true,
+    uniforms: {
+        uAlpha: {
+            value: 0
+        }
+    },
+    vertexShader: `
         void main() {
             gl_Position = vec4(position, 1.0);
         }`,
@@ -44,7 +46,7 @@ const overlayMaterial = new THREE.ShaderMaterial({
             gl_FragColor = vec4(0.95, 0.95, 0.95, uAlpha);
         }`
 })
-    
+
 const overlay = new THREE.Mesh(
     new THREE.PlaneBufferGeometry(2, 2, 1, 1),
     overlayMaterial
@@ -52,12 +54,9 @@ const overlay = new THREE.Mesh(
 scene.add(overlay)
 
 // Update all materials
-const updateAllMaterials = () =>
-{
-    scene.traverse((child) =>
-    {
-        if(child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial)
-        {
+const updateAllMaterials = () => {
+    scene.traverse((child) => {
+        if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) {
             child.material.envMapIntensity = 5
             child.material.needsUpdate = true
             child.castShadow = true
@@ -86,7 +85,7 @@ mapTexture.flipY = false;
 const normalTexture = textureLoader.load('./models/Draco/textures/normal.jpg')
 
 // Material
-const material = new THREE.MeshStandardMaterial( {
+const material = new THREE.MeshStandardMaterial({
     map: mapTexture,
     normalMap: normalTexture
 })
@@ -96,7 +95,9 @@ const depthMaterial = new THREE.MeshDepthMaterial({
 })
 
 const customUniforms = {
-    uTime: { value: 1 }
+    uTime: {
+        value: 1
+    }
 }
 
 material.onBeforeCompile = (shader) => {
@@ -166,15 +167,13 @@ depthMaterial.onBeforeCompile = (shader) => {
 // Model
 gltfLoader.load(
     './models/Draco/me.glb',
-    (gltf) =>
-    {
+    (gltf) => {
         const mesh = gltf.scene.children[0]
         mesh.rotation.y = Math.PI * 1
         mesh.scale.set(3, 3, 3)
         mesh.material = material
         mesh.customDepthMaterial = depthMaterial
         scene.add(mesh)
-
         updateAllMaterials()
     }
 )
@@ -185,10 +184,10 @@ scene.add(ambientLight)
 
 const directionalLight = new THREE.DirectionalLight('#ffffff', 3)
 directionalLight.castShadow = true
-directionalLight.shadow.mapSize.set(1024, 1024)
-directionalLight.shadow.camera.far = 15
+directionalLight.shadow.mapSize.set(128, 128)
+directionalLight.shadow.camera.far = 4
 directionalLight.shadow.normalBias = 0.05
-directionalLight.position.set(0.25, 2, - 2.25)
+directionalLight.position.set(0.25, 2, -2.25)
 scene.add(directionalLight)
 
 // Sizes
@@ -199,8 +198,7 @@ const sizes = {
     height: frame.clientHeight * 2
 }
 
-window.addEventListener('resize', () =>
-{
+window.addEventListener('resize', () => {
     // Update sizes
     sizes.width = frame.clientWidth
     sizes.height = frame.clientWidth
@@ -216,7 +214,7 @@ window.addEventListener('resize', () =>
 
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.set(4, 1, - 4)
+camera.position.set(4, 1, -4)
 scene.add(camera)
 
 // Controls
@@ -240,8 +238,7 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
 // Animation
 const clock = new THREE.Clock()
-const tick = () =>
-{
+const tick = () => {
     const elapsedTime = clock.getElapsedTime()
 
     customUniforms.uTime.value = elapsedTime * 4;
@@ -249,9 +246,9 @@ const tick = () =>
     controls.update()
 
     renderer.render(scene, camera)
-    
+
     window.requestAnimationFrame(tick);
-    
+
 }
 
 tick()

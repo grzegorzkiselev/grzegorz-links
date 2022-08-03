@@ -160,7 +160,7 @@ body {
 }
 
 .blurred {
-    -webkit-filter: blur(128px);
+    -webkit-filter: blur(32px);
     -webkit-transition: -webkit-filter 3s;
     /* cursor: wait; */
     will-change: -webkit-filter;
