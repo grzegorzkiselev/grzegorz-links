@@ -114,14 +114,14 @@ body {
     #intro {
         max-width: 100%;
         color: var(--font-color);
-        --module: calc(5.6vh + 12px);
+        --module: calc(5.6vh);
         --fontSize: 24px;
         --fontTopOffset: calc(var(--fontSize) * 0.175);
         --fontBottomOffset: calc(var(--fontSize) * 0.125);
         --xheightOffset: calc(var(--fontSize) * 0.375);
         --lineheightoffset: calc((var(--module) - (var(--fontSize) - var(--fontSize) * 0.125) - (var(--fontSize) - var(--fontSize) * 0.375)) / 2);
         line-height: calc(var(--fontSize) + var(--lineheightoffset) * 2);
-        --xheightoffset: calc((var(--lineheightoffset) + var(--fontSize) * 0.375) * -1);
+        --xheightoffset: calc((var(--lineheightoffset) + var(--fontSize) * 0.325) * -1);
         margin-top: var(--xheightoffset);
         margin-bottom: calc((var(--lineheightoffset) + var(--fontSize) * 0.125) * -1);
     }
@@ -163,12 +163,6 @@ body {
     -webkit-transition: -webkit-filter 3s;
     /* cursor: wait; */
     will-change: -webkit-filter;
-}
-
-@media screen and (max-width: 1300px) and (pointer: coarse) {
-  .blurred {
-    display: none !important;
-  }
 }
 
 .blurred:hover {
