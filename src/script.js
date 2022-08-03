@@ -1,5 +1,5 @@
 import "./styles/style.css"
-import Menu from './hover/menu.js';
+import Menu from "./hover/menu.js";
 import("./three/me.js")
 import("./three/cubes.js")
 import("./three/flowers.js")

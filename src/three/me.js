@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
-import { gsap } from "gsap"
+import {gsap} from 'gsap';
 
 // Canvas
 const canvas = document.querySelector('canvas.me')
@@ -17,7 +17,7 @@ const blurred = document.querySelector(".blurred")
 const loadingManager = new THREE.LoadingManager(
     () => {
         gsap.delayedCall(1.5, () => {
-            gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 3, value: 0 });
+            gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 1.5, value: 0 });
             blurred.style.webkitFilter = "blur(0px)"
         })
         // gsap.delayedCall(1.5, () => {
@@ -29,7 +29,7 @@ const loadingManager = new THREE.LoadingManager(
 const textureLoader = new THREE.TextureLoader(loadingManager)
 const gltfLoader = new GLTFLoader(loadingManager)
 const cubeTextureLoader = new THREE.CubeTextureLoader()
-const dracoLoader = new DRACOLoader()
+const dracoLoader = new DRACOLoader(loadingManager)
 dracoLoader.setDecoderPath("./draco/")
 gltfLoader.setDRACOLoader(dracoLoader)
 
@@ -38,7 +38,7 @@ const overlayMaterial = new THREE.ShaderMaterial({
     transparent: true,
     uniforms: {
         uAlpha: {
-            value: 0
+            value: 1
         }
     },
     vertexShader: `

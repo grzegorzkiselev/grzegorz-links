@@ -159,16 +159,16 @@ body {
 }
 
 .blurred {
-    -webkit-filter: blur(32px);
+    -webkit-filter: blur(8px);
     -webkit-transition: -webkit-filter 3s;
     /* cursor: wait; */
     will-change: -webkit-filter;
 }
 
-.blurred:hover {
+/* .blurred:hover {
     -webkit-filter: blur(2px);
     -webkit-transition: -webkit-filter 3s;
-}
+} */
 
 canvas {
     height: 100% !important;

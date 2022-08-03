@@ -159,7 +159,7 @@ const tick = () => {
 	camera.position.x = Math.cos(Math.sin(elapsedTime * 0.5)) * Math.PI;
 	camera.position.z = Math.sin(Math.sin(elapsedTime * 0.5)) * Math.PI;
 
-	for (let x = 0; x < meshes.children.length; x++) {
+for (let x = 0; x < meshes.children.length; x++) {
 	let currentMesh = meshes.children[x];
 	currentMesh.scale.x = Math.abs((Math.cos((elapsedTime * 0.01) * (x + 1)) * 0.2)) + 0.01;
 	currentMesh.scale.y = Math.abs((Math.sin((elapsedTime * 0.03) * (x + 1)) * 0.3)) + 0.01;
