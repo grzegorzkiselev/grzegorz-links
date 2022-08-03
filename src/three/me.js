@@ -79,11 +79,11 @@ environmentMap.encoding = THREE.sRGBEncoding
 scene.environment = environmentMap
 
 // Textures
-const mapTexture = textureLoader.load('/models/Draco/textures/color.jpg')
+const mapTexture = textureLoader.load('./models/Draco/textures/color.jpg')
 mapTexture.encoding = THREE.sRGBEncoding;
 mapTexture.flipY = false;
 
-const normalTexture = textureLoader.load('/models/Draco/textures/normal.jpg')
+const normalTexture = textureLoader.load('./models/Draco/textures/normal.jpg')
 
 // Material
 const material = new THREE.MeshStandardMaterial( {
@@ -165,7 +165,7 @@ depthMaterial.onBeforeCompile = (shader) => {
 
 // Model
 gltfLoader.load(
-    '/models/Draco/me.glb',
+    './models/Draco/me.glb',
     (gltf) =>
     {
         const mesh = gltf.scene.children[0]
