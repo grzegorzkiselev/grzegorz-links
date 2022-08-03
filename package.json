@@ -32,10 +32,12 @@
     "three": "^0.124.0",
     "webgl-noise": "^0.0.1",
     "webpack": "^5.14.0",
+    "webpack-bundle-analyzer": "^4.5.0",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.7.3"
   },
   "devDependencies": {
+    "babel-preset-minify": "^0.5.2",
     "fs": "^0.0.1-security",
     "webpack-cli": "^4.9.2"
   }

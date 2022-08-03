@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
+import { gsap } from "gsap"
 
 // Canvas
 const canvas = document.querySelector('canvas.me')
@@ -9,19 +10,48 @@ const canvas = document.querySelector('canvas.me')
 // Scene
 const scene = new THREE.Scene()
 
-/**
- * Loaders
- */
-const textureLoader = new THREE.TextureLoader()
-const gltfLoader = new GLTFLoader()
+const blurred = document.querySelectorAll(".blurred")
+
+// Loaders
+const loadingManager = new THREE.LoadingManager(
+    () => {
+        gsap.delayedCall(0.5, () => {
+            // gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 3, value: 0 });
+            blurred.forEach((b) => b.style.webkitFilter = "blur(0px)")
+        })
+    }
+)
+const textureLoader = new THREE.TextureLoader(loadingManager)
+const gltfLoader = new GLTFLoader(loadingManager)
 const cubeTextureLoader = new THREE.CubeTextureLoader()
 const dracoLoader = new DRACOLoader()
-dracoLoader.setDecoderPath("/draco/")
+dracoLoader.setDecoderPath("./draco/")
 gltfLoader.setDRACOLoader(dracoLoader)
 
-/**
- * Update all materials
- */
+// Preloader
+const overlayMaterial = new THREE.ShaderMaterial({
+        transparent: true,
+        uniforms: {
+            uAlpha: { value: 0 }
+        },
+        vertexShader: `
+        void main() {
+            gl_Position = vec4(position, 1.0);
+        }`,
+    fragmentShader: `
+        uniform float uAlpha;
+        void main() {
+            gl_FragColor = vec4(0.95, 0.95, 0.95, uAlpha);
+        }`
+})
+    
+const overlay = new THREE.Mesh(
+    new THREE.PlaneBufferGeometry(2, 2, 1, 1),
+    overlayMaterial
+)
+scene.add(overlay)
+
+// Update all materials
 const updateAllMaterials = () =>
 {
     scene.traverse((child) =>
@@ -36,25 +66,17 @@ const updateAllMaterials = () =>
     })
 }
 
-/**
- * Environment map
- */
+// Environment map
 const environmentMap = cubeTextureLoader.load([
-    '/textures/environmentMaps/0/px.jpg',
-    '/textures/environmentMaps/0/nx.jpg',
-    '/textures/environmentMaps/0/py.jpg',
-    '/textures/environmentMaps/0/ny.jpg',
-    '/textures/environmentMaps/0/pz.jpg',
-    '/textures/environmentMaps/0/nz.jpg'
+    './textures/environmentMaps/0/px.jpg',
+    './textures/environmentMaps/0/nx.jpg',
+    './textures/environmentMaps/0/py.jpg',
+    './textures/environmentMaps/0/ny.jpg',
+    './textures/environmentMaps/0/pz.jpg',
+    './textures/environmentMaps/0/nz.jpg'
 ])
 environmentMap.encoding = THREE.sRGBEncoding
-
-// scene.background = environmentMap
 scene.environment = environmentMap
-
-/**
- * Material
- */
 
 // Textures
 const mapTexture = textureLoader.load('/models/Draco/textures/color.jpg')
@@ -74,7 +96,7 @@ const depthMaterial = new THREE.MeshDepthMaterial({
 })
 
 const customUniforms = {
-    uTime: { value: 0 }
+    uTime: { value: 1 }
 }
 
 material.onBeforeCompile = (shader) => {
@@ -116,9 +138,7 @@ material.onBeforeCompile = (shader) => {
 }
 
 depthMaterial.onBeforeCompile = (shader) => {
-
     shader.uniforms.uTime = customUniforms.uTime;
-
     shader.vertexShader = shader.vertexShader.replace(
         '#include <common>',
         `
@@ -143,9 +163,7 @@ depthMaterial.onBeforeCompile = (shader) => {
     );
 }
 
-/**
- * Models
- */
+// Model
 gltfLoader.load(
     '/models/Draco/me.glb',
     (gltf) =>
@@ -161,10 +179,7 @@ gltfLoader.load(
     }
 )
 
-/**
- * Lights
- */
-
+// Light
 const ambientLight = new THREE.AmbientLight(0xffffff, 2)
 scene.add(ambientLight)
 
@@ -176,10 +191,7 @@ directionalLight.shadow.normalBias = 0.05
 directionalLight.position.set(0.25, 2, - 2.25)
 scene.add(directionalLight)
 
-/**
- * Sizes
- */
-
+// Sizes
 const frame = document.querySelector(".project");
 
 const sizes = {
@@ -202,9 +214,6 @@ window.addEventListener('resize', () =>
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
 
-/**
- * Camera
- */
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.set(4, 1, - 4)
@@ -214,9 +223,7 @@ scene.add(camera)
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
 
-/**
- * Renderer
- */
+// Renderer
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
     antialias: true
@@ -231,26 +238,20 @@ renderer.toneMappingExposure = 1
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
-/**
- * Animate
- */
+// Animation
 const clock = new THREE.Clock()
-
 const tick = () =>
 {
     const elapsedTime = clock.getElapsedTime()
 
-    // Update material
     customUniforms.uTime.value = elapsedTime * 4;
 
-    // Update controls
     controls.update()
 
-    // Render
     renderer.render(scene, camera)
-
-    // Call tick again on the next frame
-    window.requestAnimationFrame(tick)
+    
+    window.requestAnimationFrame(tick);
+    
 }
 
 tick()

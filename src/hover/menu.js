@@ -1,4 +1,3 @@
-import {gsap} from 'gsap';
 import MenuItem from './menuItem';
 
 export default class Menu {

@@ -2,6 +2,7 @@
 node_modules
 dist_copy
 .vscode
+trash
 node_modules/.package-lock.json
 node_modules/.bin/acorn
 node_modules/.bin/ansi-html

@@ -67,12 +67,12 @@ export default class MenuItem {
         })
         .to(this.DOM.revealInner, 0.2, {
             ease: 'Sine.easeOut',
-            startAt: {x: direction.x < 0 ? '-100%' : '100%'},
+            startAt: {x: direction.x < 0 ? '100%' : '-100%'},
             x: '0%'
         })
         .to(this.DOM.revealImage, 0.2, {
             ease: 'Sine.easeOut',
-            startAt: {x: direction.x < 0 ? '100%': '-100%'},
+            startAt: {x: direction.x < 0 ? '-100%': '100%'},
             x: '0%'
         }, 0);
     }
@@ -89,11 +89,11 @@ export default class MenuItem {
         })
         .to(this.DOM.revealInner, 0.2, {
             ease: 'Sine.easeOut',
-            x: direction.x < 0 ? '100%' : '-100%'
+            x: direction.x < 0 ? '-100%' : '100%'
         })
         .to(this.DOM.revealImage, 0.2, {
             ease: 'Sine.easeOut',
-            x: direction.x < 0 ? '-100%' : '100%'
+            x: direction.x < 0 ? '100%' : '-100%'
         }, 0);
     }
     loopRender() {
@@ -117,7 +117,7 @@ export default class MenuItem {
         mousePosCache = {x: mousepos.x, y: mousepos.y};
         this.animatableProperties.tx.current = Math.abs(mousepos.x) - this.bounds.reveal.width / 2;
         this.animatableProperties.ty.current = Math.abs(mousepos.y) - this.bounds.reveal.height;
-        this.animatableProperties.rotation.current = this.firstRAFCycle ? 0 : map(mouseDistanceX,0,100,0,direction.x < 0 ? 60 : -60);
+        this.animatableProperties.rotation.current = this.firstRAFCycle ? 0 : map(mouseDistanceX,0,100,0,direction.x < 0 ? -60 : 60);
         this.animatableProperties.brightness.current = this.firstRAFCycle ? 1 : map(mouseDistanceX,0,100,1,4);
         this.animatableProperties.tx.previous = this.firstRAFCycle ? this.animatableProperties.tx.current : lerp(this.animatableProperties.tx.previous, this.animatableProperties.tx.current, this.animatableProperties.tx.amt);
         this.animatableProperties.ty.previous = this.firstRAFCycle ? this.animatableProperties.ty.current : lerp(this.animatableProperties.ty.previous, this.animatableProperties.ty.current, this.animatableProperties.ty.amt);

@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { loader } = require('mini-css-extract-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     entry: path.resolve(__dirname, '../src/script.js'),
@@ -12,8 +13,7 @@ module.exports = {
         path: path.resolve(__dirname, '../dist')
     },
     devtool: 'source-map',
-    plugins:
-    [
+    plugins: [
         new CopyWebpackPlugin({
             patterns: [
                 { from: path.resolve(__dirname, '../static') }
@@ -60,7 +60,7 @@ module.exports = {
                 use:
                 [
                     'babel-loader'
-                ]
+                    ]
             },
 
             // CSS
