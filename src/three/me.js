@@ -208,30 +208,6 @@ window.addEventListener('resize', () => {
     sizes.width = frame.clientWidth
     sizes.height = frame.clientHeight
 
-    // Update camera
-	camera.aspect = sizes.width / sizes.height
-	
-	// Ortho zoom
-	const zoom = 1.0;
-
-	// Bounds
-	camera.left = -zoom * camera.aspect;
-	camera.right = zoom * camera.aspect;
-	camera.top = zoom;
-	camera.bottom = -zoom;
-
-	// Near/Far
-	camera.near = -100;
-	camera.far = 100;
-
-	// Set position & look at world center
-	camera.position.set(zoom, zoom, zoom);
-	// camera.position.set(0, 0, 1);
-	camera.lookAt(new THREE.Vector3());
-
-	// Update the camera
-	camera.updateProjectionMatrix();
-
     // Update renderer
     renderer.setSize(sizes.width, sizes.height)
 	renderer.setPixelRatio(2)

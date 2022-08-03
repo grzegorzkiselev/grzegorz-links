@@ -4,6 +4,7 @@ const { loader } = require('mini-css-extract-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
     entry: path.resolve(__dirname, '../src/script.js'),
@@ -12,12 +13,14 @@ module.exports = {
         filename: 'bundle.[contenthash].js',
         path: path.resolve(__dirname, '../dist')
     },
-    optimization: { 
+    optimization: {
+        moduleIds: "deterministic",
+        runtimeChunk: "single",
         splitChunks: {
             cacheGroups: { 
                 vendor: {
-                    name: "vendors",
                     test: /node_modules/,
+                    name: "vendors",
                     chunks: "all", 
                     enforce: true
                 }
@@ -26,7 +29,8 @@ module.exports = {
     },
     devtool: 'source-map',
     plugins: [
-        // new BundleAnalyzerPlugin(),
+        // new CompressionPlugin({ algorithm: "gzip" }),
+        new BundleAnalyzerPlugin(),
         new CopyWebpackPlugin({
             patterns: [
                 { from: path.resolve(__dirname, '../static') }
