@@ -1,32 +1,19 @@
-import { Scene } from 'three/src/scenes/scene';
-import { BoxBufferGeometry } from "three/src/geometries/BoxBufferGeometry.js"
-import { Group } from "three/src/objects/Group.js"
-import { Mesh } from "three/src/objects/Mesh.js"
-import { ShaderMaterial } from 'three/src/materials/ShaderMaterial.js';
-import { Color } from "three/src/math/Color.js"
-import { Vector3 } from "three/src/math/Vector3.js"
-import { OrthographicCamera } from "three/src/cameras/OrthographicCamera.js"
-import { WebGLRenderer } from 'three/src/renderers/WebGLRenderer';
-import { Clock } from 'three/src/core/Clock.js';
+import * as THREE from '../../static/draco/three.min.js'
 import { OrbitControls } from '../../static/draco/OrbitControls.js'
-
-const sRGBEncoding = 3001;
-const ReinhardToneMapping = 2;
-
 const random = require("canvas-sketch-util/random");
 const palettes = require("nice-color-palettes");
 
 const canvas = document.querySelector('canvas.cubes')
 
 // Scene
-const scene = new Scene()
+const scene = new THREE.Scene()
 const sceneScale = 1;
 
 /**
  * Models
  */
 // Setup a geometry
-	const geometry = new BoxBufferGeometry(1, 1, 1);
+	const geometry = new THREE.BoxBufferGeometry(1, 1, 1);
 
 	// Setup a material
 	const colorCount = 5;
@@ -35,7 +22,7 @@ const sceneScale = 1;
 
 	// Setup a mesh with geometry + material
 
-	const meshes = new Group();
+	const meshes = new THREE.Group();
 
 	const fragmentShader = `
 		varying vec2 vUv;
@@ -56,13 +43,13 @@ const sceneScale = 1;
 	`;
 
 	for (let i = 0; i < 20; i++) {
-	const mesh = new Mesh(
+	const mesh = new THREE.Mesh(
 		geometry,
-		new ShaderMaterial({
+		new THREE.ShaderMaterial({
 			fragmentShader,
 			vertexShader,
 			uniforms: {
-				color: { value: new Color(random.pick(palette)) }
+				color: { value: new THREE.Color(random.pick(palette)) }
 			},
 		// color: random.pick(palette),
 		// roughness: 0,
@@ -124,7 +111,7 @@ window.addEventListener('resize', () =>
 	// Set position & look at world center
 	camera.position.set(zoom, zoom, zoom);
 	// camera.position.set(0, 0, 1);
-	camera.lookAt(new Vector3());
+	camera.lookAt(new THREE.Vector3());
 
 	// Update the camera
 	camera.updateProjectionMatrix();
@@ -138,9 +125,9 @@ window.addEventListener('resize', () =>
  * Camera
  */
 // Base camera
-const camera = new OrthographicCamera();
+const camera = new THREE.OrthographicCamera();
 camera.position.set(0, 0, -4);
-camera.lookAt(new Vector3());
+camera.lookAt(new THREE.Vector3());
 scene.add(camera)
 
 // Controls
@@ -150,20 +137,20 @@ controls.enableDamping = true
 /**
  * Renderer
  */
-const renderer = new WebGLRenderer({
+const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
     antialias: true
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setClearColor("hsl(0, 0%, 95%)", 1);
-renderer.outputEncoding = sRGBEncoding
-renderer.toneMapping = ReinhardToneMapping
+renderer.outputEncoding = THREE.sRGBEncoding
+renderer.toneMapping = THREE.ReinhardToneMapping
 renderer.toneMappingExposure = 3
 
 /**
  * Animate
  */
-const clock = new Clock()
+const clock = new THREE.Clock()
 
 const tick = () => {
 	

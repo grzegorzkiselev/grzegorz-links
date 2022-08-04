@@ -1,67 +1,68 @@
-import {
-	AnimationClip,
-	Bone,
-	Box3,
-	BufferAttribute,
-	BufferGeometry,
-	CanvasTexture,
-	ClampToEdgeWrapping,
-	Color,
-	DirectionalLight,
-	DoubleSide,
-	FileLoader,
-	FrontSide,
-	Group,
-	ImageBitmapLoader,
-	InterleavedBuffer,
-	InterleavedBufferAttribute,
-	Interpolant,
-	InterpolateDiscrete,
-	InterpolateLinear,
-	Line,
-	LineBasicMaterial,
-	LineLoop,
-	LineSegments,
-	LinearFilter,
-	LinearMipmapLinearFilter,
-	LinearMipmapNearestFilter,
-	Loader,
-	LoaderUtils,
-	Material,
-	MathUtils,
-	Matrix4,
-	Mesh,
-	MeshBasicMaterial,
-	MeshPhysicalMaterial,
-	MeshStandardMaterial,
-	MirroredRepeatWrapping,
-	NearestFilter,
-	NearestMipmapLinearFilter,
-	NearestMipmapNearestFilter,
-	NumberKeyframeTrack,
-	Object3D,
-	OrthographicCamera,
-	PerspectiveCamera,
-	PointLight,
-	Points,
-	PointsMaterial,
-	PropertyBinding,
-	QuaternionKeyframeTrack,
-	RGBFormat,
-	RepeatWrapping,
-	Skeleton,
-	SkinnedMesh,
-	Sphere,
-	SpotLight,
-	TangentSpaceNormalMap,
-	TextureLoader,
-	TriangleFanDrawMode,
-	TriangleStripDrawMode,
-	Vector2,
-	Vector3,
-	VectorKeyframeTrack,
-	sRGBEncoding
-} from './three.min.js';
+import { AnimationClip } from "three/src/animation/AnimationClip.js"
+import { Bone } from "three/src/objects/Bone.js"
+import { Box3 } from "three/src/math/Box3.js"
+import { BufferAttribute } from "three/src/core/BufferAttribute.js"
+import { BufferGeometry } from "three/src/core/BufferGeometry.js"
+import { CanvasTexture } from "three/src/textures/CanvasTexture.js"
+import { Color } from "three/src/math/Color.js"
+import { DirectionalLight } from "three/src/lights/DirectionalLight.js"
+import { FileLoader } from "three/src/loaders/FileLoader.js"
+import { Group } from "three/src/objects/Group.js"
+import { ImageBitmapLoader } from "three/src/loaders/ImageBitmapLoader.js"
+import { InterleavedBuffer } from "three/src/core/InterleavedBuffer.js"
+import { InterleavedBufferAttribute } from "three/src/core/InterleavedBufferAttribute.js"
+import { Interpolant } from "three/src/math/Interpolant.js"
+import { Line } from "three/src/objects/Line.js"
+import { LineBasicMaterial } from "three/src/materials/LineBasicMaterial.js"
+import { LineLoop } from "three/src/objects/LineLoop.js"
+import { LineSegments } from "three/src/objects/LineSegments.js"
+import { Loader } from "three/src/loaders/Loader.js"
+import { LoaderUtils } from "three/src/loaders/LoaderUtils.js"
+import { Material } from "three/src/materials/Material.js"
+import { MathUtils } from "three/src/math/MathUtils.js"
+import { Matrix4 } from "three/src/math/Matrix4.js"
+import { Mesh } from "three/src/objects/Mesh.js"
+import { MeshBasicMaterial } from "three/src/materials/MeshBasicMaterial.js"
+import { MeshPhysicalMaterial } from "three/src/materials/MeshPhysicalMaterial.js"
+import { MeshStandardMaterial } from "three/src/materials/MeshStandardMaterial.js"
+import { NumberKeyframeTrack } from "three/src/animation/tracks/NumberKeyframeTrack.js"
+import { Object3D } from "three/src/core/Object3D.js"
+import { OrthographicCamera } from "three/src/cameras/OrthographicCamera.js"
+import { PerspectiveCamera } from "three/src/cameras/PerspectiveCamera.js"
+import { PointLight } from "three/src/lights/PointLight.js"
+import { Points } from "three/src/objects/Points.js"
+import { PointsMaterial } from "three/src/materials/PointsMaterial.js"
+import { PropertyBinding } from "three/src/animation/PropertyBinding.js"
+import { QuaternionKeyframeTrack } from "three/src/animation/tracks/QuaternionKeyframeTrack.js"
+import { Skeleton } from "three/src/objects/Skeleton.js"
+import { SkinnedMesh } from "three/src/objects/SkinnedMesh.js"
+import { Sphere } from "three/src/math/Sphere.js"
+import { SpotLight } from "three/src/lights/SpotLight.js"
+import { TextureLoader } from "three/src/loaders/TextureLoader.js"
+import { Vector2 } from "three/src/math/Vector2.js"
+import { Vector3 } from "three/src/math/Vector3.js"
+import { VectorKeyframeTrack } from "three/src/animation/tracks/VectorKeyframeTrack.js"
+
+const ClampToEdgeWrapping = 1001;
+const DoubleSide = 2;
+const FrontSide = 0;
+const InterpolateDiscrete = 2300;
+const InterpolateLinear = 2301;
+const LinearFilter = 1006;
+const LinearMipmapLinearFilter = 1008;
+const LinearMipMapLinearFilter = 1008;
+const LinearMipmapNearestFilter = 1007;
+const LinearMipMapNearestFilter = 1007;
+const MirroredRepeatWrapping = 1002;
+const NearestFilter = 1003;
+const NearestMipmapLinearFilter = 1005;
+const NearestMipmapNearestFilter = 1004;
+const RGBFormat = 1022;
+const RepeatWrapping = 1000;
+const TangentSpaceNormalMap = 0;
+const TriangleFanDrawMode = 2;
+const TriangleStripDrawMode = 1;
+const sRGBEncoding = 3001;
 
 var GLTFLoader = ( function () {
 

@@ -1,12 +1,11 @@
-import {
-	EventDispatcher,
-	MOUSE,
-	Quaternion,
-	Spherical,
-	TOUCH,
-	Vector2,
-	Vector3
-} from './three.min.js';
+import { EventDispatcher } from "three/src/core/EventDispatcher.js"
+import { Quaternion } from "three/src/math/Quaternion.js"
+import { Spherical } from "three/src/math/Spherical.js"
+import { Vector2 } from "three/src/math/Vector2.js"
+import { Vector3 } from "three/src/math/Vector3.js"
+
+const MOUSE = { LEFT: 0, MIDDLE: 1, RIGHT: 2, ROTATE: 0, DOLLY: 1, PAN: 2 };
+const TOUCH = { ROTATE: 0, PAN: 1, DOLLY_PAN: 2, DOLLY_ROTATE: 3 };
 
 // This set of controls performs orbiting, dollying (zooming), and panning.
 // Unlike TrackballControls, it maintains the "up" direction object.up (+Y by default).

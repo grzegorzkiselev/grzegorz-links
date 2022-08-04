@@ -1,9 +1,7 @@
-import {
-	BufferAttribute,
-	BufferGeometry,
-	FileLoader,
-	Loader
-} from './three.min.js';
+import { BufferAttribute } from "three/src/core/BufferAttribute.js"
+import { BufferGeometry } from "three/src/core/BufferGeometry.js"
+import { FileLoader } from "three/src/loaders/FileLoader.js"
+import { Loader } from "three/src/loaders/Loader.js"
 
 var DRACOLoader = function ( manager ) {
 

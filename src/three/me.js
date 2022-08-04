@@ -1,21 +1,38 @@
-import * as THREE from '../../static/draco/three.min.js'
+import { PerspectiveCamera } from 'three/src/cameras/PerspectiveCamera';
+import { Scene } from 'three/src/scenes/scene';
+import { Mesh } from 'three/src/objects/Mesh';
+import { WebGLRenderer } from 'three/src/renderers/WebGLRenderer';
+import { LoadingManager } from 'three/src/loaders/LoadingManager.js';
+import { TextureLoader } from 'three/src/loaders/TextureLoader.js';
+import { CubeTextureLoader } from 'three/src/loaders/CubeTextureLoader.js';
+import { ShaderMaterial } from 'three/src/materials/ShaderMaterial.js';
+import { MeshStandardMaterial } from 'three/src/materials/MeshStandardMaterial.js';
+import { MeshDepthMaterial } from 'three/src/materials/MeshDepthMaterial.js';
+import { PlaneBufferGeometry } from 'three/src/geometries/PlaneBufferGeometry.js';
+import { AmbientLight } from 'three/src/lights/AmbientLight.js';
+import { DirectionalLight } from 'three/src/lights/DirectionalLight.js';
+import { Clock } from 'three/src/core/Clock.js';
 import { OrbitControls } from '../../static/draco/OrbitControls.js'
 import { GLTFLoader } from '../../static/draco/GLTFLoader.js'
 import { DRACOLoader } from '../../static/draco/DRACOLoader.js'
+import { gsap } from 'gsap';
 
-import {gsap} from 'gsap';
+const sRGBEncoding = 3001;
+const RGBADepthPacking = 3201;
+const ACESFilmicToneMapping = 4;
+const PCFShadowMap = 1;
 
 // Canvas
 const canvas = document.querySelector('canvas.me')
 
 // Scene
-const scene = new THREE.Scene()
+const scene = new Scene()
 
 const blurred = document.querySelector(".blurred")
 // const blurred = document.querySelectorAll(".blurred")
 
 // Loaders
-const loadingManager = new THREE.LoadingManager(
+const loadingManager = new LoadingManager(
     () => {
         gsap.delayedCall(1.5, () => {
             gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 1.5, value: 0 });
@@ -28,15 +45,15 @@ const loadingManager = new THREE.LoadingManager(
         // })
     }
 )
-const textureLoader = new THREE.TextureLoader(loadingManager)
+const textureLoader = new TextureLoader(loadingManager)
 const gltfLoader = new GLTFLoader(loadingManager)
-const cubeTextureLoader = new THREE.CubeTextureLoader()
-const dracoLoader = new DRACOLoader(loadingManager)
+const cubeTextureLoader = new CubeTextureLoader()
+const dracoLoader = new DRACOLoader()
 dracoLoader.setDecoderPath("./draco/")
 gltfLoader.setDRACOLoader(dracoLoader)
 
 // Preloader
-const overlayMaterial = new THREE.ShaderMaterial({
+const overlayMaterial = new ShaderMaterial({
     transparent: true,
     uniforms: {
         uAlpha: {
@@ -54,8 +71,8 @@ const overlayMaterial = new THREE.ShaderMaterial({
         }`
 })
 
-const overlay = new THREE.Mesh(
-    new THREE.PlaneBufferGeometry(2, 2, 1, 1),
+const overlay = new Mesh(
+    new PlaneBufferGeometry(2, 2, 1, 1),
     overlayMaterial
 )
 scene.add(overlay)
@@ -63,7 +80,7 @@ scene.add(overlay)
 // Update all materials
 const updateAllMaterials = () => {
     scene.traverse((child) => {
-        if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) {
+        if (child.isMesh = true && child.material instanceof MeshStandardMaterial) {
             child.material.envMapIntensity = 5
             child.material.needsUpdate = true
             child.castShadow = true
@@ -71,6 +88,7 @@ const updateAllMaterials = () => {
         }
     })
 }
+
 
 // Environment map
 const environmentMap = cubeTextureLoader.load([
@@ -81,24 +99,24 @@ const environmentMap = cubeTextureLoader.load([
     './textures/environmentMaps/0/pz.jpg',
     './textures/environmentMaps/0/nz.jpg'
 ])
-environmentMap.encoding = THREE.sRGBEncoding
+environmentMap.encoding = sRGBEncoding
 scene.environment = environmentMap
 
 // Textures
 const mapTexture = textureLoader.load('./models/Draco/textures/color.jpg')
-mapTexture.encoding = THREE.sRGBEncoding;
+mapTexture.encoding = sRGBEncoding;
 mapTexture.flipY = false;
 
 const normalTexture = textureLoader.load('./models/Draco/textures/normal.jpg')
 
 // Material
-const material = new THREE.MeshStandardMaterial({
+const material = new MeshStandardMaterial({
     map: mapTexture,
     normalMap: normalTexture
 })
 
-const depthMaterial = new THREE.MeshDepthMaterial({
-    depthPacking: THREE.RGBADepthPacking
+const depthMaterial = new MeshDepthMaterial({
+    depthPacking: RGBADepthPacking
 })
 
 const customUniforms = {
@@ -185,13 +203,14 @@ gltfLoader.load(
     }
 )
 
+
 // Light
-const ambientLight = new THREE.AmbientLight(0xffffff, 2)
+const ambientLight = new AmbientLight(0xffffff, 2)
 scene.add(ambientLight)
 
-const directionalLight = new THREE.DirectionalLight('#ffffff', 3)
+const directionalLight = new DirectionalLight('#ffffff', 3)
 directionalLight.castShadow = true
-directionalLight.shadow.mapSize.set(512, 512)
+directionalLight.shadow.mapSize.set(1024, 1024)
 directionalLight.shadow.camera.far = 4
 directionalLight.shadow.normalBias = 0.05
 directionalLight.position.set(0.25, 2, -2.25)
@@ -216,7 +235,7 @@ window.addEventListener('resize', () => {
 })
 
 // Base camera
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
+const camera = new PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.set(4, 1, -4)
 scene.add(camera)
 
@@ -225,21 +244,21 @@ const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
 
 // Renderer
-const renderer = new THREE.WebGLRenderer({
+const renderer = new WebGLRenderer({
     canvas: canvas,
     antialias: true
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setClearColor("hsl(0, 0%, 95%)", 1);
-renderer.outputEncoding = THREE.sRGBEncoding
-renderer.toneMapping = THREE.ACESFilmicToneMapping
+renderer.outputEncoding = sRGBEncoding
+renderer.toneMapping = ACESFilmicToneMapping
 renderer.toneMappingExposure = 1
 renderer.shadowMap.enabled = true
-renderer.shadowMap.type = THREE.PCFShadowMap
+renderer.shadowMap.type = PCFShadowMap
 renderer.physicallyCorrectLights = true
 
 // Animation
-const clock = new THREE.Clock()
+const clock = new Clock()
 const tick = () => {
     const elapsedTime = clock.getElapsedTime()
 
