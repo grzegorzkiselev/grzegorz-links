@@ -1,8 +1,8 @@
+// import Menu from "./hover/menu.js";
 import "./styles/style.css"
-import Menu from "./hover/menu.js";
-import("./three/me.js")
-import("./three/cubes.js")
-import("./three/flowers.js")
+import "./three/me.js"
+import "./three/cubes.js"
+import "./three/flowers.js"
 
 let isMobile = false;
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -11,7 +11,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 const menuEl = document.querySelector('.links');
 if(!isMobile) {
-    new Menu(menuEl);
+    import("./hover/menu.js").then(({default: Menu}) => { new Menu(menuEl) });
 }
 
 var main = document.getElementById("main-container");
