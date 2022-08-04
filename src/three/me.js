@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { PerspectiveCamera } from 'three/src/cameras/PerspectiveCamera';
 import { Scene } from 'three/src/scenes/scene';
 import { Mesh } from 'three/src/objects/Mesh';
@@ -24,6 +25,8 @@ const RGBADepthPacking = 3201;
 const ACESFilmicToneMapping = 4;
 const PCFShadowMap = 1;
 =======
+=======
+>>>>>>> parent of 84d9f4d (Еще одна оптимизация)
 =======
 >>>>>>> parent of 84d9f4d (Еще одна оптимизация)
 import * as THREE from 'three'
