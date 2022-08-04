@@ -19,6 +19,7 @@ const loadingManager = new THREE.LoadingManager(
         gsap.delayedCall(1.5, () => {
             gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 1.5, value: 0 });
             blurred.style.webkitFilter = "blur(0px)"
+            blurred.classList.remove("blurred")
         })
         // gsap.delayedCall(1.5, () => {
         //     gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 3, value: 0 });
