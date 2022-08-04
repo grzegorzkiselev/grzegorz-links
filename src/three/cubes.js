@@ -1,5 +1,5 @@
-import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import * as THREE from '../../static/draco/three.min.js'
+import { OrbitControls } from '../../static/draco/OrbitControls.js'
 const random = require("canvas-sketch-util/random");
 const palettes = require("nice-color-palettes");
 
