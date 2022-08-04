@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Scene } from 'three/src/scenes/scene';
 import { BoxBufferGeometry } from "three/src/geometries/BoxBufferGeometry.js"
 import { Group } from "three/src/objects/Group.js"
@@ -13,6 +14,10 @@ import { OrbitControls } from '../../static/draco/OrbitControls.js'
 const sRGBEncoding = 3001;
 const ReinhardToneMapping = 2;
 
+=======
+import * as THREE from 'three'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+>>>>>>> parent of 84d9f4d (Еще одна оптимизация)
 const random = require("canvas-sketch-util/random");
 const palettes = require("nice-color-palettes");
 

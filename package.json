@@ -38,10 +38,8 @@
   },
   "devDependencies": {
     "babel-preset-minify": "^0.5.2",
-    "browserify": "^17.0.0",
     "compression-webpack-plugin": "^10.0.0",
     "fs": "^0.0.1-security",
-    "threejs-tree-shake": "^1.0.0",
     "webpack-cli": "^4.9.2"
   }
 }

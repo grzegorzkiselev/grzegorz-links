@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { PerspectiveCamera } from 'three/src/cameras/PerspectiveCamera';
 import { Scene } from 'three/src/scenes/scene';
 import { Mesh } from 'three/src/objects/Mesh';
@@ -21,6 +22,13 @@ const sRGBEncoding = 3001;
 const RGBADepthPacking = 3201;
 const ACESFilmicToneMapping = 4;
 const PCFShadowMap = 1;
+=======
+import * as THREE from 'three'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
+import {gsap} from 'gsap';
+>>>>>>> parent of 84d9f4d (Еще одна оптимизация)
 
 // Canvas
 const canvas = document.querySelector('canvas.me')

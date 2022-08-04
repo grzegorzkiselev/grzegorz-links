@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Scene } from 'three/src/scenes/scene';
 import { Group } from "three/src/objects/Group.js"
 import { Mesh } from "three/src/objects/Mesh.js"
@@ -10,6 +11,10 @@ import { WebGLRenderer } from 'three/src/renderers/WebGLRenderer';
 import { Clock } from 'three/src/core/Clock.js';
 import { OrbitControls } from '../../static/draco/OrbitControls.js'
 
+=======
+import * as THREE from 'three'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+>>>>>>> parent of 84d9f4d (Еще одна оптимизация)
 const random = require("canvas-sketch-util/random");
 const palettes = require("nice-color-palettes");
 const glslify = require('glslify');
