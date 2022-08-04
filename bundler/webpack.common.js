@@ -33,7 +33,7 @@ module.exports = {
         new BundleAnalyzerPlugin(),
         new CopyWebpackPlugin({
             patterns: [
-                { from: path.resolve(__dirname, '../static/') }
+                { from: path.resolve(__dirname, '../static') }
             ]
         }),
         new HtmlWebpackPlugin({
