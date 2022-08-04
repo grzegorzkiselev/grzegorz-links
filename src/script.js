@@ -1,8 +1,8 @@
 // import Menu from "./hover/menu.js";
 import "./styles/style.css"
-import "./three/me.js"
-import "./three/cubes.js"
-import "./three/flowers.js"
+import("./three/me.js")
+import("./three/cubes.js")
+import("./three/flowers.js")
 
 let isMobile = false;
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
