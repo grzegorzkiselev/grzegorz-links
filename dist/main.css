@@ -326,8 +326,7 @@ a:focus-visible {
 
 .grid-line-l {
     position: fixed;
-    z-index: 0
-;
+    z-index: 2;
     width: 1px;
     height: 100%;
     background-color: var(--ruler-color);
@@ -380,8 +379,7 @@ a:focus-visible {
 
 .grid-line-r {
     position: fixed;
-    z-index: 0
-;
+    z-index: 2;
     width: 1px;
     height: 100%;
     background-color: var(--ruler-color);
@@ -420,8 +418,7 @@ a:focus-visible {
 
 .grid-line-t {
     position: fixed;
-    z-index: 0
-;
+    z-index: 2;
     width: 100%;
     height: 1px;
     background-color: var(--ruler-color);
@@ -462,8 +459,7 @@ a:focus-visible {
 
 .grid-line-b {
     position: fixed;
-    z-index: 0
-;
+    z-index: 2;
     width: 100%;
     height: 1px;
     background-color: var(--ruler-color);

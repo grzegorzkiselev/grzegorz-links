@@ -37,8 +37,8 @@ document.addEventListener("moduleLoaded", (e) => {
 const frame = document.querySelector(".preloader");
 
 const sizes = {
-    width: frame.clientWidth * 2,
-    height: frame.clientHeight * 2
+    width: window.innerWidth * 2,
+    height: window.innerHeight * 2
 }
 
 const mouse = new THREE.Vector2(sizes.width / 2, sizes.height / 2);

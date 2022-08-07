@@ -3,7 +3,7 @@ import "./styles/style.css"
 import("./three/me.js")
 import("./three/cubes.js")
 import("./three/flowers.js")
-import "./preloader/preloader.js"
+
 
 const event = new CustomEvent("moduleLoaded", {
                 detail: {}
@@ -12,11 +12,14 @@ const event = new CustomEvent("moduleLoaded", {
 let isMobile = false;
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     isMobile = true;
+    document.querySelector(".preloader").remove()
 }
 
 const menuEl = document.querySelector('.links');
-if(!isMobile) {
-    import("./hover/menu.js").then(({default: Menu}) => { new Menu(menuEl) });
+
+if (!isMobile) {
+    import("./hover/menu.js").then(({ default: Menu }) => { new Menu(menuEl) });
+    import("./preloader/preloader.js")
 }
 
 var main = document.getElementById("main-container");
