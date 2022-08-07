@@ -16,6 +16,7 @@ let stopModule = false
 document.addEventListener("moduleLoaded", (e) => {
     gsap.delayedCall(1.5, () => {
         gsap.to(overlayMaterial.uniforms.uRadius, { duration: 10, value: 10.0 });
+        gsap.to(overlayMaterial.uniforms.uBlur, { duration: 2, value: .1 });
         setTimeout(() => {
             canvas.remove()
             renderer.dispose()
@@ -57,7 +58,8 @@ const overlayMaterial = new THREE.ShaderMaterial({
         uMouse: { value: mouse }, 
         uTime: { value: 0 },
         uRes: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
-        uRadius: { value: 0.01 }
+        uRadius: { value: 0.01 },
+        uBlur: { value: 4.0 }
     },
     vertexShader: vertexShader,
     fragmentShader: fragmentShader,

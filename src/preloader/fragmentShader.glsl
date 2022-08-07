@@ -4,6 +4,7 @@ uniform vec2 uRes;
 uniform float uTime;
 
 uniform float uRadius;
+uniform float uBlur;
 
 varying vec2 v_uv;
 
@@ -116,21 +117,23 @@ void main() {
 	vec2 mouse = -1. * uMouse;
 	
 	vec2 circlePos = st + mouse;
-	float c = circle(circlePos, uRadius, 1.1) * 2.0;
+	float c = circle(circlePos, uRadius, uBlur) * 2.0;
 
 	float offx = v_uv.x + sin(v_uv.y + uTime * .1) + .5;
 	float offy = v_uv.y - uTime * 0.1 - cos(uTime * .01) * .01;
 
-	float n = snoise3(vec3(offx, offy, uTime * 0.1) * 10.) - .5;
+	float n = snoise3(vec3(offx, offy, uTime * 0.1) * 10.) - .25;
 
-	float finalMask = smoothstep(0.01, 0.02, n + c);
+	float finalMask = smoothstep(0.1, 0.9, n + c);
 
-	vec3 colors = vec3(1., 1., 1.);
+  vec4 transperent = vec4(0.0, 0.0, 0.0, 0.0);
+  vec4 colors = vec4(0.02, 0.30, 0.73, 1.);
 
-	vec3 finalColor = vec3(finalMask + 0.02, finalMask + 0.29, finalMask + 0.73);
+	// vec3 finalColor = vec3(finalMask + 0.02, finalMask + 0.29, finalMask + 0.73);
+	vec4 finalColor = mix(colors, transperent, finalMask);
+  
+	// if (float(finalColor) > 0.75) discard;
 
-	if (float(finalColor) > 0.75) discard;
-
-	gl_FragColor = vec4(vec3(finalColor), 1.0);
+	gl_FragColor = vec4(finalColor);
 
 }
