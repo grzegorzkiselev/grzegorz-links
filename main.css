@@ -38,6 +38,7 @@ body {
     line-height: 100%;
     font-weight: 100;
     letter-spacing: -0.2pt;
+    text-rendering: geometricPrecision;
     -webkit-font-smoothing: antialiased;
     background: var(--back-color);
     overflow-x: hidden;
@@ -235,7 +236,7 @@ h3 {
 h3:focus-visible,
 a:hover,
 a:focus-visible {
-    text-decoration: none;
+    /* text-decoration: none; */
     transition: color 0.01s linear;
     transition: text-decoration 0.01s linear;
     animation: blink 0.5s infinite;
@@ -330,7 +331,7 @@ a:focus-visible {
     width: 1px;
     height: 100%;
     background-color: var(--ruler-color);
-    opacity: 0.6;
+    opacity: 1.0;
 }
 
 .grid.hidden {
@@ -383,7 +384,7 @@ a:focus-visible {
     width: 1px;
     height: 100%;
     background-color: var(--ruler-color);
-    opacity: 0.6;
+    opacity: 1.0;
 }
 
 #grid-line-r-2 {
@@ -422,7 +423,7 @@ a:focus-visible {
     width: 100%;
     height: 1px;
     background-color: var(--ruler-color);
-    opacity: 0.6;
+    opacity: 1.0;
 }
 
 #grid-line-t-0 {
@@ -463,7 +464,7 @@ a:focus-visible {
     width: 100%;
     height: 1px;
     background-color: var(--ruler-color);
-    opacity: 0.6;
+    opacity: 1.0;
 }
 
 #grid-line-b-0 {
