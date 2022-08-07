@@ -237,6 +237,7 @@ h3 {
 h3:focus-visible,
 a:hover,
 a:focus-visible {
+    z-index: 1;
     /* text-decoration: none; */
     transition: color 0.01s linear;
     transition: text-decoration 0.01s linear;
@@ -301,7 +302,7 @@ a:focus-visible {
 
 .hover-reveal {
     position: fixed;
-    z-index: -1;
+    z-index: 1 !important;
     top: 0;
     left: 0;
     width: 270px;
@@ -310,11 +311,12 @@ a:focus-visible {
     opacity: 0;
 }
 
-.hover-reveal__inner {  overflow: hidden;  }
+.hover-reveal__inner {  overflow: hidden; z-index: 1 !important; }
 
 .hover-reveal__inner,
 .hover-reveal__img {
     position: relative;
+    z-index: 1 !important;
     width: 100%;
     height: 100%;
 }
@@ -328,7 +330,7 @@ a:focus-visible {
 
 .grid-line-l {
     position: fixed;
-    z-index: 2;
+    z-index: 3;
     width: 1px;
     height: 100%;
     background-color: var(--ruler-color);
@@ -381,7 +383,7 @@ a:focus-visible {
 
 .grid-line-r {
     position: fixed;
-    z-index: 2;
+    z-index: 3;
     width: 1px;
     height: 100%;
     background-color: var(--ruler-color);
@@ -420,7 +422,7 @@ a:focus-visible {
 
 .grid-line-t {
     position: fixed;
-    z-index: 2;
+    z-index: 3;
     width: 100%;
     height: 1px;
     background-color: var(--ruler-color);
@@ -461,7 +463,7 @@ a:focus-visible {
 
 .grid-line-b {
     position: fixed;
-    z-index: 2;
+    z-index: 3;
     width: 100%;
     height: 1px;
     background-color: var(--ruler-color);
