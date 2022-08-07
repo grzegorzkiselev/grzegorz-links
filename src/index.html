@@ -17,12 +17,13 @@
 
 <body>
     <main id="main-container">
+        <canvas class="preloader"></canvas>
         <div id="loading-container" class="loading-container"></div>
         <div id="resize-container" class="show">
             <div class="toggle-grid">
                 <div id="resize-value">get a real screen</div>
             </div>
-            <div class="grid">
+            <div aria-hidden="true" class="grid">
                 <div id="grid-line-l-0" class="grid-line-l"></div>
                 <div id="grid-line-l-1" class="grid-line-l"></div>
                 <div id="grid-line-l-2" class="grid-line-l"></div>
@@ -50,7 +51,7 @@
                 <div id="grid-line-b-6" class="grid-line-b"></div>
                 <div id="grid-line-b-7" class="grid-line-b"></div>
             </div>
-            <div class="background">
+            <div aria-hidden="true" class="background">
                 <div id="f" class="background__rect"></div>
                 <div id="s" class="background__rect"></div>
                 <div id="t" class="background__rect"></div>
@@ -58,7 +59,7 @@
             <section class="content">
                 <h1 class="display-none">grzegorzkiselev</h1>
                 <div class="intro">
-                    <p id="intro" tabindex="0">Hi, I’m Egor and I’m just a guy, who does some designs and draws.
+                    <p id="intro">Hi, I’m Egor and I’m just a guy, who does some designs and draws.
                         Interested in code and math for graphic design purposes</p>
                 </div>
                 <section class="display">

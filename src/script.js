@@ -3,6 +3,11 @@ import "./styles/style.css"
 import("./three/me.js")
 import("./three/cubes.js")
 import("./three/flowers.js")
+import "./preloader/preloader.js"
+
+const event = new CustomEvent("moduleLoaded", {
+                detail: {}
+})
 
 let isMobile = false;
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {

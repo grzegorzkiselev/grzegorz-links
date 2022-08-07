@@ -30,7 +30,7 @@ module.exports = {
     devtool: 'source-map',
     plugins: [
         // new CompressionPlugin({ algorithm: "gzip" }),
-        new BundleAnalyzerPlugin(),
+        // new BundleAnalyzerPlugin(),
         new CopyWebpackPlugin({
             patterns: [
                 { from: path.resolve(__dirname, '../static') }

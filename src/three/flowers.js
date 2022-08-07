@@ -35,6 +35,7 @@ const sceneScale = 1;
 	const mesh = new THREE.Mesh(
 		geometry,
 		new THREE.ShaderMaterial({
+			precision: "lowp",
 			fragmentShader,
 			vertexShader,
 			uniforms: {
