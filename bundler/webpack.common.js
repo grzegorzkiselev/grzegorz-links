@@ -33,7 +33,13 @@ module.exports = {
         // new BundleAnalyzerPlugin(),
         new CopyWebpackPlugin({
             patterns: [
-                { from: path.resolve(__dirname, '../static') }
+                {
+                    from: path.resolve(__dirname, '../static/draco'),
+                    from: path.resolve(__dirname, '../static/fonts'),
+                    from: path.resolve(__dirname, '../static/models'),
+                    from: path.resolve(__dirname, '../static/textures'),
+                    from: path.resolve(__dirname, '../static/theme')
+                }
             ]
         }),
         new HtmlWebpackPlugin({
