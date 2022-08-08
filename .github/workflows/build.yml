@@ -16,8 +16,5 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      # Build
-      - run: npm ci
-      - run: npm run build
       # Deploy
       - run: git subtree push --prefix dist origin gh-pages
