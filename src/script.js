@@ -1,13 +1,7 @@
 // import Menu from "./hover/menu.js";
 import "./styles/style.css"
+
 import("./three/me.js")
-import("./three/cubes.js")
-import("./three/flowers.js")
-
-
-const event = new CustomEvent("moduleLoaded", {
-                detail: {}
-})
 
 let isMobile = false;
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -15,16 +9,12 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     document.querySelector(".preloader").remove()
 }
 
-const menuEl = document.querySelector('.links');
+import("./three/cubes.js")
+import("./three/flowers.js")
 
-if (!isMobile) {
-    import("./hover/menu.js").then(({ default: Menu }) => { new Menu(menuEl) });
-    import("./preloader/preloader.js")
-}
 
-var main = document.getElementById("main-container");
-    var resizeContainer = document.getElementById("resize-container");
-    var resizeValue = document.getElementById("resize-value");
+var resizeContainer = document.getElementById("resize-container");
+var resizeValue = document.getElementById("resize-value");
     
 document.addEventListener("DOMContentLoaded", function (event) {
     var timeout = null;
@@ -46,3 +36,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         resizeContainer.classList.remove("show");
     }
 });
+
+if (!isMobile) {
+    import("./hover/menu.js").then(({ default: Menu }) => { new Menu(menuEl) });
+    import("./preloader/preloader.js")
+}
+
+const menuEl = document.querySelector('.links');
