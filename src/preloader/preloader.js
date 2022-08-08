@@ -16,7 +16,7 @@ let stopModule = false
 document.addEventListener("moduleLoaded", (e) => {
     gsap.delayedCall(1.5, () => {
         gsap.to(overlayMaterial.uniforms.uRadius, { duration: 10, value: 10.01 });
-        gsap.to(overlayMaterial.uniforms.uBlur, { duration: 1, value: 0.01 });
+        gsap.to(overlayMaterial.uniforms.uBlur, { duration: 2, value: 0.1 });
         setTimeout(() => {
             canvas.remove()
             renderer.dispose()

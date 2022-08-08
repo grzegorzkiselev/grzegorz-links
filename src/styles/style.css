@@ -1,4 +1,8 @@
-@import url(https://fonts.googleapis.com/css2?family=PT+Serif:ital@0;1&display=swap);
+@font-face {
+    font-family: "PT Serif";
+    src: url('../../static/fonts/pt-serif-v17-latin_cyrillic-regular.woff2') format('woff2');
+    font-display: swap;
+}
 
 :root {
     --ruler-color: aqua;
@@ -39,10 +43,10 @@ body {
     line-height: 100%;
     font-weight: 100;
     letter-spacing: -0.2pt;
-    text-rendering: geometricPrecision;
+    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     background: var(--back-color);
-    overflow-x: hidden;
+    overflow-x: clip;
     scroll-behavior: auto;
 }
 
@@ -92,7 +96,17 @@ body {
     .content {  top: 9vh;  }
 }
 
-.display-none {  display: none;  }
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: 0;
+  padding: 0;
+  width: 1px;
+  height: 0;
+  border: 0;
+  white-space: nowrap;
+}
 
 .webgl {
     width: 100% !important;
