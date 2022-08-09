@@ -17,4 +17,5 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       # Deploy
+      - run: git pull
       - run: git subtree push --prefix dist origin gh-pages
