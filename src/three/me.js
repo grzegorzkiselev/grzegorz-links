@@ -1,7 +1,7 @@
-import * as THREE from '../../static/draco/three.min.js'
-import { OrbitControls } from '../../static/draco/OrbitControls.js'
-import { GLTFLoader } from '../../static/draco/GLTFLoader.js'
-import { DRACOLoader } from '../../static/draco/DRACOLoader.js'
+import * as THREE from '../../static/utilities/three.min.js'
+import { OrbitControls } from '../../static/utilities/OrbitControls.js'
+import { GLTFLoader } from '../../static/utilities/GLTFLoader.js'
+import { DRACOLoader } from '../../static/utilities/DRACOLoader.js'
 import { gsap } from 'gsap';
 
 

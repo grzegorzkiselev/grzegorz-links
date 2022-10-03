@@ -129,7 +129,7 @@ body {
     --xheightOffset: calc(var(--fontSize) * 0.375);
     --lineheightoffset: calc((var(--module) - (var(--fontSize) - var(--fontSize) * 0.125) - (var(--fontSize) - var(--fontSize) * 0.375)) / 2);
     line-height: calc(var(--fontSize) + var(--lineheightoffset) * 2);
-    --xheightoffset: calc((var(--lineheightoffset) + var(--fontSize) * 0.375) * -1);
+    --xheightoffset: calc((var(--lineheightoffset) + var(--xheightOffset)) * -1);
     margin-top: var(--xheightoffset);
     margin-bottom: calc((var(--lineheightoffset) + var(--fontSize) * 0.125) * -1);
 }
@@ -251,7 +251,7 @@ h3 {
 h3:focus-visible,
 a:hover,
 a:focus-visible {
-    z-index: 1;
+    z-index: 4;
     /* text-decoration: none; */
     transition: color 0.01s linear;
     transition: text-decoration 0.01s linear;

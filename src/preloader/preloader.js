@@ -1,7 +1,7 @@
-import * as THREE from '../../static/draco/three.min.js'
+import * as THREE from '../../static/utilities/three.min.js'
 import fragmentShader from "./fragmentShader.glsl"
 import vertexShader from "./vertexShader.glsl"
-import { OrbitControls } from '../../static/draco/OrbitControls.js'
+import { OrbitControls } from '../../static/utilities/OrbitControls.js'
 import { gsap } from 'gsap';
 
 

@@ -19,5 +19,3 @@ window.addEventListener('resize', function(event){
 const windowResizeStopFunction = function(){
     resizeContainer.classList.remove("show");
 }
-
-console.log("почему не работаем?")

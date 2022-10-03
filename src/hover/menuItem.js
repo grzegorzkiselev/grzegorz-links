@@ -62,7 +62,7 @@ export default class MenuItem {
         this.tl = gsap.timeline({
             onStart: () => {
                 this.DOM.reveal.style.opacity = 1;
-                gsap.set(this.DOM.el, {zIndex: 0});
+                gsap.set(this.DOM.el, {zIndex: 4});
             }
         })
         .to(this.DOM.revealInner, 0.2, {
@@ -81,7 +81,7 @@ export default class MenuItem {
         gsap.killTweensOf(this.DOM.revealImage);
         this.tl = gsap.timeline({
             onStart: () => {
-                gsap.set(this.DOM.el, {zIndex: 0});
+                gsap.set(this.DOM.el, {zIndex: 4});
             },
             onComplete: () => {
                 gsap.set(this.DOM.reveal, {opacity: 0});
