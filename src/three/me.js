@@ -32,7 +32,7 @@ const textureLoader = new THREE.TextureLoader()
 const gltfLoader = new GLTFLoader(loadingManager)
 const cubeTextureLoader = new THREE.CubeTextureLoader()
 const dracoLoader = new DRACOLoader(loadingManager)
-dracoLoader.setDecoderPath("./draco/")
+dracoLoader.setDecoderPath("./utilities/")
 gltfLoader.setDRACOLoader(dracoLoader)
 
 // Preloader
