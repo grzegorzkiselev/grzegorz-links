@@ -99,7 +99,7 @@ module.exports = {
 
             // Images
             {
-                test: /\.(jp?g|png|gif|svg)$/,
+                test: /\.(jp?g|png|svg)$/,
                 use:
                 [
                     {

@@ -4,7 +4,6 @@ import vertexShader from "./vertexShader.glsl"
 import { OrbitControls } from '../../static/utilities/OrbitControls.js'
 import { gsap } from 'gsap';
 
-
 // Canvas
 const canvas = document.querySelector('.preloader')
 
@@ -30,7 +29,6 @@ document.addEventListener("moduleLoaded", (e) => {
             stopModule = true
             return stopModule
         }, "1200")
-        
     })
 })
 

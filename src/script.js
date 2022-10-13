@@ -16,3 +16,14 @@ if (!isMobile) {
     const menuEl = document.querySelector('.links');
     import("./preloader/preloader.js")
 }
+
+const mytime = document.querySelector(".mytime")
+
+const calcTime = () => {
+    const date = new Date();
+    const UTC = date.getTime() + (date.getTimezoneOffset() * 60000);
+    const newDate = new Date(UTC + (3600000 * "+6"));
+    mytime.textContent = newDate.toLocaleTimeString()
+}
+
+setInterval(calcTime, 1000)
