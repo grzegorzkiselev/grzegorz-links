@@ -3,6 +3,11 @@
     src: url(assets/fonts/fdc7a7ec44dae0800cd0af565b0d9764.woff2) format('woff2');
     font-display: swap;
 }
+@font-face {
+    font-family: "Arial Narrow";
+    src: url(assets/fonts/3f7067a8fa5fe6f2b8bad1d482133008.woff2) format('woff2');
+    font-display: swap;
+}
 
 :root {
     --ruler-color: aqua;
@@ -92,7 +97,7 @@ body {
     margin: auto;
     width: 82vw;
     height: 14.6vh;
-    font-family: "Arial Narrow", sans-serif-condensed;
+    font-family: "Arial Narrow", sans-serif-condensed, sans-serif;
     font-weight: 400;
     line-height: 100%;
     font-size: 24px;
