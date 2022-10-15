@@ -108,7 +108,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     column-gap: 3.1vh;
-    row-gap: calc(1.4vh - 24px * 0.305);
+    row-gap: 1vh;
     padding-top: calc(5.6vh + (24px * -0.325));
     width: 100%;
 }
@@ -147,7 +147,7 @@ body {
     width: 82vw;
 }
 
-@media screen and (max-width: 1300px) and (pointer: coarse) {
+@media screen and (max-width: 1300px) {
     .content {
         font: 36px 'PT Serif', serif;
     }
@@ -191,7 +191,7 @@ body {
     margin-bottom: calc((var(--lineheightoffset) + var(--fontSize) * 0.125) * -1);
 }
 
-@media screen and (max-width: 1300px) and (pointer: coarse) {
+@media screen and (max-width: 1300px) {
     #intro {
         max-width: 100%;
         color: var(--font-color);
@@ -207,7 +207,7 @@ body {
     }
 }
 
-@media screen and (max-width: 1300px) and (min-width: 0px) and (pointer: coarse) and (orientation: landscape) {
+@media screen and (max-width: 1300px) and (min-width: 0px) and (orientation: landscape) {
     #intro {
         max-width: 100%;
         color: var(--font-color);
@@ -233,7 +233,7 @@ body {
     margin-right: calc((9vw - 5.6vw) * -1);
 }
 
-@media screen and (max-width: 1300px) and (pointer: coarse) {
+@media screen and (max-width: 1300px) {
     .display {
         margin-bottom: 5.6vh;
         grid-template-columns: 1fr !important;
@@ -241,7 +241,7 @@ body {
     }
 }
 
-@media screen and (max-width: 1300px) and (min-width: 0px) and (pointer: coarse) and (orientation: landscape) {
+@media screen and (max-width: 1300px) and (min-width: 0px) and (orientation: landscape) {
     .display {
         column-gap: 2.1vw;
         grid-template-columns: 1fr 1fr 1fr !important;
@@ -314,7 +314,7 @@ h3 {
     transition: text-decoration 0.01s linear;
 }
 
-@media screen and (max-width: 1300px) and (pointer: coarse) {
+@media screen and (max-width: 1300px) {
     .links__link a {
         color: var(--font-color);
         --fontSize: 36px;
@@ -384,7 +384,7 @@ a:focus-visible {
     color: var(--font-color);
 }
 
-@media screen and (max-width: 1300px) and (pointer: coarse) {
+@media screen and (max-width: 1300px) {
     #resize-value {
         color: var(--font-color);
         font: 36px 'PT Serif', serif;
