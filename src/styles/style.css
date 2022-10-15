@@ -100,7 +100,9 @@ body {
 }
 .header__menu {
     display: flex;
-    gap: 3.1vh;
+    flex-wrap: wrap;
+    column-gap: 3.1vh;
+    row-gap: 1.4vh;
     padding-top: calc(5.6vh + (24px * -0.325));
     width: 100%;
 }
