@@ -49,13 +49,12 @@ body {
     scroll-behavior: auto;
 }
 
-@media screen and (max-width: 1300px) and (pointer: coarse) {
+/* @media screen and (max-width: 1300px) and (pointer: coarse) {
     body {
-        font-size: 18pt;
         -webkit-font-smoothing: antialiased;
         overflow-x: hidden;
     }
-}
+} */
 
 ::selection {
     color: var(--selection-text-color);
@@ -93,16 +92,18 @@ body {
     margin: auto;
     width: 82vw;
     height: 14.6vh;
-    font-family: "Arial Narrow";
+    font-family: "Arial Narrow", sans-serif-condensed;
     font-weight: 400;
+    line-height: 100%;
     font-size: 24px;
     color: var(--font-color);
 }
+
 .header__menu {
     display: flex;
     flex-wrap: wrap;
     column-gap: 3.1vh;
-    row-gap: 1.4vh;
+    row-gap: calc(1.4vh - 24px * 0.305);
     padding-top: calc(5.6vh + (24px * -0.325));
     width: 100%;
 }
@@ -142,7 +143,9 @@ body {
 }
 
 @media screen and (max-width: 1300px) and (pointer: coarse) {
-    .content {  top: 9vh;  }
+    .content {
+        font: 36px 'PT Serif', serif;
+    }
 }
 
 .visually-hidden {
@@ -187,18 +190,34 @@ body {
     #intro {
         max-width: 100%;
         color: var(--font-color);
-        --module: calc(5.6vh);
-        --fontSize: 24px;
-        --fontTopOffset: calc(var(--fontSize) * 0.175);
-        --fontBottomOffset: calc(var(--fontSize) * 0.125);
-        --xheightOffset: calc(var(--fontSize) * 0.375);
-        --lineheightoffset: calc((var(--module) - (var(--fontSize) - var(--fontSize) * 0.125) - (var(--fontSize) - var(--fontSize) * 0.375)) / 2);
-        line-height: calc(var(--fontSize) + var(--lineheightoffset) * 2);
-        --xheightoffset: calc((var(--lineheightoffset) + var(--fontSize) * 0.325) * -1);
-        margin-top: var(--xheightoffset);
-        margin-bottom: calc((var(--lineheightoffset) + var(--fontSize) * 0.125) * -1);
+        --fontSize: 36px;
+        --module: 9vh;
+        --lineHeight: calc(var(--fontSize) + ((var(--module) - (var(--fontSize) * 2)) / 4));
+        --fontTopOffset: calc(var(--lineHeight) * 0.175);
+        --fontBottomOffset: calc(var(--lineHeight) * 0.125);
+        --xheightOffset: calc(var(--lineHeight) * 0.375);
+        line-height: var(--lineHeight);
+        margin-top: calc(var(--xheightOffset) * -1);
+        margin-bottom: calc(var(--fontBottomOffset) * -1);
     }
 }
+
+@media screen and (max-width: 1300px) and (min-width: 0px) and (pointer: coarse) and (orientation: landscape) {
+    #intro {
+        max-width: 100%;
+        color: var(--font-color);
+        --fontSize: 36px;
+        --module: 9vh;
+        --lineHeight: calc(var(--module));
+        --fontTopOffset: calc(var(--lineHeight) * 0.175);
+        --fontBottomOffset: calc(var(--lineHeight) * 0.125);
+        --xheightOffset: calc(var(--lineHeight) * 0.375);
+        line-height: var(--lineHeight);
+        margin-top: calc(var(--xheightOffset) * -1);
+        margin-bottom: calc(var(--fontBottomOffset) * -1);
+    }
+}
+
 
 .display {
     display: grid;
@@ -232,9 +251,12 @@ body {
 }
 
 .blurred {
-    -webkit-filter: blur(8px);
-    -webkit-transition: -webkit-filter 3s;
-    will-change: -webkit-filter;
+    /* -webkit-filter: blur(8px); */
+    filter: blur(8px);
+    /* -webkit-transition: -webkit-filter 3s; */
+    transition: filter 3s;
+    /* will-change: -webkit-filter; */
+    will-change: filter;
 }
 
 /* .blurred:hover {
@@ -289,9 +311,13 @@ h3 {
 
 @media screen and (max-width: 1300px) and (pointer: coarse) {
     .links__link a {
-        --fontSize: 24px;
-        margin-top: calc(var(--fontSize) * -0.375);
-        margin-bottom: calc(var(--fontSize) * -0.125);
+        color: var(--font-color);
+        --fontSize: 36px;
+        --fontTopOffset: calc(var(--fontSize) * 0.175);
+        --fontBottomOffset: calc(var(--fontSize) * 0.125);
+        line-height: 100%;
+        margin-top: calc(var(--fontTopOffset) * -1);
+        margin-bottom: calc(var(--fontBottomOffset) * -1);
     }
 }
 
@@ -320,15 +346,13 @@ a:focus-visible {
     }
 }
 
-
 #resize-container {
     position: absolute;
     top: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    z-index: 0
-;
+    z-index: 0;
     scroll-behavior: auto;
 }
 
@@ -348,8 +372,7 @@ a:focus-visible {
     --fontSize: 48px;
     bottom: calc(5.6vh - (var(--fontSize) * 0.125));
     right: 3.4vw;
-    z-index: 1
-;
+    z-index: 1;
     display: block;
     text-align: right;
     line-height: 100%;
@@ -358,8 +381,13 @@ a:focus-visible {
 
 @media screen and (max-width: 1300px) and (pointer: coarse) {
     #resize-value {
-        --fontSize: 24px;
-        bottom: calc(5.6vh - (var(--fontSize) * 0.125));
+        color: var(--font-color);
+        font: 36px 'PT Serif', serif;
+        --fontSize: 36px;
+        --fontBottomOffset: calc(var(--fontSize) * 0.125);
+        line-height: 100%;
+        margin-bottom: calc(var(--fontBottomOffset) * -1);
+        bottom: 5.6vh;
     }
 }
 
