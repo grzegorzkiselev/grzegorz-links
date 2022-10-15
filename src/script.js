@@ -24,6 +24,7 @@ const calcTime = () => {
     const UTC = date.getTime() + (date.getTimezoneOffset() * 60000);
     const newDate = new Date(UTC + (3600000 * "+6"));
     mytime.textContent = newDate.toLocaleTimeString()
+    // mytime.textContent = "55:55:55"
 }
 
 setInterval(calcTime, 1000)
