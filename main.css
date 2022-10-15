@@ -5,7 +5,7 @@
 }
 @font-face {
     font-family: "Arial Narrow";
-    src: url(assets/fonts/3f7067a8fa5fe6f2b8bad1d482133008.woff2) format('woff2');
+    src: url(assets/fonts/326b67480de1304432b41e25ad02070f.woff2) format('woff2');
     font-display: swap;
 }
 
@@ -119,6 +119,10 @@ body {
     font-weight: inherit;
     font-size: inherit;
     line-height: 100%;
+}
+
+.mytime {
+    min-width: 75px;
 }
 
 .header__list {
@@ -430,7 +434,7 @@ a:focus-visible {
     position: fixed;
     z-index: 3;
     width: 1px;
-    height: 100%;
+    height: 125%;
     background-color: var(--ruler-color);
     opacity: 1.0;
 }
@@ -483,7 +487,7 @@ a:focus-visible {
     position: fixed;
     z-index: 3;
     width: 1px;
-    height: 100%;
+    height: 125%;
     background-color: var(--ruler-color);
     opacity: 1.0;
 }
