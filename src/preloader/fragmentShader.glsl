@@ -124,7 +124,7 @@ void main() {
 
 	float n = snoise3(vec3(offx, offy, uTime * 0.1) * 10.) - .25;
 
-	float finalMask = smoothstep(0.1, 0.9, n + c);
+	float finalMask = smoothstep(0.5, 0.5, n + c);
 
   vec4 transperent = vec4(0.0, 0.0, 0.0, 0.0);
   vec4 colors = vec4(0.02, 0.30, 0.73, 1.);
