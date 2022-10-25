@@ -44,6 +44,23 @@ html {
     scroll-behavior: auto;
 }
 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: top;
+}
+
 .preloader {
     position: fixed;
     z-index: 1;
@@ -220,12 +237,14 @@ body {
         color: var(--font-color);
         --fontSize: 36px;
         --module: 9vh;
-        --FONT_XHEIGHT_OFFSET: calc(var(--fontSize) * var(--FONT_TOP_RATIO));
+        --FONT_XHEIGHT_OFFSET: calc(var(--fontSize) * 0.321);
         --lineHeight: calc(var(--fontSize) + ((var(--module) - (var(--fontSize) * 2)) / 2));
-        --xheightOffset: calc(
+        --xheightOffset: calc(var(--FONT_XHEIGHT_OFFSET) - (var(--lineHeight) - var(--fontSize)));
+        /* --xheightOffset: calc(((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET)); */
+        /* --xheightOffset: calc(
             max(var(--FONT_XHEIGHT_OFFSET), (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 2) 
-          - min(var(--FONT_XHEIGHT_OFFSET), (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 2));
-        --fontBottomOffset: calc(var(--fontSize) * var(--FONT_BOTTOM_RATIO));
+          - min(var(--FONT_XHEIGHT_OFFSET), (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 2)); */
+        --fontBottomOffset: calc(var(--fontSize) * 0.138);
         line-height: var(--lineHeight);
         margin-top: calc(var(--xheightOffset) * -1);
         margin-bottom: calc(var(--fontBottomOffset) * -1);
@@ -240,14 +259,14 @@ body {
         --module: 9vh;
         --FONT_XHEIGHT_OFFSET: calc(var(--fontSize) * var(--FONT_TOP_RATIO));
         --lineHeight: calc(var(--fontSize) + (var(--module) - var(--fontSize)));
-        --xheightOffset: calc(((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET));
+        --xheightOffset: calc((((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET)) / 1.5);
         /* --xheightOffset: calc(
             max(var(--FONT_XHEIGHT_OFFSET), (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 4)
           - min(var(--FONT_XHEIGHT_OFFSET), (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 4)
           ); */
-    --fontBottomOffset: calc(var(--fontSize) * 0.146);
+    --fontBottomOffset: calc((var(--fontSize) * var(--FONT_BOTTOM_RATIO)) * 1.5);
     line-height: var(--lineHeight);
-    margin-top: calc(var(--xheightOffset) * -1);
+    margin-top: calc(var(--xheightOffset) / 1.5 * -1);
     margin-bottom: calc(var(--fontBottomOffset) * -1);
     }
 }
@@ -318,11 +337,11 @@ h3 {
 .links__link {
     display: block;
     width: fit-content !important;
-    height: min-content;
+    /* height: fit-content;
     margin-bottom: 5.6vh;
     font-weight: inherit;
     font-size: inherit;
-    line-height: 100%;
+    line-height: 100%; */
 }
 
 .links__link a {
@@ -348,8 +367,8 @@ h3 {
     .links__link a {
         color: var(--font-color);
         --fontSize: 36px;
-        --fontTopOffset: calc(var(--fontSize) * 0.175);
-        --fontBottomOffset: calc(var(--fontSize) * 0.146);
+        --fontTopOffset: calc((var(--fontSize) * var(--FONT_TOP_RATIO)) / 1.5);
+        --fontBottomOffset: calc((var(--fontSize) * var(--FONT_BOTTOM_RATIO)) * 1.5);
         line-height: 100%;
         margin-top: calc(var(--fontTopOffset) * -1);
         margin-bottom: calc(var(--fontBottomOffset) * -1);
@@ -421,7 +440,7 @@ a:focus-visible {
         color: var(--font-color);
         font: 36px 'New Spirit', serif;
         --fontSize: 36px;
-        --fontBottomOffset: calc(var(--fontSize) * 0.146);
+        --fontBottomOffset: calc((var(--fontSize) * var(--FONT_BOTTOM_RATIO)) * 1.5);
         line-height: 100%;
         margin-bottom: calc(var(--fontBottomOffset) * -1);
         bottom: 5.6vh;
