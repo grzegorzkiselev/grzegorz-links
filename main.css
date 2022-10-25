@@ -259,7 +259,8 @@ body {
         --module: 9vh;
         --FONT_XHEIGHT_OFFSET: calc(var(--fontSize) * var(--FONT_TOP_RATIO));
         --lineHeight: calc(var(--fontSize) + (var(--module) - var(--fontSize)));
-        --xheightOffset: calc((((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET)) / 1.5);
+        /* --xheightOffset: calc((((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET)) / 1.5); */
+        --xheightOffset: calc((((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET)));
         /* --xheightOffset: calc(
             max(var(--FONT_XHEIGHT_OFFSET), (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 4)
           - min(var(--FONT_XHEIGHT_OFFSET), (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 4)
