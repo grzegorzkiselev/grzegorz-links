@@ -4,8 +4,24 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     document.querySelector(".preloader").remove()
 }
 
-import "./styles/style.css"
 
+
+let userAgentString = navigator.userAgent;
+let chrome = userAgentString.indexOf("Chrome") > -1;
+let safari = userAgentString.indexOf("Safari") > -1;
+if ((chrome || safari) && !isMobile) {
+    const specificStyles = document.createElement("link")
+    specificStyles.href = "./theme/chrome+safari.css"
+    specificStyles.rel = "stylesheet"
+    document.head.appendChild(specificStyles)
+} else {
+    const specificStyles = document.createElement("link")
+    specificStyles.href = "./theme/other-browsers.css"
+    specificStyles.rel = "stylesheet"
+    document.head.appendChild(specificStyles)
+}
+
+import "./styles/style.css"
 import("./aspect-ratio/aspect-ratio.js")
 import("./three/me.js")
 import("./three/cubes.js")

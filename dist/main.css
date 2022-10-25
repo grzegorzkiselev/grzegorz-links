@@ -1,3 +1,47 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 @font-face {
     font-family: "PT Serif";
     src: url(assets/fonts/fdc7a7ec44dae0800cd0af565b0d9764.woff2) format('woff2');
@@ -23,9 +67,6 @@
     --hover-color: #6282F0;
     --selection-text-color: #93A71E;
     --selection-background-color: rgba(98, 130, 240, 0.35);
-    
-    --FONT_TOP_RATIO: 0.364;
-    --FONT_BOTTOM_RATIO: 0.146;
 }
 
 *,
@@ -71,7 +112,6 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 
 body {
     height: 100%;
-    line-height: 100%;
     font-weight: 100;
     letter-spacing: -0.2pt;
     text-rendering: optimizeLegibility;
@@ -127,7 +167,6 @@ body {
     height: 14.6vh;
     font-family: "Arial Narrow", sans-serif-condensed, sans-serif;
     font-weight: 400;
-    line-height: 100%;
     font-size: 24px;
     color: var(--font-color);
 }
@@ -148,7 +187,6 @@ body {
     font-family: inherit;
     font-weight: inherit;
     font-size: inherit;
-    line-height: 100%;
 }
 
 .mytime {
@@ -216,11 +254,7 @@ body {
     color: var(--font-color);
     --module: 9vh;
     --fontSize: 48px;
-    --lineHeight: calc(
-        var(--fontSize) 
-        + (var(--module)
-        - ((var(--fontSize) - (var(--fontSize) * var(--FONT_TOP_RATIO))) + (var(--fontSize) - (var(--fontSize) * var(--FONT_BOTTOM_RATIO))))
-    ));
+    --lineHeight: calc(var(--fontSize) + (var(--module) - ((var(--fontSize) - (var(--fontSize) * var(--FONT_TOP_RATIO))) + (var(--fontSize) - (var(--fontSize) * var(--FONT_BOTTOM_RATIO))))));
     --FONT_XHEIGHT_OFFSET: calc(var(--fontSize) * var(--FONT_TOP_RATIO));
     --xheightOffset: calc(max(var(--FONT_XHEIGHT_OFFSET),
                 (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 2) - min(var(--FONT_XHEIGHT_OFFSET),
@@ -237,7 +271,8 @@ body {
         color: var(--font-color);
         --fontSize: 36px;
         --module: 9vh;
-        --FONT_XHEIGHT_OFFSET: calc(var(--fontSize) * 0.321);
+
+        --FONT_XHEIGHT_OFFSET: calc(var(--fontSize) * var(--FONT_TOP_RATIO));
         --lineHeight: calc(var(--fontSize) + ((var(--module) - (var(--fontSize) * 2)) / 2));
         --xheightOffset: calc(var(--FONT_XHEIGHT_OFFSET) - (var(--lineHeight) - var(--fontSize)));
         /* --xheightOffset: calc(((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET)); */
@@ -257,6 +292,7 @@ body {
         color: var(--font-color);
         --fontSize: 36px;
         --module: 9vh;
+
         --FONT_XHEIGHT_OFFSET: calc(var(--fontSize) * var(--FONT_TOP_RATIO));
         --lineHeight: calc(var(--fontSize) + (var(--module) - var(--fontSize)));
         /* --xheightOffset: calc((((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET)) / 1.5); */
@@ -265,7 +301,7 @@ body {
             max(var(--FONT_XHEIGHT_OFFSET), (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 4)
           - min(var(--FONT_XHEIGHT_OFFSET), (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 4)
           ); */
-    --fontBottomOffset: calc((var(--fontSize) * var(--FONT_BOTTOM_RATIO)) * 1.5);
+    --fontBottomOffset: calc((var(--fontSize) * var(--FONT_BOTTOM_RATIO)));
     line-height: var(--lineHeight);
     margin-top: calc(var(--xheightOffset) / 1.5 * -1);
     margin-bottom: calc(var(--fontBottomOffset) * -1);
@@ -338,8 +374,8 @@ h3 {
 .links__link {
     display: block;
     width: fit-content !important;
-    /* height: fit-content;
-    margin-bottom: 5.6vh;
+    height: fit-content;
+    /* margin-bottom: 5.6vh;
     font-weight: inherit;
     font-size: inherit;
     line-height: 100%; */
@@ -350,11 +386,11 @@ h3 {
     display: block;
     width: fit-content !important;
     --fontSize: 48px;
+
     margin-top: calc(var(--fontSize) * -1 * var(--FONT_TOP_RATIO));
     margin-bottom: calc(var(--fontSize) * -1 * var(--FONT_BOTTOM_RATIO));
     font-size: inherit;
     text-align: left;
-    line-height: 100%;
     text-decoration-color: var(--font-color);
     text-underline-offset: calc(5.6vh - 3.7vh);
     text-decoration-thickness: 1px;
@@ -362,15 +398,18 @@ h3 {
     outline: none;
     transition: color 0.1s linear;
     transition: text-decoration 0.01s linear;
+    line-height: 1;
 }
 
 @media screen and (max-width: 640px) {
     .links__link a {
         color: var(--font-color);
         --fontSize: 36px;
-        --fontTopOffset: calc((var(--fontSize) * var(--FONT_TOP_RATIO)) / 1.5);
-        --fontBottomOffset: calc((var(--fontSize) * var(--FONT_BOTTOM_RATIO)) * 1.5);
-        line-height: 100%;
+
+
+        --fontTopOffset: calc((var(--fontSize) * var(--FONT_TOP_RATIO)));
+        --fontBottomOffset: calc((var(--fontSize) * var(--FONT_BOTTOM_RATIO)));
+
         margin-top: calc(var(--fontTopOffset) * -1);
         margin-bottom: calc(var(--fontBottomOffset) * -1);
     }
@@ -432,7 +471,7 @@ a:focus-visible {
     z-index: 1;
     display: block;
     text-align: right;
-    line-height: 100%;
+    line-height: 1;
     color: var(--font-color);
 }
 
@@ -441,8 +480,8 @@ a:focus-visible {
         color: var(--font-color);
         font: 36px 'New Spirit', serif;
         --fontSize: 36px;
-        --fontBottomOffset: calc((var(--fontSize) * var(--FONT_BOTTOM_RATIO)) * 1.5);
-        line-height: 100%;
+        --fontBottomOffset: calc((var(--fontSize) * var(--FONT_BOTTOM_RATIO)));
+        line-height: 1;
         margin-bottom: calc(var(--fontBottomOffset) * -1);
         bottom: 5.6vh;
     }
