@@ -3,6 +3,13 @@
     src: url('../../static/fonts/pt-serif-v17-latin_cyrillic-regular.woff2') format('woff2');
     font-display: swap;
 }
+
+@font-face {
+    font-family: "New Spirit";
+    src: url('../../static/fonts/NewSpirit.woff2') format('woff2');
+    font-display: swap;
+}
+
 @font-face {
     font-family: "Arial Narrow";
     src: url('../../static/fonts/arialnarrow-subset.woff2') format('woff2');
@@ -16,6 +23,9 @@
     --hover-color: #6282F0;
     --selection-text-color: #93A71E;
     --selection-background-color: rgba(98, 130, 240, 0.35);
+    
+    --FONT_TOP_RATIO: 0.364;
+    --FONT_BOTTOM_RATIO: 0.146;
 }
 
 *,
@@ -75,6 +85,7 @@ body {
 .background {
     z-index: 0;
 }
+
 #f {
     height: 23.6vh;
     background: var(--f-color);
@@ -113,7 +124,9 @@ body {
     width: 100%;
 }
 
-.header__title, .current-city, .mytime {
+.header__title,
+.current-city,
+.mytime {
     display: inline-block;
     font-family: inherit;
     font-weight: inherit;
@@ -142,8 +155,9 @@ body {
 .link__icon {
     fill: currentColor;
 }
+
 .content {
-    font: 48px 'PT Serif', serif;
+    font: 48px 'New Spirit', serif;
     position: absolute;
     left: 9vw;
     top: 14.6vh;
@@ -151,22 +165,22 @@ body {
     width: 82vw;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 640px) {
     .content {
-        font: 36px 'PT Serif', serif;
+        font: 36px 'New Spirit', serif;
     }
 }
 
 .visually-hidden {
-  position: absolute;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  margin: 0;
-  padding: 0;
-  width: 1px;
-  height: 0;
-  border: 0;
-  white-space: nowrap;
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: 0;
+    padding: 0;
+    width: 1px;
+    height: 0;
+    border: 0;
+    white-space: nowrap;
 }
 
 .webgl {
@@ -185,45 +199,56 @@ body {
     color: var(--font-color);
     --module: 9vh;
     --fontSize: 48px;
-    --fontTopOffset: calc(var(--fontSize) * 0.175);
-    --fontBottomOffset: calc(var(--fontSize) * 0.125);
-    --xheightOffset: calc(var(--fontSize) * 0.375);
-    --lineheightoffset: calc((var(--module) - (var(--fontSize) - var(--fontSize) * 0.125) - (var(--fontSize) - var(--fontSize) * 0.375)) / 2);
-    line-height: calc(var(--fontSize) + var(--lineheightoffset) * 2);
-    --xheightoffset: calc((var(--lineheightoffset) + var(--xheightOffset)) * -1);
-    margin-top: var(--xheightoffset);
-    margin-bottom: calc((var(--lineheightoffset) + var(--fontSize) * 0.125) * -1);
+    --lineHeight: calc(
+        var(--fontSize) 
+        + (var(--module)
+        - ((var(--fontSize) - (var(--fontSize) * var(--FONT_TOP_RATIO))) + (var(--fontSize) - (var(--fontSize) * var(--FONT_BOTTOM_RATIO))))
+    ));
+    --FONT_XHEIGHT_OFFSET: calc(var(--fontSize) * var(--FONT_TOP_RATIO));
+    --xheightOffset: calc(max(var(--FONT_XHEIGHT_OFFSET),
+                (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 2) - min(var(--FONT_XHEIGHT_OFFSET),
+                (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 2));
+    --fontBottomOffset: calc(var(--fontSize) * var(--FONT_BOTTOM_RATIO));
+    line-height: var(--lineHeight);
+    margin-top: calc(var(--xheightOffset) * -1);
+    margin-bottom: calc(var(--fontBottomOffset) * -1);
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 640px) {
     #intro {
         max-width: 100%;
         color: var(--font-color);
         --fontSize: 36px;
         --module: 9vh;
-        --lineHeight: calc(var(--fontSize) + ((var(--module) - (var(--fontSize) * 2)) / 4));
-        --fontTopOffset: calc(var(--lineHeight) * 0.175);
-        --fontBottomOffset: calc(var(--lineHeight) * 0.125);
-        --xheightOffset: calc(var(--lineHeight) * 0.375);
+        --FONT_XHEIGHT_OFFSET: calc(var(--fontSize) * var(--FONT_TOP_RATIO));
+        --lineHeight: calc(var(--fontSize) + ((var(--module) - (var(--fontSize) * 2)) / 2));
+        --xheightOffset: calc(
+            max(var(--FONT_XHEIGHT_OFFSET), (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 2) 
+          - min(var(--FONT_XHEIGHT_OFFSET), (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 2));
+        --fontBottomOffset: calc(var(--fontSize) * var(--FONT_BOTTOM_RATIO));
         line-height: var(--lineHeight);
         margin-top: calc(var(--xheightOffset) * -1);
         margin-bottom: calc(var(--fontBottomOffset) * -1);
     }
 }
 
-@media screen and (max-width: 1300px) and (min-width: 0px) and (orientation: landscape) {
+@media screen and (max-width: 640px) and (orientation: landscape) {
     #intro {
         max-width: 100%;
         color: var(--font-color);
         --fontSize: 36px;
         --module: 9vh;
-        --lineHeight: calc(var(--module));
-        --fontTopOffset: calc(var(--lineHeight) * 0.175);
-        --fontBottomOffset: calc(var(--lineHeight) * 0.125);
-        --xheightOffset: calc(var(--lineHeight) * 0.375);
-        line-height: var(--lineHeight);
-        margin-top: calc(var(--xheightOffset) * -1);
-        margin-bottom: calc(var(--fontBottomOffset) * -1);
+        --FONT_XHEIGHT_OFFSET: calc(var(--fontSize) * var(--FONT_TOP_RATIO));
+        --lineHeight: calc(var(--fontSize) + (var(--module) - var(--fontSize)));
+        --xheightOffset: calc(((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET));
+        /* --xheightOffset: calc(
+            max(var(--FONT_XHEIGHT_OFFSET), (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 4)
+          - min(var(--FONT_XHEIGHT_OFFSET), (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 4)
+          ); */
+    --fontBottomOffset: calc(var(--fontSize) * 0.146);
+    line-height: var(--lineHeight);
+    margin-top: calc(var(--xheightOffset) * -1);
+    margin-bottom: calc(var(--fontBottomOffset) * -1);
     }
 }
 
@@ -237,7 +262,7 @@ body {
     margin-right: calc((9vw - 5.6vw) * -1);
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 640px) {
     .display {
         margin-bottom: 5.6vh;
         grid-template-columns: 1fr !important;
@@ -245,12 +270,12 @@ body {
     }
 }
 
-@media screen and (max-width: 1300px) and (min-width: 0px) and (orientation: landscape) {
+@media screen and (max-width: 640px) and (orientation: landscape) {
     .display {
         column-gap: 2.1vw;
         grid-template-columns: 1fr 1fr 1fr !important;
         margin-bottom: 9vh;
-  }
+    }
 }
 
 .display__project {
@@ -274,6 +299,7 @@ body {
 } */
 
 canvas {
+    cursor: wait;
     height: 100% !important;
     width: 100% !important;
 }
@@ -304,8 +330,8 @@ h3 {
     display: block;
     width: fit-content !important;
     --fontSize: 48px;
-    margin-top: calc(var(--fontSize) * -0.375);
-    margin-bottom: calc(var(--fontSize) * -0.125);
+    margin-top: calc(var(--fontSize) * -1 * var(--FONT_TOP_RATIO));
+    margin-bottom: calc(var(--fontSize) * -1 * var(--FONT_BOTTOM_RATIO));
     font-size: inherit;
     text-align: left;
     line-height: 100%;
@@ -318,12 +344,12 @@ h3 {
     transition: text-decoration 0.01s linear;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 640px) {
     .links__link a {
         color: var(--font-color);
         --fontSize: 36px;
         --fontTopOffset: calc(var(--fontSize) * 0.175);
-        --fontBottomOffset: calc(var(--fontSize) * 0.125);
+        --fontBottomOffset: calc(var(--fontSize) * 0.146);
         line-height: 100%;
         margin-top: calc(var(--fontTopOffset) * -1);
         margin-bottom: calc(var(--fontBottomOffset) * -1);
@@ -344,11 +370,13 @@ a:focus-visible {
 }
 
 @keyframes blink {
+
     0%,
     49%,
     to {
         opacity: 1
     }
+
     50%,
     99% {
         opacity: 0
@@ -376,10 +404,10 @@ a:focus-visible {
 }
 
 #resize-value {
-    font: 48px 'PT Serif', serif;
+    font: 48px 'New Spirit', serif;
     position: fixed;
     --fontSize: 48px;
-    bottom: calc(5.6vh - (var(--fontSize) * 0.125));
+    bottom: calc(5.6vh - (var(--fontSize) * var(--FONT_BOTTOM_RATIO)));
     right: 3.4vw;
     z-index: 1;
     display: block;
@@ -388,19 +416,21 @@ a:focus-visible {
     color: var(--font-color);
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 640px) {
     #resize-value {
         color: var(--font-color);
-        font: 36px 'PT Serif', serif;
+        font: 36px 'New Spirit', serif;
         --fontSize: 36px;
-        --fontBottomOffset: calc(var(--fontSize) * 0.125);
+        --fontBottomOffset: calc(var(--fontSize) * 0.146);
         line-height: 100%;
         margin-bottom: calc(var(--fontBottomOffset) * -1);
         bottom: 5.6vh;
     }
 }
 
-#resize-value-hide {  display: none;  }
+#resize-value-hide {
+    display: none;
+}
 
 .hover-reveal {
     position: fixed;
@@ -413,7 +443,10 @@ a:focus-visible {
     opacity: 0;
 }
 
-.hover-reveal__inner {  overflow: hidden; z-index: 1 !important; }
+.hover-reveal__inner {
+    overflow: hidden;
+    z-index: 1 !important;
+}
 
 .hover-reveal__inner,
 .hover-reveal__img {
