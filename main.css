@@ -12,13 +12,13 @@
 
 @font-face {
     font-family: "Arial Narrow";
-    src: url(assets/fonts/326b67480de1304432b41e25ad02070f.woff2) format('woff2');
+    src: url(assets/fonts/bab700b0db2d3c7a83d5b722b6cef736.woff2) format('woff2');
     font-display: swap;
 }
 
 :root {
     /* --ruler-color: aqua; */
-    --ruler-color: #24DC43;
+    --ruler-color: #74E785;
     --project-background: white;
     --selection-color: #24DC43;
     --hover-color: #6282F0;
