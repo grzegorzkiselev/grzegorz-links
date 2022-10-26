@@ -137,7 +137,7 @@ body {
 
 .header__list {
     display: flex;
-    gap: 3.1vh;
+    gap: 20px;
 }
 
 .list__item {
@@ -223,6 +223,17 @@ body {
         --xheightOffset: calc(((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET));
         /* --fontBottomOffset: calc(var(--fontSize) * var(--FONT_BOTTOM_RATIO)); */
         line-height: var(--lineHeight);
+    }
+}
+
+@media screen and (max-height: 600px) {
+    #intro {
+        max-width: 100%;
+        color: var(--font-color);
+        --fontSize: 36px;
+        --lineHeight: calc(var(--module));
+        --xheightOffset: calc(var(--fontSize) * var(--FONT_TOP_RATIO) + (var(--lineHeight) - var(--fontSize)) / 2);
+        line-height: max(24px, var(--lineHeight));
     }
 }
 
