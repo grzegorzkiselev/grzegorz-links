@@ -1,47 +1,3 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
 @font-face {
     font-family: "PT Serif";
     src: url(assets/fonts/fdc7a7ec44dae0800cd0af565b0d9764.woff2) format('woff2');
@@ -63,10 +19,11 @@ table {
 :root {
     --ruler-color: aqua;
     --project-background: white;
-    --selection-color: #6282F0;
+    --selection-color: #24DC43;
     --hover-color: #6282F0;
-    --selection-text-color: #93A71E;
-    --selection-background-color: rgba(98, 130, 240, 0.35);
+    --selection-text-color: var(--font-color);
+    --selection-background-color: rgba(36, 220, 67, 0.65); 
+    --LINE_HEIGHT_RATIO: 1.1;
 }
 
 *,
@@ -78,28 +35,12 @@ table {
     -webkit-tap-highlight-color: transparent;
     overscroll-behavior: none;
     scroll-behavior: auto;
+    font-weight: inherit;
 }
 
 html {
     height: 100%;
     scroll-behavior: auto;
-}
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-	border: 0;
-	outline: 0;
-	font-weight: inherit;
-	font-style: inherit;
-	font-size: 100%;
-	font-family: inherit;
-	vertical-align: top;
 }
 
 .preloader {
@@ -176,7 +117,7 @@ body {
     flex-wrap: wrap;
     column-gap: 3.1vh;
     row-gap: 1vh;
-    padding-top: calc(5.6vh + (24px * -0.325));
+    padding-top: calc(5.6vh + (24px * -0.4));
     width: 100%;
 }
 
@@ -220,7 +161,7 @@ body {
     width: 82vw;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1024px) {
     .content {
         font: 36px 'New Spirit', serif;
     }
@@ -256,57 +197,45 @@ body {
     --fontSize: 48px;
     --lineHeight: calc(var(--fontSize) + (var(--module) - ((var(--fontSize) - (var(--fontSize) * var(--FONT_TOP_RATIO))) + (var(--fontSize) - (var(--fontSize) * var(--FONT_BOTTOM_RATIO))))));
     --FONT_XHEIGHT_OFFSET: calc(var(--fontSize) * var(--FONT_TOP_RATIO));
-    --xheightOffset: calc(max(var(--FONT_XHEIGHT_OFFSET),
+    --xheightOffset: calc(((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET));
+    /* --xheightOffset: calc(max(var(--FONT_XHEIGHT_OFFSET),
                 (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 2) - min(var(--FONT_XHEIGHT_OFFSET),
-                (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 2));
+                (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 2)); */
     --fontBottomOffset: calc(var(--fontSize) * var(--FONT_BOTTOM_RATIO));
     line-height: var(--lineHeight);
     margin-top: calc(var(--xheightOffset) * -1);
     margin-bottom: calc(var(--fontBottomOffset) * -1);
 }
 
-@media screen and (max-width: 640px) {
+#intro span {
+    color: #24DC43;
+}
+
+@media screen and (max-width: 1024px) {
     #intro {
         max-width: 100%;
         color: var(--font-color);
         --fontSize: 36px;
-        --module: 9vh;
-
-        --FONT_XHEIGHT_OFFSET: calc(var(--fontSize) * var(--FONT_TOP_RATIO));
+        /* --module: 9vh; */
+        /* --FONT_XHEIGHT_OFFSET: calc(var(--fontSize) * var(--FONT_TOP_RATIO)); */
         --lineHeight: calc(var(--fontSize) + ((var(--module) - (var(--fontSize) * 2)) / 2));
-        --xheightOffset: calc(var(--FONT_XHEIGHT_OFFSET) - (var(--lineHeight) - var(--fontSize)));
-        /* --xheightOffset: calc(((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET)); */
-        /* --xheightOffset: calc(
-            max(var(--FONT_XHEIGHT_OFFSET), (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 2) 
-          - min(var(--FONT_XHEIGHT_OFFSET), (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 2)); */
-        --fontBottomOffset: calc(var(--fontSize) * 0.138);
+        --xheightOffset: calc(((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET));
+        /* --fontBottomOffset: calc(var(--fontSize) * var(--FONT_BOTTOM_RATIO)); */
         line-height: var(--lineHeight);
-        margin-top: calc(var(--xheightOffset) * -1);
-        margin-bottom: calc(var(--fontBottomOffset) * -1);
     }
 }
 
-@media screen and (max-width: 640px) and (orientation: landscape) {
+/* @media screen and (max-width: 1024px) and (orientation: landscape) {
     #intro {
         max-width: 100%;
         color: var(--font-color);
         --fontSize: 36px;
         --module: 9vh;
-
-        --FONT_XHEIGHT_OFFSET: calc(var(--fontSize) * var(--FONT_TOP_RATIO));
-        --lineHeight: calc(var(--fontSize) + (var(--module) - var(--fontSize)));
-        /* --xheightOffset: calc((((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET)) / 1.5); */
-        --xheightOffset: calc((((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET)));
-        /* --xheightOffset: calc(
-            max(var(--FONT_XHEIGHT_OFFSET), (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 4)
-          - min(var(--FONT_XHEIGHT_OFFSET), (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 4)
-          ); */
-    --fontBottomOffset: calc((var(--fontSize) * var(--FONT_BOTTOM_RATIO)));
-    line-height: var(--lineHeight);
-    margin-top: calc(var(--xheightOffset) / 1.5 * -1);
-    margin-bottom: calc(var(--fontBottomOffset) * -1);
+        --lineHeight: calc(var(--module));
+        --xheightOffset: calc(((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET));
+        line-height: var(--lineHeight);
     }
-}
+} */
 
 
 .display {
@@ -318,7 +247,7 @@ body {
     margin-right: calc((9vw - 5.6vw) * -1);
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1024px) {
     .display {
         margin-bottom: 5.6vh;
         grid-template-columns: 1fr !important;
@@ -326,13 +255,13 @@ body {
     }
 }
 
-@media screen and (max-width: 640px) and (orientation: landscape) {
+/* @media screen and (1024: 640px) and (orientation: landscape) {
     .display {
         column-gap: 2.1vw;
         grid-template-columns: 1fr 1fr 1fr !important;
         margin-bottom: 9vh;
     }
-}
+} */
 
 .display__project {
     height: 52.8vh !important;
@@ -386,9 +315,10 @@ h3 {
     display: block;
     width: fit-content !important;
     --fontSize: 48px;
-
-    margin-top: calc(var(--fontSize) * -1 * var(--FONT_TOP_RATIO));
-    margin-bottom: calc(var(--fontSize) * -1 * var(--FONT_BOTTOM_RATIO));
+    --fontTopOffset: calc((var(--fontSize) * var(--FONT_TOP_RATIO)));
+    --fontBottomOffset: calc((var(--fontSize) * var(--FONT_BOTTOM_RATIO)));
+    margin-top: calc(var(--fontTopOffset) * -1);
+    margin-bottom: calc(var(--fontBottomOffset) * -1);
     font-size: inherit;
     text-align: left;
     text-decoration-color: var(--font-color);
@@ -398,18 +328,15 @@ h3 {
     outline: none;
     transition: color 0.1s linear;
     transition: text-decoration 0.01s linear;
-    line-height: 1;
+    line-height: calc(var(--fontSize) * var(--LINE_HEIGHT_RATIO));
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1024px) {
     .links__link a {
         color: var(--font-color);
         --fontSize: 36px;
-
-
         --fontTopOffset: calc((var(--fontSize) * var(--FONT_TOP_RATIO)));
         --fontBottomOffset: calc((var(--fontSize) * var(--FONT_BOTTOM_RATIO)));
-
         margin-top: calc(var(--fontTopOffset) * -1);
         margin-bottom: calc(var(--fontBottomOffset) * -1);
     }
@@ -475,7 +402,7 @@ a:focus-visible {
     color: var(--font-color);
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1024px) {
     #resize-value {
         color: var(--font-color);
         font: 36px 'New Spirit', serif;

@@ -14,8 +14,8 @@ const scene = new THREE.Scene()
 let stopModule = false
 document.addEventListener("moduleLoaded", (e) => {
     gsap.delayedCall(1.5, () => {
-        gsap.to(overlayMaterial.uniforms.uRadius, { duration: 1, value: 16.00 });
-        gsap.to(overlayMaterial.uniforms.uBlur, { duration: 1, value: 0.0 });
+        gsap.to(overlayMaterial.uniforms.uRadius, { duration: 3, value: 4.00 });
+        gsap.to(overlayMaterial.uniforms.uBlur, { duration: 3, value: 0.0 });
         setTimeout(() => {
             canvas.remove()
             renderer.dispose()
@@ -28,7 +28,7 @@ document.addEventListener("moduleLoaded", (e) => {
             scene.remove()
             stopModule = true
             return stopModule
-        }, "1200")
+        }, "2000")
     })
 })
 

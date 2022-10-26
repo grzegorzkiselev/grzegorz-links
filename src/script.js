@@ -1,24 +1,24 @@
 let isMobile = false;
+let isApple = false;
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     isMobile = true;
     document.querySelector(".preloader").remove()
 }
-
-
+if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
+    isApple = true;
+}
 
 let userAgentString = navigator.userAgent;
 let chrome = userAgentString.indexOf("Chrome") > -1;
 let safari = userAgentString.indexOf("Safari") > -1;
-if ((chrome || safari) && !isMobile) {
-    const specificStyles = document.createElement("link")
-    specificStyles.href = "./theme/chrome+safari.css"
-    specificStyles.rel = "stylesheet"
-    document.head.appendChild(specificStyles)
+
+if (((chrome || safari) && !isMobile) || isApple) {
+    const extraLink = document.querySelector('[href="./theme/dumb_font-metrics.css"]');
+    extraLink.remove()
 } else {
-    const specificStyles = document.createElement("link")
-    specificStyles.href = "./theme/other-browsers.css"
-    specificStyles.rel = "stylesheet"
-    document.head.appendChild(specificStyles)
+    const extraLink = document.querySelector('[href="./theme/font-based-metrics.css"]');
+    extraLink.remove()
+    console.log("second case")
 }
 
 import "./styles/style.css"
