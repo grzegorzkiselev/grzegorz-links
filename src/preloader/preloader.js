@@ -1,7 +1,6 @@
-import * as THREE from '../../static/utilities/three.min.js'
+import { Scene, PerspectiveCamera, Vector2, ShaderMaterial, DoubleSide, Mesh, PlaneBufferGeometry, WebGLRenderer } from "../../static/utilities/three.min.js";
 import fragmentShader from "./fragmentShader.glsl"
 import vertexShader from "./vertexShader.glsl"
-// import { OrbitControls } from '../../static/utilities/OrbitControls.js'
 import {
   gsap
 } from 'gsap';
@@ -10,7 +9,7 @@ import {
 const canvas = document.querySelector('.preloader')
 
 // Scene
-const scene = new THREE.Scene()
+const scene = new Scene()
 
 // Loaders
 let stopModule = false
@@ -39,17 +38,17 @@ const sizes = {
   height: window.innerHeight * 2
 }
 
-const mouse = new THREE.Vector2(sizes.width / 2, sizes.height / 2);
+const mouse = new Vector2(sizes.width / 2, sizes.height / 2);
 window.addEventListener('mousemove', (event) => {
   mouse.x = event.clientX / window.innerWidth - 0.5;
   mouse.y = -(event.clientY / window.innerHeight - 0.5);
 })
 
 // Preloader
-const overlayMaterial = new THREE.ShaderMaterial({
+const overlayMaterial = new ShaderMaterial({
   precision: "lowp",
   // transparent: true,
-  side: THREE.DoubleSide,
+  side: DoubleSide,
   uniforms: {
     uAlpha: {
       value: 0.5
@@ -61,7 +60,7 @@ const overlayMaterial = new THREE.ShaderMaterial({
       value: 0
     },
     uRes: {
-      value: new THREE.Vector2(window.innerWidth, window.innerHeight)
+      value: new Vector2(window.innerWidth, window.innerHeight)
     },
     uRadius: {
       value: 0.01
@@ -73,13 +72,13 @@ const overlayMaterial = new THREE.ShaderMaterial({
   vertexShader: vertexShader,
   fragmentShader: fragmentShader,
   defines: {
-    PR: window.devicePixelRatio.toFixed(1)
+    PR: window.devicePixelRatio.toFixed(2)
   }
 
 })
 
-const overlay = new THREE.Mesh(
-  new THREE.PlaneBufferGeometry(2, 2, 1, 1),
+const overlay = new Mesh(
+  new PlaneBufferGeometry(2, 2, 1, 1),
   overlayMaterial
 )
 canvas.style.backgroundColor = "unset"
@@ -92,18 +91,18 @@ window.addEventListener('resize', () => {
 
   // Update renderer
   renderer.setSize(sizes.width, sizes.height)
-  renderer.setPixelRatio(1)
+  renderer.setPixelRatio(2)
 })
 
 // Base camera
 // const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-const camera = new THREE.PerspectiveCamera(0, sizes.width / sizes.height, 0, 0)
+const camera = new PerspectiveCamera(0, sizes.width / sizes.height, 0, 0)
 // camera.position.set(4, 1, -4)
 scene.add(camera)
 
 
 // Renderer
-const renderer = new THREE.WebGLRenderer({
+const renderer = new WebGLRenderer({
   canvas: canvas,
   antialias: false,
   alpha: true,

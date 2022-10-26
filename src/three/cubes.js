@@ -1,4 +1,5 @@
-import * as THREE from '../../static/utilities/three.min.js'
+// import * as THREE from '../../static/utilities/three.min.js'
+import { BoxBufferGeometry, Group, Mesh, ShaderMaterial, Color, Clock } from "../../static/utilities/three.min.js";
 const random = require("canvas-sketch-util/random");
 const palettes = require("nice-color-palettes");
 import { Base }  from "./base.js"
@@ -6,13 +7,13 @@ import { Base }  from "./base.js"
 const canvas = document.querySelector('canvas.cubes')
 const base = new Base(canvas)
 
-const geometry = new THREE.BoxBufferGeometry(1, 1, 1);
+const geometry = new BoxBufferGeometry(1, 1, 1);
 
 const colorCount = 5;
 const palette = random.shuffle(random.pick(palettes))
   .slice(0, colorCount);
 
-const meshes = new THREE.Group();
+const meshes = new Group();
 
 const fragmentShader = `
 		varying vec2 vUv;
@@ -33,15 +34,15 @@ const vertexShader = `
 	`;
 
 for (let i = 0; i < 20; i++) {
-  const mesh = new THREE.Mesh(
+  const mesh = new Mesh(
     geometry,
-    new THREE.ShaderMaterial({
+    new ShaderMaterial({
       precision: "lowp",
       fragmentShader,
       vertexShader,
       uniforms: {
         color: {
-          value: new THREE.Color(random.pick(palette))
+          value: new Color(random.pick(palette))
         }
       },
       // color: random.pick(palette),
@@ -68,7 +69,7 @@ base.scene.translateX(base.sceneScale / -2);
 base.scene.translateZ(base.sceneScale / -2);
 base.scene.translateY(base.sceneScale / -2);
 
-const clock = new THREE.Clock()
+const clock = new Clock()
 const tick = () => {
   const elapsedTime = clock.getElapsedTime()
 

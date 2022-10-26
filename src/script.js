@@ -1,16 +1,17 @@
 let isMobile = false;
 let isApple = false;
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    isMobile = true;
-    document.querySelector(".preloader").remove()
-}
-if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
-    isApple = true;
-}
 
 let userAgentString = navigator.userAgent;
 let chrome = userAgentString.indexOf("Chrome") > -1;
 let safari = userAgentString.indexOf("Safari") > -1;
+
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    isMobile = true;
+    document.querySelector(".preloader").remove()
+}
+if( /iPhone|iPad|iPod|/i.test(navigator.userAgent)) {
+  isApple = true;
+}
 
 if (((chrome || safari) && !isMobile) || isApple) {
     const extraLink = document.querySelector('[href="./theme/dumb_font-metrics.css"]');
@@ -18,7 +19,6 @@ if (((chrome || safari) && !isMobile) || isApple) {
 } else {
     const extraLink = document.querySelector('[href="./theme/font-based-metrics.css"]');
     extraLink.remove()
-    console.log("second case")
 }
 
 import "./styles/style.css"
@@ -27,7 +27,7 @@ import("./three/me.js")
 import("./three/cubes.js")
 import("./three/flowers.js")
 
-if (!isMobile) {
+if (!isMobile || !isApple) {
     import("./hover/menu.js").then(({ default: Menu }) => { new Menu(menuEl) });
     const menuEl = document.querySelector('.links');
     import("./preloader/preloader.js")

@@ -1,21 +1,22 @@
-import * as THREE from '../../static/utilities/three.min.js'
+// import * as THREE from '../../static/utilities/three.min.js'
+import { Scene, LoadingManager, TextureLoader, CubeTextureLoader, ShaderMaterial, Mesh, PlaneBufferGeometry, MeshStandardMaterial, sRGBEncoding, MeshDepthMaterial, RGBADepthPacking, AmbientLight, DirectionalLight, PerspectiveCamera, WebGLRenderer, ACESFilmicToneMapping, PCFShadowMap, Clock } from "../../static/utilities/three.min.js";
 import { OrbitControls } from '../../static/utilities/OrbitControls.js'
 import { GLTFLoader } from '../../static/utilities/GLTFLoader.js'
 import { DRACOLoader } from '../../static/utilities/DRACOLoader.js'
 import { gsap } from 'gsap';
 
-
 // Canvas
 const canvas = document.querySelector('canvas.me')
 
 // Scene
-const scene = new THREE.Scene()
+const scene = new Scene()
 
 const blurred = document.querySelector(".blurred")
 // const blurred = document.querySelectorAll(".blurred")
 
 // Loaders
-const loadingManager = new THREE.LoadingManager(() => {
+
+const loadingManager = new LoadingManager(() => {
         gsap.delayedCall(1.5, () => {
             gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 1.5, value: 0 });
             blurred.style.webkitFilter = "blur(0px)"
@@ -28,15 +29,15 @@ const loadingManager = new THREE.LoadingManager(() => {
     }
 )
 
-const textureLoader = new THREE.TextureLoader()
+const textureLoader = new TextureLoader()
 const gltfLoader = new GLTFLoader(loadingManager)
-const cubeTextureLoader = new THREE.CubeTextureLoader()
+const cubeTextureLoader = new CubeTextureLoader()
 const dracoLoader = new DRACOLoader(loadingManager)
 dracoLoader.setDecoderPath("./utilities/")
 gltfLoader.setDRACOLoader(dracoLoader)
 
 // Preloader
-const overlayMaterial = new THREE.ShaderMaterial({
+const overlayMaterial = new ShaderMaterial({
     precision: "lowp",
     transparent: true,
     uniforms: {
@@ -55,8 +56,8 @@ const overlayMaterial = new THREE.ShaderMaterial({
         }`
 })
 
-const overlay = new THREE.Mesh(
-    new THREE.PlaneBufferGeometry(2, 2, 1, 1),
+const overlay = new Mesh(
+    new PlaneBufferGeometry(2, 2, 1, 1),
     overlayMaterial
 )
 scene.add(overlay)
@@ -64,7 +65,7 @@ scene.add(overlay)
 // Update all materials
 const updateAllMaterials = () => {
     scene.traverse((child) => {
-        if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) {
+        if (child instanceof Mesh && child.material instanceof MeshStandardMaterial) {
             child.material.envMapIntensity = 5
             child.material.needsUpdate = true
             child.castShadow = true
@@ -82,24 +83,24 @@ const environmentMap = cubeTextureLoader.load([
     './textures/environmentMaps/0/pz.jpg',
     './textures/environmentMaps/0/nz.jpg'
 ])
-environmentMap.encoding = THREE.sRGBEncoding
+environmentMap.encoding = sRGBEncoding
 scene.environment = environmentMap
 
 // Textures
 const mapTexture = textureLoader.load('./models/Draco/textures/color.jpg')
-mapTexture.encoding = THREE.sRGBEncoding;
+mapTexture.encoding = sRGBEncoding;
 mapTexture.flipY = false;
 
 const normalTexture = textureLoader.load('./models/Draco/textures/normal.jpg')
 
 // Material
-const material = new THREE.MeshStandardMaterial({
+const material = new MeshStandardMaterial({
     map: mapTexture,
     normalMap: normalTexture
 })
 
-const depthMaterial = new THREE.MeshDepthMaterial({
-    depthPacking: THREE.RGBADepthPacking
+const depthMaterial = new MeshDepthMaterial({
+    depthPacking: RGBADepthPacking
 })
 
 const customUniforms = {
@@ -128,7 +129,7 @@ material.onBeforeCompile = (shader) => {
         '#include <beginnormal_vertex>',
         `
             #include <beginnormal_vertex>
-            
+
             float angle = sin(position.y + uTime) * 1.3;
 
             mat2 rotateMatrix = rotate2dRotateMatrix(angle);
@@ -187,10 +188,10 @@ gltfLoader.load(
 )
 
 // Light
-const ambientLight = new THREE.AmbientLight(0xffffff, 2)
+const ambientLight = new AmbientLight(0xffffff, 2)
 scene.add(ambientLight)
 
-const directionalLight = new THREE.DirectionalLight('#ffffff', 3)
+const directionalLight = new DirectionalLight('#ffffff', 3)
 directionalLight.castShadow = true
 directionalLight.shadow.mapSize.set(512, 512)
 directionalLight.shadow.camera.far = 4
@@ -217,7 +218,7 @@ window.addEventListener('resize', () => {
 })
 
 // Base camera
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
+const camera = new PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.set(4, 1, -4)
 scene.add(camera)
 
@@ -226,21 +227,21 @@ const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
 
 // Renderer
-const renderer = new THREE.WebGLRenderer({
+const renderer = new WebGLRenderer({
     canvas: canvas,
     antialias: true
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setClearColor("hsl(0, 0%, 95%)", 1);
-renderer.outputEncoding = THREE.sRGBEncoding
-renderer.toneMapping = THREE.ACESFilmicToneMapping
+renderer.outputEncoding = sRGBEncoding
+renderer.toneMapping = ACESFilmicToneMapping
 renderer.toneMappingExposure = 1
 renderer.shadowMap.enabled = true
-renderer.shadowMap.type = THREE.PCFShadowMap
+renderer.shadowMap.type = PCFShadowMap
 renderer.physicallyCorrectLights = true
 
 // Animation
-const clock = new THREE.Clock()
+const clock = new Clock()
 const tick = () => {
     const elapsedTime = clock.getElapsedTime()
 

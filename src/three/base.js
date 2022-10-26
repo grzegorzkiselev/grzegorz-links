@@ -1,4 +1,5 @@
-import * as THREE from '../../static/utilities/three.min.js'
+// import * as THREE from '../../static/utilities/three.min.js'
+import { Scene, OrthographicCamera, Vector3, sRGBEncoding, ReinhardToneMapping, WebGLRenderer } from "../../static/utilities/three.min.js";
 import {
   OrbitControls
 } from '../../static/utilities/OrbitControls.js'
@@ -12,25 +13,25 @@ const sizes = {
 
 class Base {
   constructor(canvas) {
-    this.scene = new THREE.Scene()
+    this.scene = new Scene()
     this.sceneScale = 1;
 
-    this.camera = new THREE.OrthographicCamera();
+    this.camera = new OrthographicCamera();
     this.camera.position.set(0, 0, -4);
-    this.camera.lookAt(new THREE.Vector3());
+    this.camera.lookAt(new Vector3());
     this.camera.near = -15
     this.camera.far = 15
     this.scene.add(this.camera)
 
-    this.renderer = new THREE.WebGLRenderer({
+    this.renderer = new WebGLRenderer({
       canvas: canvas,
       antialias: true
     })
 
     this.renderer.setSize(sizes.width, sizes.height)
     this.renderer.setClearColor("hsl(0, 0%, 95%)", 1);
-    this.renderer.outputEncoding = THREE.sRGBEncoding
-    this.renderer.toneMapping = THREE.ReinhardToneMapping
+    this.renderer.outputEncoding = sRGBEncoding
+    this.renderer.toneMapping = ReinhardToneMapping
     this.renderer.toneMappingExposure = 3
 
     this.controls = new OrbitControls(this.camera, canvas)
@@ -60,7 +61,7 @@ class Base {
       // Set position & look at world center
       this.camera.position.set(zoom, zoom, zoom);
       // camera.position.set(0, 0, 1);
-      this.camera.lookAt(new THREE.Vector3());
+      this.camera.lookAt(new Vector3());
 
       // Update the camera
       this.camera.updateProjectionMatrix();
