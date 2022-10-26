@@ -23,7 +23,7 @@
     --selection-color: #24DC43;
     --hover-color: #6282F0;
     --selection-text-color: var(--font-color);
-    --selection-background-color: rgba(36, 220, 67, 0.65); 
+    --selection-background-color: rgba(36, 220, 67, 0.65);
     --LINE_HEIGHT_RATIO: 1.1;
 }
 
@@ -448,6 +448,7 @@ a:focus-visible {
 
 .hover-reveal__inner,
 .hover-reveal__img {
+    border-radius: 10px;
     position: relative;
     z-index: 1 !important;
     width: 100%;

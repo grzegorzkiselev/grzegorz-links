@@ -52,13 +52,12 @@ export default class MenuItem {
             this.stopRendering();
             this.hideImage();
         };
-        
+
         this.DOM.el.addEventListener('mouseenter', this.mouseenterFn);
         this.DOM.el.addEventListener('mouseleave', this.mouseleaveFn);
     }
     showImage() {
         gsap.killTweensOf(this.DOM.revealInner);
-        gsap.killTweensOf(this.DOM.revealImage);
         this.tl = gsap.timeline({
             onStart: () => {
                 this.DOM.reveal.style.opacity = 1;

@@ -18,6 +18,8 @@ class Base {
     this.camera = new THREE.OrthographicCamera();
     this.camera.position.set(0, 0, -4);
     this.camera.lookAt(new THREE.Vector3());
+    this.camera.near = -15
+    this.camera.far = 15
     this.scene.add(this.camera)
 
     this.renderer = new THREE.WebGLRenderer({
@@ -52,8 +54,8 @@ class Base {
       this.camera.bottom = -zoom;
 
       // Near/Far
-      this.camera.near = -100;
-      this.camera.far = 100;
+      this.camera.near = -50;
+      this.camera.far = 50;
 
       // Set position & look at world center
       this.camera.position.set(zoom, zoom, zoom);
@@ -69,8 +71,6 @@ class Base {
     })
   }
 }
-
-
 
 export {
   Base

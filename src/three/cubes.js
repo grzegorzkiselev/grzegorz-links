@@ -1,7 +1,7 @@
 import * as THREE from '../../static/utilities/three.min.js'
 const random = require("canvas-sketch-util/random");
 const palettes = require("nice-color-palettes");
-import { Base}  from "./base.js"
+import { Base }  from "./base.js"
 
 const canvas = document.querySelector('canvas.cubes')
 const base = new Base(canvas)
