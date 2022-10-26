@@ -1,0 +1,95 @@
+import * as THREE from '../../static/utilities/three.min.js'
+import {
+    OrbitControls
+} from '../../static/utilities/OrbitControls.js'
+const random = require("canvas-sketch-util/random");
+const palettes = require("nice-color-palettes");
+
+export default class Scene {
+    constructor($scene) {
+        // this.container = $scene
+        // this.$tiles = document.querySelectorAll('.slideshow-list__el')
+
+        // this.W = window.innerWidth
+        // this.H = window.innerHeight
+
+        // this.start()
+    }
+
+    start() {
+        const scene = new THREE.Scene()
+        const sceneScale = 1;
+
+        // this.mainScene = new THREE.Scene()
+        this.initCamera()
+        this.initLights()
+        const renderer = new THREE.WebGLRenderer({
+            canvas: canvas,
+            antialias: true
+        })
+        renderer.setSize(sizes.width, sizes.height)
+        renderer.setClearColor("hsl(0, 0%, 95%)", 1);
+        renderer.outputEncoding = THREE.sRGBEncoding
+        renderer.toneMapping = THREE.ReinhardToneMapping
+        renderer.toneMappingExposure = 3
+        this.update()
+    }
+
+    initCamera() {
+        const camera = new THREE.OrthographicCamera();
+        camera.position.set(0, 0, -4);
+        camera.lookAt(new THREE.Vector3());
+        scene.add(camera)
+    }
+
+    initControls() {
+        const controls = new OrbitControls(camera, canvas)
+        controls.enableDamping = true
+    }
+
+    /* Handlers
+    --------------------------------------------------------- */
+
+    onResize() {
+        const frame = document.querySelector(".display__project");
+
+        const sizes = {
+            width: frame.clientWidth * 2,
+            height: frame.clientHeight * 2
+        }
+
+        window.addEventListener('resize', () => {
+            // Update sizes
+            sizes.width = frame.clientWidth
+            sizes.height = frame.clientHeight
+
+            // Update camera
+            camera.aspect = sizes.width / sizes.height
+
+            // Ortho zoom
+            const zoom = 1.0;
+
+            // Bounds
+            camera.left = -zoom * camera.aspect;
+            camera.right = zoom * camera.aspect;
+            camera.top = zoom;
+            camera.bottom = -zoom;
+
+            // Near/Far
+            camera.near = -100;
+            camera.far = 100;
+
+            // Set position & look at world center
+            camera.position.set(zoom, zoom, zoom);
+            // camera.position.set(0, 0, 1);
+            camera.lookAt(new THREE.Vector3());
+
+            // Update the camera
+            camera.updateProjectionMatrix();
+
+            // Update renderer
+            renderer.setSize(sizes.width, sizes.height)
+            renderer.setPixelRatio(2)
+        })
+    }
+}

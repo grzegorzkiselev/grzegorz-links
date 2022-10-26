@@ -103,7 +103,7 @@ body {
 
 .header {
     position: sticky;
-    z-index: 0;
+    z-index: 1;
     margin: auto;
     width: 82vw;
     height: 14.6vh;
