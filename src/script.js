@@ -16,9 +16,15 @@ let safari = userAgentString.indexOf("Safari") > -1;
 if (((chrome || safari) && !isMobile) || isApple) {
   const extraLink = document.querySelector('[href="./theme/dumb_font-metrics.css"]');
   extraLink.remove()
+  const link = document.createElement("link")
+  link.href = "./theme/font-based-metrics.css"
+  link.rel = "stylesheet"
+  document.head.appendChild(link)
 } else {
-  const extraLink = document.querySelector('[href="./theme/font-based-metrics.css"]');
-  extraLink.remove()
+  const link = document.createElement("link")
+  link.href = "./theme/dumb_font-metrics.css"
+  link.rel = "stylesheet"
+  document.head.appendChild(link)
 }
 
 import "./styles/style.css"
@@ -28,12 +34,12 @@ import("./three/cubes.js")
 import("./three/flowers.js")
 
 if (!isMobile) {
-  import("./hover/menu.js").then(({
-    default: Menu
-  }) => {
-    new Menu(menuEl)
-  });
-  const menuEl = document.querySelector('.links');
+  // import("./hover/menu.js").then(({
+  //   default: Menu
+  // }) => {
+  //   new Menu(menuEl)
+  // });
+  // const menuEl = document.querySelector('.links');
   import("./preloader/preloader.js")
 }
 
