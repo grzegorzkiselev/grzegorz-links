@@ -185,7 +185,7 @@ body {
     height: auto !important;
 }
 
-.intro {
+.about {
     height: auto;
     margin-bottom: 5.6vh;
     max-width: 100%;
@@ -257,6 +257,7 @@ body {
     margin-bottom: 9vh;
     margin-left: calc((9vw - 5.6vw) * -1);
     margin-right: calc((9vw - 5.6vw) * -1);
+    z-index: -1;
 }
 
 @media screen and (max-width: 1024px) {
@@ -295,7 +296,7 @@ body {
     -webkit-transition: -webkit-filter 3s;
 } */
 
-canvas {
+.preloader {
     cursor: wait;
     height: 100% !important;
     width: 100% !important;
