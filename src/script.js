@@ -14,8 +14,6 @@ let chrome = userAgentString.indexOf("Chrome") > -1;
 let safari = userAgentString.indexOf("Safari") > -1;
 
 if (((chrome || safari) && !isMobile) || isApple) {
-  const extraLink = document.querySelector('[href="./theme/dumb_font-metrics.css"]');
-  extraLink.remove()
   const link = document.createElement("link")
   link.href = "./theme/font-based-metrics.css"
   link.rel = "stylesheet"

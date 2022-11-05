@@ -19,9 +19,6 @@
 <body>
   <canvas aria-hidden="true" aria-label="preloader" class="preloader"></canvas>
   <div aria-hidden="true" id="resize-container" class="show">
-    <div class="toggle-grid">
-      <div id="resize-value">get a real screen</div>
-    </div>
     <div class="grid">
       <div id="grid-line-l-0" class="grid-line-l"></div>
       <div id="grid-line-l-1" class="grid-line-l"></div>
@@ -52,8 +49,8 @@
     </div>
     <!-- <div aria-hidden="true" class="background"> -->
     <!-- <div id="f" class="background__rect"></div>
-                      <div id="s" class="background__rect"></div>
-                      <div id="t" class="background__rect"></div> -->
+                          <div id="s" class="background__rect"></div>
+                          <div id="t" class="background__rect"></div> -->
     <!-- </div> -->
   </div>
   <header class="header">
@@ -110,11 +107,13 @@
         This page is under development and may look strange on certain devices. I’ll fix it, I swear.
       </p>
     </section>
-    <section class="display">
+    <section>
       <h2 class="visually-hidden">interactive demos</h2>
-      <canvas aria-label="spinning cubes" role="img" class="display__project cubes"></canvas>
-      <canvas aria-label="generative flowers" role="img" class="display__project flowers"></canvas>
-      <canvas aria-label="bended shitty 3D model of me" role="img" class="display__project blurred me"></canvas>
+      <div class="display">
+        <canvas aria-label="spinning cubes" role="img" class="display__project cubes"></canvas>
+        <canvas aria-label="generative flowers" role="img" class="display__project flowers"></canvas>
+        <canvas aria-label="bended shitty 3D model of me" role="img" class="display__project blurred me"></canvas>
+      </div>
     </section>
     <section class="links">
       <h2 class="visually-hidden">links</h2>
@@ -140,6 +139,9 @@
     <!-- </div> -->
   </main>
 
+  <div class="toggle-grid">
+    <div id="resize-value">get a real screen</div>
+  </div>
 
 </body>
 
