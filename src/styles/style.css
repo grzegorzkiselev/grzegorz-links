@@ -341,7 +341,7 @@ h3 {
     outline: none;
     transition: color 0.1s linear;
     transition: text-decoration 0.01s linear;
-    line-height: calc(var(--fontSize) * var(--LINE_HEIGHT_RATIO));
+    line-height: 1;
 }
 
 @media screen and (max-width: 1024px) {
