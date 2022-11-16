@@ -28,7 +28,7 @@ module.exports = {
     },
     devtool: 'source-map',
     plugins: [
-        new BundleAnalyzerPlugin(),
+        // new BundleAnalyzerPlugin(),
         new CopyWebpackPlugin({
             patterns: [
                 {
@@ -36,7 +36,7 @@ module.exports = {
                     globOptions: {
                         dot: true,
                         gitignore: true,
-                        ignore: ["**/img/**", "**/fonts/**", "**/utilities/**"],
+                        ignore: ["**/img/**", "**/fonts/**"]
                     },
                 }
             ]
@@ -124,6 +124,7 @@ module.exports = {
                     }
                 ]
             },
+
             // GLSL
             {
                 test: /\.(glsl|vs|fs|vert|frag)$/,

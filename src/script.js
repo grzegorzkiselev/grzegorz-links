@@ -17,22 +17,9 @@ let safari = userAgentString.indexOf("Safari") > -1;
 
 if (((chrome || safari) && !isMobile) || isApple) {
   document.querySelector('[href="./theme/dumb_font-metrics.css"]').remove()
-  // const link = document.createElement("link")
-  // link.href = "./theme/font-based-metrics.css"
-  // link.rel = "stylesheet"
-  // document.head.appendChild(link)
 } else {
   document.querySelector('[href="./theme/font-based-metrics.css"]').remove()
-  // const link = document.createElement("link")
-  // link.href = "./theme/dumb_font-metrics.css"
-  // link.rel = "stylesheet"
-  // document.head.appendChild(link)
 }
-
-import("./aspect-ratio/aspect-ratio.js")
-import("./three/me.js")
-import("./three/cubes.js")
-import("./three/flowers.js")
 
 if (!isMobile) {
   // import("./hover/menu.js").then(({
@@ -43,6 +30,11 @@ if (!isMobile) {
   // const menuEl = document.querySelector('.links');
   import("./preloader/preloader.js")
 }
+
+import("./aspect-ratio/aspect-ratio.js")
+import("./three/me.js")
+import("./three/cubes.js")
+import("./three/flowers.js")
 
 const mytime = document.querySelector(".mytime")
 
