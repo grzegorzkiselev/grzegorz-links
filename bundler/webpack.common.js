@@ -4,7 +4,6 @@ const { loader } = require('mini-css-extract-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
     entry: path.resolve(__dirname, '../src/script.js'),
@@ -17,11 +16,11 @@ module.exports = {
         moduleIds: "deterministic",
         runtimeChunk: "single",
         splitChunks: {
-            cacheGroups: { 
+            cacheGroups: {
                 vendor: {
                     test: /node_modules/,
                     name: "vendors",
-                    chunks: "all", 
+                    chunks: "all",
                     enforce: true
                 }
             }
@@ -29,8 +28,7 @@ module.exports = {
     },
     devtool: 'source-map',
     plugins: [
-        // new CompressionPlugin({ algorithm: "gzip" }),
-        // new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin(),
         new CopyWebpackPlugin({
             patterns: [
                 {
@@ -38,7 +36,7 @@ module.exports = {
                     globOptions: {
                         dot: true,
                         gitignore: true,
-                        ignore: ["**/img/**", "**/fonts/**"],
+                        ignore: ["**/img/**", "**/fonts/**", "**/utilities/**"],
                     },
                 }
             ]

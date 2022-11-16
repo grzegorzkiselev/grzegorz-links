@@ -4,6 +4,7 @@ dist_copy
 .vscode
 trash
 stats.json
+compilation-stats.json
 node_modules/.package-lock.json
 node_modules/.bin/acorn
 node_modules/.bin/ansi-html

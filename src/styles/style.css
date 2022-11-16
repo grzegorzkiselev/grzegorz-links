@@ -1,10 +1,4 @@
 @font-face {
-    font-family: "PT Serif";
-    src: url('/static/fonts/pt-serif-v17-latin_cyrillic-regular.woff2') format('woff2');
-    font-display: swap;
-}
-
-@font-face {
     font-family: "New Spirit";
     src: url('/static/fonts/NewSpirit.woff2') format('woff2');
     font-display: swap;
@@ -13,6 +7,12 @@
 @font-face {
     font-family: "Arial Narrow";
     src: url('/static/fonts/arialnarrow-subset.woff2') format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "PT Serif";
+    src: url('/static/fonts/pt-serif-v17-latin_cyrillic-regular.woff2') format('woff2');
     font-display: swap;
 }
 
@@ -345,6 +345,13 @@ h3 {
 }
 
 @media screen and (max-width: 1024px) {
+
+    .links {
+        display: grid;
+        row-gap: 6.45vh;
+        margin-bottom: 5.6vh;
+    }
+
     .links__link a {
         color: var(--font-color);
         --fontSize: 36px;
