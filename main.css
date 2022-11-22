@@ -202,6 +202,7 @@ body {
                 (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 2) - min(var(--FONT_XHEIGHT_OFFSET),
                 (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 2)); */
   --fontBottomOffset: calc(var(--fontSize) * var(--FONT_BOTTOM_RATIO));
+  margin-left: -0.066em;
   line-height: var(--lineHeight);
   margin-top: calc(var(--xheightOffset) * -1);
   margin-bottom: calc(var(--fontBottomOffset) * -1);
@@ -332,6 +333,7 @@ h3 {
   --fontBottomOffset: calc((var(--fontSize) * var(--FONT_BOTTOM_RATIO) * var(--LINE_HEIGHT_RATIO)));
   margin-top: calc(var(--fontTopOffset) * -1);
   margin-bottom: calc(var(--fontBottomOffset) * -1);
+  margin-left: -0.066em;
   font-size: inherit;
   text-align: left;
   text-decoration-color: var(--font-color);
