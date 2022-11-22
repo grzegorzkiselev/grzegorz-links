@@ -1,20 +1,20 @@
 @font-face {
   font-family: "New Spirit";
-  src: url('/static/fonts/NewSpirit.woff2') format('woff2');
+  src: url('./../../dist/assets/fonts/7d43f34724fced67b84663353d5c349d.woff2') format('woff2');
   font-display: swap;
 }
 
 @font-face {
   font-family: "Arial Narrow";
-  src: url('/static/fonts/arialnarrow-subset.woff2') format('woff2');
+  src: url('./../../dist/assets/fonts/7d43f34724fced67b84663353d5c349d.woff2') format('woff2');
   font-display: swap;
 }
 
-@font-face {
+/* @font-face {
   font-family: "PT Serif";
-  src: url('/static/fonts/pt-serif-v17-latin_cyrillic-regular.woff2') format('woff2');
+  src: url('./../../static/fonts/pt-serif-v17-latin_cyrillic-regular.woff2') format('woff2');
   font-display: swap;
-}
+} */
 
 :root {
   /* --ruler-color: aqua; */

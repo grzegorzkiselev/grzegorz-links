@@ -6,15 +6,15 @@
 
 @font-face {
   font-family: "Arial Narrow";
-  src: url(4dd21213748dfdaca17d.woff2) format('woff2');
+  src: url(0b7546c84b4f20eb3b8b.woff2) format('woff2');
   font-display: swap;
 }
 
-@font-face {
+/* @font-face {
   font-family: "PT Serif";
-  src: url(b6e1377c9362713438d1.woff2) format('woff2');
+  src: url('./../../static/fonts/pt-serif-v17-latin_cyrillic-regular.woff2') format('woff2');
   font-display: swap;
-}
+} */
 
 :root {
   /* --ruler-color: aqua; */
