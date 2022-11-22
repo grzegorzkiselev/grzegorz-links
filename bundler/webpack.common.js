@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { loader } = require('mini-css-extract-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     entry: path.resolve(__dirname, '../src/script.js'),
@@ -28,7 +28,7 @@ module.exports = {
     },
     devtool: 'source-map',
     plugins: [
-        new BundleAnalyzerPlugin(),
+        // new BundleAnalyzerPlugin(),
         new CopyWebpackPlugin({
             patterns: [
                 {
@@ -36,7 +36,7 @@ module.exports = {
                     globOptions: {
                         dot: true,
                         gitignore: true,
-                        ignore: ["**/img/**", "**/fonts/**", "**/utilities/**"],
+                        ignore: ["**/img/**", "**/fonts/**"],
                     },
                 }
             ]

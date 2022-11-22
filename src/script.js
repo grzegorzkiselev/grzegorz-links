@@ -1,4 +1,4 @@
-import "./styles/style.css"
+import "./style.css"
 
 let isMobile = false;
 let isApple = false;
@@ -17,16 +17,8 @@ let safari = userAgentString.indexOf("Safari") > -1;
 
 if (((chrome || safari) && !isMobile) || isApple) {
   document.querySelector('[href="./theme/dumb_font-metrics.css"]').remove()
-  // const link = document.createElement("link")
-  // link.href = "./theme/font-based-metrics.css"
-  // link.rel = "stylesheet"
-  // document.head.appendChild(link)
 } else {
   document.querySelector('[href="./theme/font-based-metrics.css"]').remove()
-  // const link = document.createElement("link")
-  // link.href = "./theme/dumb_font-metrics.css"
-  // link.rel = "stylesheet"
-  // document.head.appendChild(link)
 }
 
 import("./aspect-ratio/aspect-ratio.js")

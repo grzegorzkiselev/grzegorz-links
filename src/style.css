@@ -1,12 +1,12 @@
 @font-face {
   font-family: "New Spirit";
-  src: url(assets/fonts/7d43f34724fced67b84663353d5c349d.woff2) format('woff2');
+  src: url('/static/fonts/NewSpirit.woff2') format('woff2');
   font-display: swap;
 }
 
 @font-face {
   font-family: "Arial Narrow";
-  src: url(assets/fonts/bab700b0db2d3c7a83d5b722b6cef736.woff2) format('woff2');
+  src: url('/static/fonts/arialnarrow-subset.woff2') format('woff2');
   font-display: swap;
 }
 
@@ -644,6 +644,3 @@ a:focus-visible {
 }
 
 /* grids */
-
-
-/*# sourceMappingURL=main.css.map*/
