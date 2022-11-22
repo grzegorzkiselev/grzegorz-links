@@ -21,11 +21,6 @@ if (((chrome || safari) && !isMobile) || isApple) {
   document.querySelector('[href="./theme/font-based-metrics.css"]').remove()
 }
 
-import("./aspect-ratio/aspect-ratio.js")
-import("./three/me.js")
-import("./three/cubes.js")
-import("./three/flowers.js")
-
 if (!isMobile) {
   // import("./hover/menu.js").then(({
   //   default: Menu
@@ -35,6 +30,11 @@ if (!isMobile) {
   // const menuEl = document.querySelector('.links');
   import("./preloader/preloader.js")
 }
+
+import("./aspect-ratio/aspect-ratio.js")
+import("./three/me.js")
+import("./three/cubes.js")
+import("./three/flowers.js")
 
 const mytime = document.querySelector(".mytime")
 
