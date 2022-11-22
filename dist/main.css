@@ -1,16 +1,11 @@
 @font-face {
   font-family: "New Spirit";
-<<<<<<< HEAD
   src: url(assets/fonts/7d43f34724fced67b84663353d5c349d.woff2) format('woff2');
-=======
-  src: url(0b7546c84b4f20eb3b8b.woff2) format('woff2');
->>>>>>> origin/master
   font-display: swap;
 }
 
 @font-face {
   font-family: "Arial Narrow";
-<<<<<<< HEAD
   src: url(assets/fonts/bab700b0db2d3c7a83d5b722b6cef736.woff2) format('woff2');
   font-display: swap;
 }
@@ -19,15 +14,6 @@
 @font-face {
   font-family: "PT Serif";
   src: url('/static/fonts/pt-serif-v17-latin_cyrillic-regular.woff2') format('woff2');
-=======
-  src: url(0b7546c84b4f20eb3b8b.woff2) format('woff2');
-  font-display: swap;
-}
-
-/* @font-face {
-  font-family: "PT Serif";
-  src: url('./../../static/fonts/pt-serif-v17-latin_cyrillic-regular.woff2') format('woff2');
->>>>>>> origin/master
   font-display: swap;
 } */
 

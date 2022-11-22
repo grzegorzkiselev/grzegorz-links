@@ -36,11 +36,7 @@ module.exports = {
                     globOptions: {
                         dot: true,
                         gitignore: true,
-<<<<<<< HEAD
                         ignore: ["**/img/**", "**/fonts/**"],
-=======
-                        ignore: ["**/img/**", "**/fonts/**"]
->>>>>>> origin/master
                     },
                 }
             ]
