@@ -269,13 +269,13 @@ body {
   }
 }
 
-/* @media screen and (1024: 640px) and (orientation: landscape) {
+@media screen and (max-width: 1024px) and (orientation: landscape) {
     .display {
         column-gap: 2.1vw;
         grid-template-columns: 1fr 1fr 1fr !important;
         margin-bottom: 9vh;
     }
-} */
+  }
 
 .display__project {
   height: 52.8vh !important;
@@ -359,6 +359,10 @@ h3 {
     margin-top: calc(var(--fontTopOffset) * -1 - ((36px * var(--LINE_HEIGHT_RATIO)) * 1.3 - (36px * var(--LINE_HEIGHT_RATIO))) / 2);
     margin-bottom: calc(var(--fontBottomOffset) * -1 - ((36px * var(--LINE_HEIGHT_RATIO)) * 1.3 - (36px * var(--LINE_HEIGHT_RATIO))) / 2);
   }
+}
+
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+  .links { row-gap: 7.7vh; }
 }
 
 .item__link:focus-visible,
