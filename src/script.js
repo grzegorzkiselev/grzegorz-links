@@ -41,7 +41,7 @@ const mytime = document.querySelector(".mytime")
 const calcTime = () => {
   const date = new Date();
   const UTC = date.getTime() + (date.getTimezoneOffset() * 60000);
-  const newDate = new Date(UTC + (3600000 * "+6"));
+  const newDate = new Date(UTC + (3600000 * "+3"));
   mytime.textContent = newDate.toLocaleTimeString()
 }
 
