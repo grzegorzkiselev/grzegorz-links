@@ -140,6 +140,7 @@ body {
   display: grid;
   gap: 9vh;
   width: 82vw;
+  padding-bottom: 5.6vh;
 }
 
 .visually-hidden {
@@ -252,7 +253,7 @@ body {
   --top-align: var(--CH);
   --bottom-align: var(--B);
   row-gap: calc(14.6vh - 5.6vh - var(--children-height));
-  margin: 0 0 5.6vh 0;
+  margin: 0;
 }
 
 /* h3 {
