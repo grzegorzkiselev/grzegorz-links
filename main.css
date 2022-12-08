@@ -154,18 +154,12 @@ body {
 }
 
 .content {
-  font: 48px 'New Spirit', serif;
+  font-family: 'New Spirit', serif;
   position: absolute;
   left: 9vw;
   top: 14.6vh;
   display: block;
   width: 82vw;
-}
-
-@media screen and (max-width: 1024px) {
-  .content {
-    font: 36px 'New Spirit', serif;
-  }
 }
 
 .visually-hidden {
@@ -191,65 +185,47 @@ body {
   max-width: 100%;
 }
 
-#intro {
-  max-width: 100%;
-  color: var(--font-color);
-  --module: 9vh;
-  --fontSize: 48px;
-  --lineHeight: calc(var(--fontSize) + (var(--module) - ((var(--fontSize) - (var(--fontSize) * var(--FONT_TOP_RATIO))) + (var(--fontSize) - (var(--fontSize) * var(--FONT_BOTTOM_RATIO))))));
-  --FONT_XHEIGHT_OFFSET: calc(var(--fontSize) * var(--FONT_TOP_RATIO));
-  --xheightOffset: calc(((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET));
-  /* --xheightOffset: calc(max(var(--FONT_XHEIGHT_OFFSET),
-                (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 2) - min(var(--FONT_XHEIGHT_OFFSET),
-                (max(var(--fontSize), var(--lineHeight)) - min(var(--fontSize), var(--lineHeight))) / 2)); */
-  --fontBottomOffset: calc(var(--fontSize) * var(--FONT_BOTTOM_RATIO));
-  margin-left: -0.066em;
-  line-height: var(--lineHeight);
-  margin-top: calc(var(--xheightOffset) * -1);
-  margin-bottom: calc(var(--fontBottomOffset) * -1);
+.cutter {
+  display: block;
+  --line-height-extra: calc((var(--line-height) - var(--font-size)) / 2);
+  --xheight-offset: calc(var(--line-height-extra) + var(--top-align));
+  --bottom-offset: calc(var(--line-height-extra) + var(--bottom-align));
+  --children-height: calc(var(--line-height) - var(--xheight-offset) - var(--bottom-offset));
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  margin-left: calc(var(--I) * -1);
+  margin-top: calc(var(--xheight-offset) * -1);
+  margin-bottom: calc(var(--bottom-offset) * -1);
 }
 
-#intro span {
+.intro {
+  --font-size: 48px;
+  --module: 9.15vh;
+  --line-height: calc(var(--font-size) + (var(--module) - ((var(--font-size) - var(--CH)) + (var(--font-size) - var(--B)))));
+  --top-align: var(--CH);
+  --bottom-align: var(--B);
+  font-weight: 100;
+  color: var(--font-color);
+}
+
+.intro span {
   color: #24DC43;
 }
 
 @media screen and (max-width: 1024px) {
-  #intro {
-    max-width: 100%;
+  .intro {
     color: var(--font-color);
-    --fontSize: 36px;
-    /* --module: 9vh; */
-    /* --FONT_XHEIGHT_OFFSET: calc(var(--fontSize) * var(--FONT_TOP_RATIO)); */
-    --lineHeight: calc(var(--fontSize) + ((var(--module) - (var(--fontSize) * 2)) / 2));
-    --xheightOffset: calc(((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET));
-    /* --fontBottomOffset: calc(var(--fontSize) * var(--FONT_BOTTOM_RATIO)); */
-    line-height: var(--lineHeight);
+    --font-size: 36px;
+    --line-height: calc(var(--font-size) + ((var(--module) - (var(--font-size) * 2)) / 2));
   }
 }
 
 @media screen and (max-height: 600px) {
-  #intro {
-    max-width: 100%;
-    color: var(--font-color);
-    --fontSize: 36px;
-    --lineHeight: calc(var(--module));
-    --xheightOffset: calc(var(--fontSize) * var(--FONT_TOP_RATIO) + (var(--lineHeight) - var(--fontSize)) / 2);
-    line-height: max(24px, var(--lineHeight));
+  .intro {
+    --font-size: 36px;
+    --line-height: calc(max(24px, var(--module)));
   }
 }
-
-/* @media screen and (max-width: 1024px) and (orientation: landscape) {
-    #intro {
-        max-width: 100%;
-        color: var(--font-color);
-        --fontSize: 36px;
-        --module: 9vh;
-        --lineHeight: calc(var(--module));
-        --xheightOffset: calc(((var(--lineHeight) - var(--fontSize)) / 2) + var(--FONT_XHEIGHT_OFFSET));
-        line-height: var(--lineHeight);
-    }
-} */
-
 
 .display {
   display: grid;
@@ -263,19 +239,19 @@ body {
 
 @media screen and (max-width: 1024px) {
   .display {
-    margin-bottom: 5.6vh;
+    margin-bottom: 9vh;
     grid-template-columns: 1fr !important;
     row-gap: 2.1vh;
   }
 }
 
 @media screen and (max-width: 1024px) and (orientation: landscape) {
-    .display {
-        column-gap: 2.1vw;
-        grid-template-columns: 1fr 1fr 1fr !important;
-        margin-bottom: 9vh;
-    }
+  .display {
+    column-gap: 2.1vw;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    margin-bottom: 9vh;
   }
+}
 
 .display__project {
   height: 52.8vh !important;
@@ -306,8 +282,14 @@ body {
 
 .links {
   display: grid;
-  row-gap: 5.6vh;
+  --font-size: 48px;
+  --line-height: 1.3em;
+  --top-align: var(--CH);
+  --bottom-align: var(--B);
+  row-gap: calc(14.6vh - 5.6vh - var(--children-height));
+  margin-top: 0;
   margin-bottom: 5.6vh;
+  margin-left: 0;
 }
 
 h3 {
@@ -317,52 +299,30 @@ h3 {
 
 .links__link {
   display: block;
-  width: fit-content !important;
+  width: fit-content;
   height: fit-content;
-  /* margin-bottom: 5.6vh;
-    font-weight: inherit;
-    font-size: inherit;
-    line-height: 100%; */
 }
 
 .links__link a {
   z-index: 0;
   display: block;
-  width: fit-content !important;
-  --fontSize: 48px;
-  --fontTopOffset: calc((var(--fontSize) * var(--FONT_TOP_RATIO)) * var(--LINE_HEIGHT_RATIO));
-  --fontBottomOffset: calc((var(--fontSize) * var(--FONT_BOTTOM_RATIO) * var(--LINE_HEIGHT_RATIO)));
-  margin-top: calc(var(--fontTopOffset) * -1);
-  margin-bottom: calc(var(--fontBottomOffset) * -1);
-  margin-left: -0.066em;
-  font-size: inherit;
+  width: fit-content;
+  --font-size: inherit;
+  --line-height: inherit;
   text-align: left;
   text-decoration-color: var(--font-color);
-  text-underline-offset: calc(5.6vh - 3.7vh);
+  text-underline-offset: calc(5.6vh - 3.5vh);
   text-decoration-thickness: 1px;
   color: var(--font-color);
   outline: none;
   transition: color 0.1s linear;
   transition: text-decoration 0.01s linear;
-  line-height: 1;
 }
 
 @media screen and (max-width: 1024px) {
-  .links { row-gap: 6.45vh; }
-
-  .links__link a {
-    color: var(--font-color);
-    --fontSize: 36px;
-    line-height: 1.3;
-    --fontTopOffset: calc((var(--fontSize) * var(--FONT_TOP_RATIO) * var(--LINE_HEIGHT_RATIO)));
-    --fontBottomOffset: calc((var(--fontSize) * var(--FONT_BOTTOM_RATIO) * var(--LINE_HEIGHT_RATIO)));
-    margin-top: calc(var(--fontTopOffset) * -1 - ((36px * var(--LINE_HEIGHT_RATIO)) * 1.3 - (36px * var(--LINE_HEIGHT_RATIO))) / 2);
-    margin-bottom: calc(var(--fontBottomOffset) * -1 - ((36px * var(--LINE_HEIGHT_RATIO)) * 1.3 - (36px * var(--LINE_HEIGHT_RATIO))) / 2);
+  .links {
+    --font-size: 36px;
   }
-}
-
-@media screen and (max-width: 1024px) and (orientation: landscape) {
-  .links { row-gap: 7.7vh; }
 }
 
 .item__link:focus-visible,
@@ -372,7 +332,6 @@ a:hover,
 a:focus-visible {
   outline: none;
   z-index: 4;
-  /* text-decoration: none; */
   transition: color 0.01s linear;
   transition: text-decoration 0.01s linear;
   animation: blink 0.5s infinite;
@@ -413,27 +372,22 @@ a:focus-visible {
 }
 
 #resize-value {
-  font: 48px 'New Spirit', serif;
+  font-family: 'New Spirit', serif;
+  --font-size: 48px;
+  --line-height: 1em;
+  --top-align: var(--CH);
+  --bottom-align: var(--B);
   position: fixed;
-  --fontSize: 48px;
-  bottom: calc(5.6vh - (var(--fontSize) * var(--FONT_BOTTOM_RATIO)));
+  bottom: 5.6vh;
   right: 3.4vw;
-  z-index: 3;
   display: block;
   text-align: right;
-  line-height: 1;
   color: var(--font-color);
 }
 
 @media screen and (max-width: 1024px) {
   #resize-value {
-    color: var(--font-color);
-    font: 36px 'New Spirit', serif;
-    --fontSize: 36px;
-    --fontBottomOffset: calc((var(--fontSize) * var(--FONT_BOTTOM_RATIO)));
-    line-height: 1;
-    margin-bottom: calc(var(--fontBottomOffset) * -1);
-    bottom: 5.6vh;
+    --font-size: 36px;
   }
 }
 
