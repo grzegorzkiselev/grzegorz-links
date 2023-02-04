@@ -24,16 +24,16 @@ const initialTimeAnimation = () => {
 
   for (let i = 0; i < 3; i++) {
       let intervalId = setInterval(() => {
-      if (parseInt(timeByUnits[i]) - 1 === myTimeWault[i]) {
-        setInterval(calcTime, 1000)
+      if (parseInt(timeByUnits[i]) - 1 <= myTimeWault[i]) {
         clearInterval(intervalId)
+        setInterval(calcTime, 1000)
       }
         myTimeWault[i]++
         if (myTimeWault[i] < 10) {
           myTimeWault[i] = `0${myTimeWault[i]}`
         }
         htmlClock.textContent = myTimeWault.join(":")
-    }, 25)
+    }, 100)
   }
 }
 
