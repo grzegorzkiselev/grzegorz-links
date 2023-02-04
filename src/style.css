@@ -1,3 +1,15 @@
+/* @font-face {
+  font-family: "New Spirit";
+  src: url('./../static/fonts/NewSpirit.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Arial Narrow";
+  src: url('./../static/fonts/arialnarrow-subset.woff2') format('woff2');
+  font-display: swap;
+} */
+
 :root {
   --ruler-color: #74E785;
   --project-background: white;

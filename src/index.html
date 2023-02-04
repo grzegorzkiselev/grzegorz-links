@@ -28,19 +28,30 @@
     }
   </style>
 
-  <link href="./assets/fonts/7d43f34724fced67b84663353d5c349d.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="./assets/fonts/NewSpirit.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="./assets/fonts/arialnarrow-subset.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
 
   <style>
+
     @font-face {
       font-family: "New Spirit";
-      src: url('./assets/fonts/7d43f34724fced67b84663353d5c349d.woff2') format('woff2');
+      src: url('./assets/fonts/NewSpirit.woff2') format('woff2');
       font-display: swap;
     }
 
     @font-face {
       font-family: "Arial Narrow";
-      src: url('./assets/fonts/cad8673c6718926a92717af9cbf3e674.woff2') format('woff2');
+      src: url('./assets/fonts/arialnarrow-subset.woff2') format('woff2');
       font-display: swap;
+    }
+
+    .header__title,
+    .current-city,
+    .mytime {
+      display: inline-block;
+      font-family: inherit;
+      font-weight: inherit;
+      font-size: inherit;
     }
 
     p,
@@ -65,7 +76,7 @@
       width: 82vw;
       height: 14.6vh;
       font-family: "Arial Narrow", sans-serif-condensed, sans-serif;
-      font-weight: 400;
+      /* font-weight: 400; */
       font-size: 24px;
       color: var(--font-color);
     }
@@ -78,38 +89,6 @@
       padding-top: calc(5.6vh + (24px * -0.4));
       width: 100%;
     }
-
-    .header__title,
-    .current-city,
-    .mytime {
-      display: inline-block;
-      font-family: inherit;
-      font-weight: inherit;
-      font-size: inherit;
-    }
-
-    .mytime {
-      min-width: 75px;
-    }
-
-    .header__list {
-      display: flex;
-      gap: 20px;
-    }
-
-    .list__item {
-      list-style: none;
-    }
-
-    .item__link {
-      color: inherit;
-      z-index: 0;
-    }
-
-    .link__icon {
-      fill: currentColor;
-    }
-
 
     .intro {
       --font-size: 48px;
@@ -138,6 +117,28 @@
         --font-size: 36px;
         --line-height: calc(max(24px, var(--module)));
       }
+    }
+
+    .mytime {
+      min-width: 75px;
+    }
+
+    .header__list {
+      display: flex;
+      gap: 20px;
+    }
+
+    .list__item {
+      list-style: none;
+    }
+
+    .item__link {
+      color: inherit;
+      z-index: 0;
+    }
+
+    .link__icon {
+      fill: currentColor;
     }
 
   </style>

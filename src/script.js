@@ -1,19 +1,11 @@
 import "./style.css"
 
 let isMobile = false;
-let isApple = false;
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
   isMobile = true;
   document.querySelector(".preloader").remove()
-  if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-    isApple = true
-  }
 }
-
-let userAgentString = navigator.userAgent;
-let chrome = userAgentString.indexOf("Chrome") > -1;
-let safari = userAgentString.indexOf("Safari") > -1;
 
 if (!isMobile) {
   // import("./hover/menu.js").then(({
