@@ -1,10 +1,16 @@
+import "./../static/fonts/NewSpirit.woff2"
+import "./../static/fonts/arialnarrow-subset.woff2"
 import "./style.css"
 
 let isMobile = false;
+let isApple = false;
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
   isMobile = true;
   document.querySelector(".preloader").remove()
+  if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    isApple = true
+  }
 }
 
 if (!isMobile) {
