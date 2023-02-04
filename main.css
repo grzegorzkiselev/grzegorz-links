@@ -1,15 +1,3 @@
-@font-face {
-  font-family: "New Spirit";
-  src: url(assets/fonts/7d43f34724fced67b84663353d5c349d.woff2) format('woff2');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Arial Narrow";
-  src: url(assets/fonts/cad8673c6718926a92717af9cbf3e674.woff2) format('woff2');
-  font-display: swap;
-}
-
 :root {
   --ruler-color: #74E785;
   --project-background: white;
@@ -109,58 +97,6 @@ h6 {
   background: var(--t-color);
 }
 
-.header {
-  position: sticky;
-  z-index: 1;
-  margin: auto;
-  width: 82vw;
-  height: 14.6vh;
-  font-family: "Arial Narrow", sans-serif-condensed, sans-serif;
-  font-weight: 400;
-  font-size: 24px;
-  color: var(--font-color);
-}
-
-.header__menu {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 3.1vh;
-  row-gap: 1vh;
-  padding-top: calc(5.6vh + (24px * -0.4));
-  width: 100%;
-}
-
-.header__title,
-.current-city,
-.mytime {
-  display: inline-block;
-  font-family: inherit;
-  font-weight: inherit;
-  font-size: inherit;
-}
-
-.mytime {
-  min-width: 75px;
-}
-
-.header__list {
-  display: flex;
-  gap: 20px;
-}
-
-.list__item {
-  list-style: none;
-}
-
-.item__link {
-  color: inherit;
-  z-index: 0;
-}
-
-.link__icon {
-  fill: currentColor;
-}
-
 .content {
   font-family: 'New Spirit', serif;
   margin-left: 9vw;
@@ -191,48 +127,6 @@ h6 {
   height: auto;
   max-width: 100%;
   z-index: 1;
-}
-
-.cutter {
-  display: block;
-  --line-height-extra: calc((var(--line-height) - var(--font-size)) / 2);
-  --xheight-offset: calc(var(--line-height-extra) + var(--top-align));
-  --bottom-offset: calc(var(--line-height-extra) + var(--bottom-align));
-  --children-height: calc(var(--line-height) - var(--xheight-offset) - var(--bottom-offset));
-  font-size: var(--font-size);
-  line-height: var(--line-height);
-  margin-left: calc(var(--I) * -1);
-  margin-top: calc(var(--xheight-offset) * -1);
-  margin-bottom: calc(var(--bottom-offset) * -1);
-}
-
-.intro {
-  --font-size: 48px;
-  --module: 9.15vh;
-  --line-height: calc(var(--font-size) + (var(--module) - ((var(--font-size) - var(--CH)) + (var(--font-size) - var(--B)))));
-  --top-align: var(--CH);
-  --bottom-align: var(--B);
-  font-weight: 100;
-  color: var(--font-color);
-}
-
-.intro span {
-  color: #24DC43;
-}
-
-@media screen and (max-width: 1024px) {
-  .intro {
-    color: var(--font-color);
-    --font-size: 36px;
-    --line-height: calc(var(--font-size) + ((var(--module) - (var(--font-size) * 2)) / 2));
-  }
-}
-
-@media screen and (max-height: 600px) {
-  .intro {
-    --font-size: 36px;
-    --line-height: calc(max(24px, var(--module)));
-  }
 }
 
 .display {
