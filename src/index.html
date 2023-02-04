@@ -2,6 +2,8 @@
 <html class="no-js" lang="en">
 
 <head>
+  <link href="./assets/fonts/arialnarrow-subset.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+  <link href="./assets/fonts/NewSpirit.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
   <script>
     if (/Chrome|Safari/i.test(navigator.userAgent) && !/Android/i.test(navigator.userAgent)) {
       document.documentElement.setAttribute("useragent", "chromelike")
@@ -28,11 +30,7 @@
     }
   </style>
 
-<link href="./assets/fonts/NewSpirit.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="./assets/fonts/arialnarrow-subset.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-
   <style>
-
     @font-face {
       font-family: "New Spirit";
       src: url('./assets/fonts/NewSpirit.woff2') format('woff2');
@@ -90,6 +88,28 @@
       width: 100%;
     }
 
+        .mytime {
+      min-width: 75px;
+    }
+
+    .header__list {
+      display: flex;
+      gap: 20px;
+    }
+
+    .list__item {
+      list-style: none;
+    }
+
+    .item__link {
+      color: inherit;
+      z-index: 0;
+    }
+
+    .link__icon {
+      fill: currentColor;
+    }
+
     .intro {
       --font-size: 48px;
       --module: 9.15vh;
@@ -119,27 +139,7 @@
       }
     }
 
-    .mytime {
-      min-width: 75px;
-    }
 
-    .header__list {
-      display: flex;
-      gap: 20px;
-    }
-
-    .list__item {
-      list-style: none;
-    }
-
-    .item__link {
-      color: inherit;
-      z-index: 0;
-    }
-
-    .link__icon {
-      fill: currentColor;
-    }
 
   </style>
 
@@ -152,7 +152,7 @@
   <link href="./theme/light.css" rel="stylesheet" media="(prefers-color-scheme:light)">
   <link href="./theme/dark.css" rel="stylesheet" media="(prefers-color-scheme:dark)">
   <script>history.scrollRestoration = "manual"</script>
-  <!-- <link href="main.css" rel="stylesheet"> -->
+  <link href="./main.css" rel="stylesheet">
 </head>
 
 <body>
@@ -196,7 +196,7 @@
     <div class="header__menu">
       <h1 class="header__title">@grzegorzkiselev</h1>
       <p class="current-city">Nizhny Novgorod</p>
-      <time class="mytime">––:––:––</time>
+      <time class="mytime">00:00:00</time>
       <ul class="header__list" role="list" aria-label="social links">
         <li class="list__item">
           <a aria-label="telegram" title="send me a message" class="item__link" rel="noopener noreferrer" target="_blank" href="https://t.me/grzegorzkiselev">
