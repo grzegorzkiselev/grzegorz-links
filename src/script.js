@@ -15,12 +15,6 @@ let userAgentString = navigator.userAgent;
 let chrome = userAgentString.indexOf("Chrome") > -1;
 let safari = userAgentString.indexOf("Safari") > -1;
 
-if (((chrome || safari) && !isMobile) || isApple) {
-  document.querySelector('[href="./theme/dumb_font-metrics.css"]').remove()
-} else {
-  document.querySelector('[href="./theme/font-based-metrics.css"]').remove()
-}
-
 if (!isMobile) {
   // import("./hover/menu.js").then(({
   //   default: Menu

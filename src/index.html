@@ -2,17 +2,155 @@
 <html class="no-js" lang="en">
 
 <head>
+  <script>
+    if (/Chrome|Safari/i.test(navigator.userAgent) && !/Android/i.test(navigator.userAgent)) {
+      document.documentElement.setAttribute("useragent", "chromelike")
+    } else {
+      document.documentElement.setAttribute("useragent", "firefoxlike")
+    }
+  </script>
+  <style>
+    html[useragent="chromelike"] {
+      --CH: 0.359em;
+      --B: 0.150em;
+      --I: 0.084em;
+      --FONT_TOP_RATIO: 0.359;
+      --FONT_BOTTOM_RATIO: 0.150;
+      --LINE_HEIGHT_RATIO: 1.17;
+    }
+    html[useragent="firefoxlike"] {
+      --CH: 0.278em;
+      --B: 0.202em;
+      --I: 0.084em;
+      --FONT_TOP_RATIO: 0.284722222;
+      --FONT_BOTTOM_RATIO: 0.218;
+      --LINE_HEIGHT_RATIO: 1.17;
+    }
+  </style>
+
+  <link href="./assets/fonts/7d43f34724fced67b84663353d5c349d.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+  <style>
+    @font-face {
+      font-family: "New Spirit";
+      src: url('./assets/fonts/7d43f34724fced67b84663353d5c349d.woff2') format('woff2');
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Arial Narrow";
+      src: url('./assets/fonts/cad8673c6718926a92717af9cbf3e674.woff2') format('woff2');
+      font-display: swap;
+    }
+
+    p,
+    a,
+    .trimmer {
+      display: block;
+      --line-height-extra: calc((var(--line-height) - var(--font-size)) / 2);
+      --xheight-offset: calc(var(--line-height-extra) + var(--top-align));
+      --bottom-offset: calc(var(--line-height-extra) + var(--bottom-align));
+      --children-height: calc(var(--line-height) - var(--xheight-offset) - var(--bottom-offset));
+      font-size: var(--font-size);
+      line-height: var(--line-height);
+      margin-left: calc(var(--I) * -1);
+      margin-top: calc(var(--xheight-offset) * -1);
+      margin-bottom: calc(var(--bottom-offset) * -1);
+    }
+
+    .header {
+      position: sticky;
+      z-index: 1;
+      margin: auto;
+      width: 82vw;
+      height: 14.6vh;
+      font-family: "Arial Narrow", sans-serif-condensed, sans-serif;
+      font-weight: 400;
+      font-size: 24px;
+      color: var(--font-color);
+    }
+
+    .header__menu {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 3.1vh;
+      row-gap: 1vh;
+      padding-top: calc(5.6vh + (24px * -0.4));
+      width: 100%;
+    }
+
+    .header__title,
+    .current-city,
+    .mytime {
+      display: inline-block;
+      font-family: inherit;
+      font-weight: inherit;
+      font-size: inherit;
+    }
+
+    .mytime {
+      min-width: 75px;
+    }
+
+    .header__list {
+      display: flex;
+      gap: 20px;
+    }
+
+    .list__item {
+      list-style: none;
+    }
+
+    .item__link {
+      color: inherit;
+      z-index: 0;
+    }
+
+    .link__icon {
+      fill: currentColor;
+    }
+
+
+    .intro {
+      --font-size: 48px;
+      --module: 9.15vh;
+      --line-height: calc(var(--font-size) + (var(--module) - ((var(--font-size) - var(--CH)) + (var(--font-size) - var(--B)))));
+      --top-align: var(--CH);
+      --bottom-align: var(--B);
+      font-weight: 100;
+      color: var(--font-color);
+    }
+
+    .intro span {
+      color: #24DC43;
+    }
+
+    @media screen and (max-width: 1024px) {
+      .intro {
+        color: var(--font-color);
+        --font-size: 36px;
+        --line-height: calc(var(--font-size) + ((var(--module) - (var(--font-size) * 2)) / 2));
+      }
+    }
+
+    @media screen and (max-height: 600px) {
+      .intro {
+        --font-size: 36px;
+        --line-height: calc(max(24px, var(--module)));
+      }
+    }
+
+  </style>
+
   <title>@grzegorzkiselev</title>
   <meta charset="utf-8">
   <meta name="description" content="some projects and contacts of Grzegorz Kiselev">
-  <meta name="viewport" content="width=fixed-width,initial-scale=1">
+  <!-- <meta name="viewport" content="width=fixed-width,initial-scale=1"> -->
+  <meta name="viewport" content="width=448, user-scalable=no">
   <meta name="theme-color" content="#074BBB">
-  <script>history.scrollRestoration = "manual"</script>
-  <link href="./assets/fonts/7d43f34724fced67b84663353d5c349d.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-  <link href="./theme/dumb_font-metrics.css" rel="stylesheet">
-  <link href="./theme/font-based-metrics.css" rel="stylesheet">
   <link href="./theme/light.css" rel="stylesheet" media="(prefers-color-scheme:light)">
   <link href="./theme/dark.css" rel="stylesheet" media="(prefers-color-scheme:dark)">
+  <script>history.scrollRestoration = "manual"</script>
   <!-- <link href="main.css" rel="stylesheet"> -->
 </head>
 
@@ -101,7 +239,7 @@
     <!-- <div class="content"> -->
     <section class="about">
       <h2 class="visually-hidden">who I am?</h2>
-      <p class="intro cutter"><span>Hi, I’m Egor</span> and I’m just a guy, who does some designs and draws.
+      <p class="intro"><span>Hi, I’m Egor</span> and I’m just a guy, who does some designs and draws.
         Interested in code and math for graphic design purposes.
         <br>
         This page is under development and may look strange on certain devices. I’ll fix it, I swear.
@@ -115,38 +253,38 @@
         <canvas aria-label="bended shitty 3D model of me" role="img" class="display__project blurred me"></canvas>
       </div>
     </section>
-    <section class="links cutter">
+    <section class="links trimmer">
       <h2 class="visually-hidden">links</h2>
       <h3 class="links__link">
-        <a id="telegram-channel" title="telegram channel" target="_blank" class="links__link-text cutter" rel="noopener noreferrer" href="https://t.me/grzegorzkiselevwill">my telegram channel</a>
+        <a id="telegram-channel" title="telegram channel" target="_blank" class="links__link-text" rel="noopener noreferrer" href="https://t.me/grzegorzkiselevwill">my telegram channel</a>
       </h3>
       <h3 class="links__link">
-        <a id="instagram-saved-downloader" title="Instagram Saved Downloader" target="_blank" class="links__link-text cutter" rel="noopener noreferrer" href="https://github.com/grzegorzkiselev/Instagram-Saved-Downloader/tree/master">instagram saved downloader</a>
+        <a id="instagram-saved-downloader" title="Instagram Saved Downloader" target="_blank" class="links__link-text" rel="noopener noreferrer" href="https://github.com/grzegorzkiselev/Instagram-Saved-Downloader/tree/master">instagram saved downloader</a>
       </h3>
       <!-- <h3 class="links__link">
                         <a title="trypophobia" target="_blank" class="links__link-text" href="https://grzegorzkiselev.github.io/hover-shader/">trypophobia</a>
                     </h3> -->
       <h3 class="links__link">
-        <a id="chasing-fork" title="chasing fork" target="_blank" class="links__link-text cutter" rel="noopener noreferrer" href="https://grzegorzkiselev.github.io/chasing-fork/">chasing fork (desktop only)</a>
+        <a id="chasing-fork" title="chasing fork" target="_blank" class="links__link-text" rel="noopener noreferrer" href="https://grzegorzkiselev.github.io/chasing-fork/">chasing fork (desktop only)</a>
       </h3>
       <h3 class="links__link">
-        <a id="floating-jellies" title="floating jellies" target="_blank" class="links__link-text cutter" rel="noopener noreferrer" href="https://grzegorzkiselev.github.io/floating-jellies/">floating jellies (desktop only)</a>
+        <a id="floating-jellies" title="floating jellies" target="_blank" class="links__link-text" rel="noopener noreferrer" href="https://grzegorzkiselev.github.io/floating-jellies/">floating jellies (desktop only)</a>
       </h3>
       <!-- <h3 class="links__link">
                         <a title="canvas displacement" target="_blank" class="links__link-text cutter" rel="noopener noreferrer" href="https://grzegorzkiselev.github.io/canvas-displacement/">canvas displacement (wip)</a>
                     </h3> -->
       <h3 class="links__link">
-        <a id="theo-van-doesburg" title="theo van doesburg" target="_blank" class="links__link-text cutter" rel="noopener noreferrer" href="https://grzegorzkiselev.github.io/theo-van-doesburg/">theo van doesburg</a>
+        <a id="theo-van-doesburg" title="theo van doesburg" target="_blank" class="links__link-text" rel="noopener noreferrer" href="https://grzegorzkiselev.github.io/theo-van-doesburg/">theo van doesburg</a>
       </h3>
       <h3 class="links__link">
-        <a id="screaming-frog" title="screaming frog" target="_blank" class="links__link-text cutter" rel="noopener noreferrer" href="https://grzegorzkiselev.github.io/screamingFrog/">screaming frog</a>
+        <a id="screaming-frog" title="screaming frog" target="_blank" class="links__link-text" rel="noopener noreferrer" href="https://grzegorzkiselev.github.io/screamingFrog/">screaming frog</a>
       </h3>
     </section>
     <!-- </div> -->
   </main>
 
   <div class="toggle-grid">
-    <div id="resize-value" class="cutter">get a real screen</div>
+    <p id="resize-value">get a real screen</p>
   </div>
 
 </body>
