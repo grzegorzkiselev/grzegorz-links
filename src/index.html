@@ -16,17 +16,19 @@
       --CH: 0.359em;
       --B: 0.150em;
       --I: 0.084em;
-      --FONT_TOP_RATIO: 0.359;
-      --FONT_BOTTOM_RATIO: 0.150;
-      --LINE_HEIGHT_RATIO: 1.17;
     }
     html[useragent="firefoxlike"] {
       --CH: 0.278em;
       --B: 0.202em;
       --I: 0.084em;
-      --FONT_TOP_RATIO: 0.284722222;
-      --FONT_BOTTOM_RATIO: 0.218;
-      --LINE_HEIGHT_RATIO: 1.17;
+    }
+    @media screen and (max-width:600px) {
+      html[useragent="chromelike"] {
+        --B: 0.125em;
+      }
+      html[useragent="firefoxlike"] {
+      --B: 0.216em;
+      }
     }
   </style>
 
