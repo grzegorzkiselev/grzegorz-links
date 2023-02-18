@@ -17,6 +17,7 @@
   --hover-color: #6282F0;
   --selection-text-color: var(--font-color);
   --selection-background-color: rgba(36, 220, 67, 0.65);
+  scrollbar-width: none;
 }
 
 *,
