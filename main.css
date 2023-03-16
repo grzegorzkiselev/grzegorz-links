@@ -47,11 +47,10 @@ body {
   font: inherit;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
   text-rendering: optimizeLegibility;
   scroll-behavior: auto;
   letter-spacing: -0.2pt;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
   background: var(--back-color);
 }
 
@@ -294,8 +293,8 @@ a:focus-visible {
   z-index: 1 !important;
   top: 0;
   left: 0;
-  width: 270px;
-  height: 540px;
+  width: 432px;
+  height: 270px;
   pointer-events: none;
   opacity: 0;
 }
