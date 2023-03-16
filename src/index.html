@@ -5,33 +5,39 @@
   <link href="./assets/fonts/arialnarrow-subset.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
   <link href="./assets/fonts/NewSpirit.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
   <script>
-    if (/Chrome|Safari/i.test(navigator.userAgent) && !/Android/i.test(navigator.userAgent)) {
-      document.documentElement.setAttribute("useragent", "chromelike")
+    if (/Chrome|Safari/i.test(navigator.userAgent) && !/Android|Windows/i.test(navigator.userAgent)) {
+      document
+        .documentElement
+        .setAttribute("useragent", "hhea")
     } else {
-      document.documentElement.setAttribute("useragent", "firefoxlike")
+      document
+        .documentElement
+        .setAttribute("useragent", "typo")
     }
   </script>
+
   <style>
-    html[useragent="chromelike"] {
+    html[useragent="hhea"] {
       --CH: 0.359em;
       --B: 0.150em;
       --I: 0.084em;
     }
-    html[useragent="firefoxlike"] {
+
+    html[useragent="typo"] {
       --CH: 0.278em;
       --B: 0.202em;
       --I: 0.084em;
     }
+
     @media screen and (max-width:600px) {
       html[useragent="chromelike"] {
         --B: 0.125em;
       }
-      html[useragent="firefoxlike"] {
-      --B: 0.216em;
-      }
-    }
-  </style>
 
+      html[useragent="firefoxlike"] {
+        --B: 0.216em;
+      }
+  </style>
   <style>
     @font-face {
       font-family: "New Spirit";
@@ -90,7 +96,7 @@
       width: 100%;
     }
 
-        .mytime {
+    .mytime {
       min-width: 75px;
     }
 
@@ -140,7 +146,6 @@
         --line-height: calc(max(24px, var(--module)));
       }
     }
-
   </style>
 
   <title>@grzegorzkiselev</title>
@@ -157,7 +162,7 @@
 </head>
 
 <body>
-  <!-- <canvas aria-hidden="true" aria-label="preloader" class="preloader"></canvas> -->
+  <canvas aria-hidden="true" aria-label="preloader" class="preloader"></canvas>
   <div aria-hidden="true" id="resize-container" class="show">
     <div class="grid">
       <div id="grid-line-l-0" class="grid-line-l"></div>
@@ -187,11 +192,11 @@
       <div id="grid-line-b-6" class="grid-line-b"></div>
       <div id="grid-line-b-7" class="grid-line-b"></div>
     </div>
-    <!-- <div aria-hidden="true" class="background"> -->
-    <!-- <div id="f" class="background__rect"></div>
-                          <div id="s" class="background__rect"></div>
-                          <div id="t" class="background__rect"></div> -->
-    <!-- </div> -->
+    <!-- <div aria-hidden="true" class="background">
+      <div id="f" class="background__rect"></div>
+      <div id="s" class="background__rect"></div>
+      <div id="t" class="background__rect"></div>
+    </div> -->
   </div>
   <header class="header">
     <div class="header__menu">
@@ -259,27 +264,57 @@
       <h2 class="visually-hidden">links</h2>
       <h3 class="links__link">
         <a id="telegram-channel" title="telegram channel" target="_blank" class="links__link-text" rel="noopener noreferrer" href="https://t.me/grzegorzkiselevwill">my telegram channel</a>
+        <div class="hover-reveal">
+          <div class="hover-reveal__inner">
+            <div class="hover-reveal__img" style="background-image: url('./img/1.webp'); transform: translate(100%);"></div>
+          </div>
+        </div>
       </h3>
       <h3 class="links__link">
         <a id="instagram-saved-downloader" title="Instagram Saved Downloader" target="_blank" class="links__link-text" rel="noopener noreferrer" href="https://github.com/grzegorzkiselev/Instagram-Saved-Downloader/tree/master">instagram saved downloader</a>
+        <div class="hover-reveal">
+          <div class="hover-reveal__inner">
+            <div class="hover-reveal__img" style="background-image: url('./img/2.webp'); transform: translate(100%);"></div>
+          </div>
+        </div>
       </h3>
       <!-- <h3 class="links__link">
                         <a title="trypophobia" target="_blank" class="links__link-text" href="https://grzegorzkiselev.github.io/hover-shader/">trypophobia</a>
                     </h3> -->
       <h3 class="links__link">
         <a id="chasing-fork" title="chasing fork" target="_blank" class="links__link-text" rel="noopener noreferrer" href="https://grzegorzkiselev.github.io/chasing-fork/">chasing fork (desktop only)</a>
+        <div class="hover-reveal">
+          <div class="hover-reveal__inner">
+            <div class="hover-reveal__img" style="background-image: url('./img/3.webp'); transform: translate(100%);"></div>
+          </div>
+        </div>
       </h3>
       <h3 class="links__link">
         <a id="floating-jellies" title="floating jellies" target="_blank" class="links__link-text" rel="noopener noreferrer" href="https://grzegorzkiselev.github.io/floating-jellies/">floating jellies (desktop only)</a>
+        <div class="hover-reveal">
+          <div class="hover-reveal__inner">
+            <div class="hover-reveal__img" style="background-image: url('./img/4.webp'); transform: translate(100%);"></div>
+          </div>
+        </div>
       </h3>
       <!-- <h3 class="links__link">
                         <a title="canvas displacement" target="_blank" class="links__link-text cutter" rel="noopener noreferrer" href="https://grzegorzkiselev.github.io/canvas-displacement/">canvas displacement (wip)</a>
                     </h3> -->
       <h3 class="links__link">
         <a id="theo-van-doesburg" title="theo van doesburg" target="_blank" class="links__link-text" rel="noopener noreferrer" href="https://grzegorzkiselev.github.io/theo-van-doesburg/">theo van doesburg</a>
+        <div class="hover-reveal">
+          <div class="hover-reveal__inner">
+            <div class="hover-reveal__img" style="background-image: url('./img/5.webp'); transform: translate(100%);"></div>
+          </div>
+        </div>
       </h3>
       <h3 class="links__link">
         <a id="screaming-frog" title="screaming frog" target="_blank" class="links__link-text" rel="noopener noreferrer" href="https://grzegorzkiselev.github.io/screamingFrog/">screaming frog</a>
+        <div class="hover-reveal">
+          <div class="hover-reveal__inner">
+            <div class="hover-reveal__img" style="background-image: url('./img/6.webp'); transform: translate(100%);"></div>
+          </div>
+        </div>
       </h3>
     </section>
     <!-- </div> -->
