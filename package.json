@@ -4,7 +4,8 @@
     "dev": "webpack serve --config ./bundler/webpack.dev.js",
     "deploy": "npm run build && git add . && git commit && git push && git subtree push --prefix dist origin gh-pages"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@types/node": "^17.0.41",
@@ -31,9 +32,7 @@
     "webpack": "^5.14.0",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-dev-server": "^3.11.2",
-    "webpack-merge": "^5.7.3"
-  },
-  "devDependencies": {
+    "webpack-merge": "^5.7.3",
     "babel-preset-minify": "^0.5.2",
     "browserify": "^17.0.0",
     "compression-webpack-plugin": "^10.0.0",
