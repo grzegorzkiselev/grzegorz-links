@@ -25,20 +25,10 @@
 
     html[useragent="typo"] {
       --CH: 0.278em;
-      --B: 0.202em;
+      --B: 0.225em;
       --I: 0.084em;
     }
 
-    @media screen and (max-width:600px) {
-      html[useragent="chromelike"] {
-        --B: 0.125em;
-      }
-
-      html[useragent="firefoxlike"] {
-        --B: 0.216em;
-      }
-  </style>
-  <style>
     @font-face {
       font-family: "New Spirit";
       src: url('./assets/fonts/NewSpirit.woff2') format('woff2');
@@ -50,114 +40,20 @@
       src: url('./assets/fonts/arialnarrow-subset.woff2') format('woff2');
       font-display: swap;
     }
+  </style>
+  <style>
 
-    .header__title,
-    .current-city,
-    .mytime {
-      display: inline-block;
-      font-family: inherit;
-      font-weight: inherit;
-      font-size: inherit;
-    }
-
-    p,
-    a,
-    .trimmer {
-      display: block;
-      --line-height-extra: calc((var(--line-height) - var(--font-size)) / 2);
-      --xheight-offset: calc(var(--line-height-extra) + var(--top-align));
-      --bottom-offset: calc(var(--line-height-extra) + var(--bottom-align));
-      --children-height: calc(var(--line-height) - var(--xheight-offset) - var(--bottom-offset));
-      font-size: var(--font-size);
-      line-height: var(--line-height);
-      margin-left: calc(var(--I) * -1);
-      margin-top: calc(var(--xheight-offset) * -1);
-      margin-bottom: calc(var(--bottom-offset) * -1);
-    }
-
-    .header {
-      position: sticky;
-      z-index: 1;
-      margin: auto;
-      width: 82vw;
-      height: 14.6vh;
-      font-family: "Arial Narrow", sans-serif-condensed, sans-serif;
-      /* font-weight: 400; */
-      font-size: 24px;
-      color: var(--font-color);
-    }
-
-    .header__menu {
-      display: flex;
-      flex-wrap: wrap;
-      column-gap: 3.1vh;
-      row-gap: 1vh;
-      padding-top: calc(5.6vh + (24px * -0.4));
-      width: 100%;
-    }
-
-    .mytime {
-      min-width: 75px;
-    }
-
-    .header__list {
-      display: flex;
-      gap: 20px;
-    }
-
-    .list__item {
-      list-style: none;
-    }
-
-    .item__link {
-      color: inherit;
-      z-index: 0;
-    }
-
-    .link__icon {
-      fill: currentColor;
-    }
-
-    .intro {
-      --font-size: 48px;
-      --module: 9.15vh;
-      --line-height: calc(var(--font-size) + (var(--module) - ((var(--font-size) - var(--CH)) + (var(--font-size) - var(--B)))));
-      --top-align: var(--CH);
-      --bottom-align: var(--B);
-      font-weight: 100;
-      color: var(--font-color);
-    }
-
-    .intro span {
-      color: #24DC43;
-    }
-
-    @media screen and (max-width: 1024px) {
-      .intro {
-        color: var(--font-color);
-        --font-size: 36px;
-        --line-height: calc(var(--font-size) + ((var(--module) - (var(--font-size) * 2)) / 2));
-      }
-    }
-
-    @media screen and (max-height: 600px) {
-      .intro {
-        --font-size: 36px;
-        --line-height: calc(max(24px, var(--module)));
-      }
-    }
   </style>
 
   <title>@grzegorzkiselev</title>
   <meta charset="utf-8">
   <meta name="description" content="some projects and contacts of Grzegorz Kiselev">
-  <!-- <meta name="viewport" content="width=fixed-width,initial-scale=1"> -->
-  <meta name="viewport" content="width=448, user-scalable=no">
+  <meta name="viewport" content="width=320, initial-scale=1">
   <meta name="theme-color" content="#074BBB">
   <link href="./theme/light.css" rel="stylesheet" media="(prefers-color-scheme:light)">
   <link href="./theme/dark.css" rel="stylesheet" media="(prefers-color-scheme:dark)">
   <script>history.scrollRestoration = "manual"</script>
-  <link href="./main.css" rel="stylesheet">
+  <!-- <link href="./main.css" rel="stylesheet"> -->
 </head>
 
 <body>
@@ -202,8 +98,8 @@
       <h1 class="header__title">@grzegorzkiselev</h1>
       <p class="current-city">Nizhny Novgorod</p>
       <time class="mytime">00:00:00</time>
-      <ul class="header__list" role="list" aria-label="social links">
-        <li class="list__item">
+      <ul class="header__links-list" role="list" aria-label="social links">
+        <li class="links-list__item">
           <a aria-label="telegram" title="send me a message" class="item__link" rel="noopener noreferrer" target="_blank" href="https://t.me/grzegorzkiselev">
             <svg class="link__icon" width="24" height="24" viewBox="0 0 100 100">
               <title>telegram</title>
@@ -211,7 +107,7 @@
             </svg>
           </a>
         </li>
-        <li class="list__item">
+        <li class="links-list__item">
           <a aria-label="instagrtam" title="see my stuff" class="item__link" rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/grzegorzkiselev/">
             <svg class="link__icon" width="24" height="24" viewBox="0 0 100 100">
               <title>instagram</title>
@@ -221,7 +117,7 @@
             </svg>
           </a>
         </li>
-        <li class="list__item">
+        <li class="links-list__item">
           <a aria-label="github" title="check my pets" class="item__link" rel="noopener noreferrer" target="_blank" href="https://github.com/grzegorzkiselev/">
             <svg class="link__icon" width="24" height="24" viewBox="0 0 100 100">
               <title>github</title>
@@ -229,7 +125,7 @@
             </svg>
           </a>
         </li>
-        <li class="list__item">
+        <li class="links-list__item">
           <a aria-label="last.fm" title="for the old" class="item__link" rel="noopener noreferrer" target="_blank" href="https://www.last.fm/user/anotherman182">
             <svg height="24" viewBox="0 0 512 512" width="24">
               <title>last.fm</title>
@@ -241,7 +137,7 @@
     </div>
   </header>
 
-  <main class="content">
+  <main class="content body-text dimentions">
     <!-- <div class="content"> -->
     <section class="about">
       <h2 class="visually-hidden">who I am?</h2>
@@ -259,7 +155,7 @@
         <canvas aria-label="bended shitty 3D model of me" role="img" class="display__project blurred me"></canvas>
       </div>
     </section>
-    <section class="links trimmer">
+    <section class="links block-trim">
       <h2 class="visually-hidden">links</h2>
       <h3 class="links__link">
         <a id="telegram-channel" title="telegram channel" target="_blank" class="links__link-text" rel="noopener noreferrer" hreflang="ru-RU" href="https://t.me/grzegorzkiselevwill">my telegram channel</a>
@@ -326,11 +222,9 @@
     </section>
     <!-- </div> -->
   </main>
-
   <div class="toggle-grid">
-    <p id="resize-value">get a real screen</p>
+    <p id="resize-value" class="body-text">get a real screen</p>
   </div>
-
 </body>
 
 </html>
