@@ -114,11 +114,8 @@ p, a {
 
 .item__link {
   z-index: 0;
+  fill: var(--font-color);
   color: inherit;
-}
-
-.link__icon {
-  fill: currentColor;
 }
 
 @media screen and (max-width: 400px) {
@@ -272,7 +269,9 @@ p, a {
 }
 
 .links__link-text:focus-visible,
-.links__link-text:hover {
+.links__link-text:hover,
+.item__link:focus-visible,
+.item__link:hover {
   outline: none;
   transition: color 0.01s linear;
   transition: text-decoration 0.01s linear;
