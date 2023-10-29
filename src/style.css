@@ -56,15 +56,15 @@ svg {
 
 p, a {
   display: block;
+  --line-height-extra: calc((var(--line-height) - var(--font-size)) / 2);
+  --top-offset: calc(var(--line-height-extra) + var(--top-align));
+  --bottom-offset: calc(var(--line-height-extra) + var(--bottom-align));
+  --glyph-height: calc(var(--line-height) - var(--top-offset) - var(--bottom-offset));
   margin-top: calc(var(--top-offset) * -1);
   margin-bottom: calc(var(--bottom-offset) * -1);
   margin-left: calc(var(--I) * -1);
   line-height: var(--line-height);
   font-size: var(--font-size);
-  --line-height-extra: calc((var(--line-height) - var(--font-size)) / 2);
-  --top-offset: calc(var(--line-height-extra) + var(--top-align));
-  --bottom-offset: calc(var(--line-height-extra) + var(--bottom-align));
-  --glyph-height: calc(var(--line-height) - var(--top-offset) - var(--bottom-offset));
 }
 
 .dimentions {
@@ -163,6 +163,7 @@ p, a {
   padding-bottom: calc(5.6vh + env(safe-area-inset-bottom));
   width: 82vw;
 }
+
 #resize-value {
   position: fixed;
   right: 3.4vw;

@@ -56,7 +56,7 @@ export default class MenuItem {
     };
   }
   initEvents() {
-    this.mouseenterFn = (ev) => {
+    this.mouseenterFn = () => {
       this.showImage();
       this.firstRAFCycle = true;
       this.loopRender();
@@ -159,31 +159,31 @@ export default class MenuItem {
     this.animatableProperties.tx.previous = this.firstRAFCycle
       ? this.animatableProperties.tx.current
       : lerp(
-          this.animatableProperties.tx.previous,
-          this.animatableProperties.tx.current,
-          this.animatableProperties.tx.amt
-        );
+        this.animatableProperties.tx.previous,
+        this.animatableProperties.tx.current,
+        this.animatableProperties.tx.amt
+      );
     this.animatableProperties.ty.previous = this.firstRAFCycle
       ? this.animatableProperties.ty.current
       : lerp(
-          this.animatableProperties.ty.previous,
-          this.animatableProperties.ty.current,
-          this.animatableProperties.ty.amt
-        );
+        this.animatableProperties.ty.previous,
+        this.animatableProperties.ty.current,
+        this.animatableProperties.ty.amt
+      );
     this.animatableProperties.rotation.previous = this.firstRAFCycle
       ? this.animatableProperties.rotation.current
       : lerp(
-          this.animatableProperties.rotation.previous,
-          this.animatableProperties.rotation.current,
-          this.animatableProperties.rotation.amt
-        );
+        this.animatableProperties.rotation.previous,
+        this.animatableProperties.rotation.current,
+        this.animatableProperties.rotation.amt
+      );
     this.animatableProperties.brightness.previous = this.firstRAFCycle
       ? this.animatableProperties.brightness.current
       : lerp(
-          this.animatableProperties.brightness.previous,
-          this.animatableProperties.brightness.current,
-          this.animatableProperties.brightness.amt
-        );
+        this.animatableProperties.brightness.previous,
+        this.animatableProperties.brightness.current,
+        this.animatableProperties.brightness.amt
+      );
     gsap.set(this.DOM.reveal, {
       x: this.animatableProperties.tx.previous,
       y: this.animatableProperties.ty.previous,
