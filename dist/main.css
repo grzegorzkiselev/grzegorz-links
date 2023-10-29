@@ -32,6 +32,7 @@ body {
   scroll-behavior: smooth;
   letter-spacing: -0.2pt;
   overscroll-behavior: none;
+  
 }
 
 img,
@@ -89,7 +90,8 @@ p, a {
   margin: auto;
   width: 82vw;
   height: 14.6vh;
-  color: var(--font-color);
+  /* color: var(--font-color); */
+  color: red;
   font-size: 24px;
   font-family: "Arial Narrow", sans-serif-condensed, sans-serif;
 }
