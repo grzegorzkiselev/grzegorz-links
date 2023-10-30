@@ -5,8 +5,8 @@ import {
   sRGBEncoding,
   ReinhardToneMapping,
   WebGLRenderer,
-} from "../utilities/three.min.js";
-import { OrbitControls } from "../utilities/OrbitControls.js";
+} from "../../static/utilities/three.min.js";
+import { OrbitControls } from "../../static/utilities/OrbitControls.js";
 
 var frame = document.querySelector(".display__project");
 

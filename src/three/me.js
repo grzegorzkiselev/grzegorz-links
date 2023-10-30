@@ -18,10 +18,10 @@ import {
   ACESFilmicToneMapping,
   PCFShadowMap,
   Clock,
-} from "../utilities/three.min.js";
-import { OrbitControls } from "../utilities/OrbitControls.js";
-import { GLTFLoader } from "../utilities/GLTFLoader.js";
-import { DRACOLoader } from "../utilities/DRACOLoader.js";
+} from "../../static/utilities/three.min.js";
+import { OrbitControls } from "../../static/utilities/OrbitControls.js";
+import { GLTFLoader } from "../../static/utilities/GLTFLoader.js";
+import { DRACOLoader } from "../../static/utilities/DRACOLoader.js";
 import { gsap } from "gsap";
 
 // Canvas

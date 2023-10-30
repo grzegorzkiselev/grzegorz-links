@@ -7,7 +7,7 @@ import {
   Mesh,
   PlaneBufferGeometry,
   WebGLRenderer,
-} from "../utilities/three.min.js";
+} from "../../static/utilities/three.min.js";
 import fragmentShader from "./fragmentShader.glsl";
 import vertexShader from "./vertexShader.glsl";
 import { gsap } from "gsap";
@@ -31,7 +31,7 @@ document.addEventListener("moduleLoaded", (e) => {
     setTimeout(() => {
       canvas.remove();
       stopModule = true;
-    }, "2000");
+    }, 2000);
   });
 });
 
@@ -89,7 +89,12 @@ window.addEventListener("resize", () => {
   renderer.setSize(sizes.width * pixelRatio, sizes.height * pixelRatio);
   renderer.setPixelRatio(pixelRatio);
 });
-
+canvas.addEventListener("scroll", (event) => {
+  event.preventDefault();
+});
+canvas.addEventListener("wheel", (event) => {
+  event.preventDefault();
+});
 var camera = new PerspectiveCamera(0, sizes.width / sizes.height, 0, 0);
 scene.add(camera);
 

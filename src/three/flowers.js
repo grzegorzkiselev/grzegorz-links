@@ -5,7 +5,7 @@ import {
   ShaderMaterial,
   Color,
   Clock,
-} from "../utilities/three.min.js";
+} from "../../static/utilities/three.min.js";
 var random = require("canvas-sketch-util/random");
 var palettes = require("nice-color-palettes");
 var glslify = require("glslify");
