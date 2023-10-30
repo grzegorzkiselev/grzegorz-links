@@ -1,30 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en">
 
 <head>
   <link href="./assets/fonts/arialnarrow-subset.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
   <link href="./assets/fonts/NewSpirit.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-  <script>
-    if (/Chrome|Safari/i.test(navigator.userAgent) && !/Android|Windows/i.test(navigator.userAgent)) {
-      document
-        .documentElement
-        .setAttribute("useragent", "hhea")
-    } else {
-      document
-        .documentElement
-        .setAttribute("useragent", "typo")
-    }
-  </script>
-
   <style>
-    html[useragent="hhea"] {
-      --CH: 0.359em;
-      --B: 0.150em;
-      --I: 0.084em;
-    }
-
-    html[useragent="typo"] {
-      --CH: 0.278em;
+    :root {
+      --XH: 0.284em;
       --B: 0.225em;
       --I: 0.084em;
     }
@@ -41,23 +23,17 @@
       font-display: swap;
     }
   </style>
-  <style>
-
-  </style>
-
-  <title>@grzegorzkiselev</title>
   <meta charset="utf-8">
+  <title>@grzegorzkiselev</title>
   <meta name="description" content="some projects and contacts of Grzegorz Kiselev">
   <meta name="viewport" content="width=320, initial-scale=1">
   <meta name="theme-color" content="#074BBB">
   <link href="./theme/light.css" rel="stylesheet" media="(prefers-color-scheme:light)">
   <link href="./theme/dark.css" rel="stylesheet" media="(prefers-color-scheme:dark)">
-  <script>history.scrollRestoration = "manual"</script>
-  <!-- <link href="./main.css" rel="stylesheet"> -->
 </head>
 
 <body>
-  <canvas aria-hidden="true" aria-label="preloader" class="preloader"></canvas>
+  <canvas aria-hidden="true" class="preloader"></canvas>
   <div aria-hidden="true" id="resize-container" class="show">
     <div class="grid">
       <div id="grid-line-l-0" class="grid-line-l"></div>
@@ -96,10 +72,20 @@
   <header class="header">
     <div class="header__menu">
       <h1 class="header__title">@grzegorzkiselev</h1>
-      <p class="current-city">Nizhny Novgorod</p>
-      <time class="mytime">00:00:00</time>
-      <ul class="header__links-list" role="list" aria-label="social links">
+      <ul class="header__links-list">
         <li class="links-list__item">
+          <a aria-label="telegram" title="send me a message" class="item__link" rel="noopener noreferrer" target="_blank" href="https://t.me/grzegorzkiselev">telegram</a>
+        </li>
+        <li class="links-list__item">
+          <a title="see my stuff" class="item__link" rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/grzegorzkiselev/">instagram</a>
+        </li>
+        <li class="links-list__item">
+          <a aria-label="github" title="check my pets" class="item__link" rel="noopener noreferrer" target="_blank" href="https://github.com/grzegorzkiselev/">github</a>
+        </li>
+        <li class="links-list__item">
+          <a aria-label="last.fm" title="for the old" class="item__link" rel="noopener noreferrer" target="_blank" href="https://www.last.fm/user/anotherman182">last.fm</a>
+        </li>
+        <!-- <li class="links-list__item">
           <a aria-label="telegram" title="send me a message" class="item__link" rel="noopener noreferrer" target="_blank" href="https://t.me/grzegorzkiselev">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
               <path d="M21.294 2.914C18.34 4.137 5.679 9.382 2.18 10.811c-2.346.916-.973 1.774-.973 1.774s2.003.687 3.72 1.202c1.717.515 2.633-.057 2.633-.057l8.068-5.437c2.862-1.945 2.175-.343 1.488.344-1.488 1.488-3.948 3.834-6.009 5.722-.915.802-.457 1.488-.057 1.832 1.488 1.259 5.551 3.834 5.78 4.006 1.209.855 3.587 2.087 3.949-.516l1.43-8.984c.458-3.033.916-5.837.973-6.638.172-1.946-1.888-1.145-1.888-1.145Z" />
@@ -127,8 +113,10 @@
               <path fill-rule="evenodd" d="m10.585 17.21-.88-2.392s-1.43 1.596-3.573 1.596c-1.897 0-3.245-1.651-3.245-4.29 0-3.381 1.704-4.592 3.381-4.592 2.42 0 3.189 1.568 3.85 3.575l.878 2.75c.88 2.665 2.53 4.81 7.286 4.81 3.41 0 5.718-1.045 5.718-3.793 0-2.227-1.264-3.383-3.629-3.933l-1.759-.384c-1.21-.275-1.567-.769-1.567-1.595 0-.934.742-1.485 1.952-1.485 1.319 0 2.034.496 2.144 1.677l2.749-.33c-.22-2.474-1.923-3.49-4.728-3.49-2.475 0-4.893.933-4.893 3.93 0 1.87.907 3.052 3.189 3.602l1.869.44c1.402.329 1.87.908 1.87 1.705 0 1.016-.991 1.43-2.86 1.43-2.776 0-3.931-1.458-4.591-3.465l-.907-2.749c-1.154-3.574-2.997-4.894-6.653-4.894C2.145 5.333 0 7.89 0 12.234c0 4.18 2.145 6.433 5.994 6.433 3.106 0 4.591-1.456 4.591-1.456Z" clip-rule="evenodd" />
             </svg>
           </a>
-        </li>
+        </li> -->
       </ul>
+      <p class="current-city">Nizhny Novgorod</p>
+      <time class="mytime">00:00:00</time>
     </div>
   </header>
 
@@ -136,7 +124,8 @@
     <!-- <div class="content"> -->
     <section class="about">
       <h2 class="visually-hidden">who I am?</h2>
-      <p class="intro"><span>Hi, I’m Egor</span> and I’m just a guy, who does some designs and draws.
+      <p class="intro trim">
+        <span>Hi, I’m Egor</span> and I’m just a guy, who does some designs and draws.
         Interested in code and math for graphic design purposes.
         <br>
         This page is under development and may look strange on certain devices. I’ll fix it, I swear.
@@ -145,9 +134,9 @@
     <section>
       <h2 class="visually-hidden">interactive demos</h2>
       <div class="display">
-        <canvas aria-label="spinning cubes" role="img" class="display__project cubes"></canvas>
-        <canvas aria-label="generative flowers" role="img" class="display__project flowers"></canvas>
         <canvas aria-label="bended shitty 3D model of me" role="img" class="display__project blurred me"></canvas>
+        <canvas aria-label="generative flowers" role="img" class="display__project flowers"></canvas>
+        <canvas aria-label="spinning cubes" role="img" class="display__project cubes"></canvas>
       </div>
     </section>
     <section class="links block-trim">

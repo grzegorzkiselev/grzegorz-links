@@ -1,16 +1,9 @@
 import { gsap } from "gsap";
 import { map, lerp, clamp, getMousePos } from "./utils";
 
-// let images = [];
-// let image;
-// for (let i = 1; i <= document.querySelectorAll(".links__link").length; i++) {
-//   image = Object.entries(require(`../../static/img/${i}.jpg`));
-//   images.push(image[0]);
-// }
-
-let mousepos = { x: 0, y: 0 };
-let mousePosCache = mousepos;
-let direction = {
+var mousepos = { x: 0, y: 0 };
+var mousePosCache = mousepos;
+var direction = {
   x: mousePosCache.x - mousepos.x,
   y: mousePosCache.y - mousepos.y,
 };
@@ -136,11 +129,7 @@ export default class MenuItem {
     if (this.firstRAFCycle) {
       this.calcBounds();
     }
-    const mouseDistanceX = clamp(
-      Math.abs(mousePosCache.x - mousepos.x),
-      0,
-      100
-    );
+    var mouseDistanceX = clamp(Math.abs(mousePosCache.x - mousepos.x), 0, 100);
     direction = {
       x: mousePosCache.x - mousepos.x,
       y: mousePosCache.y - mousepos.y,
@@ -159,31 +148,31 @@ export default class MenuItem {
     this.animatableProperties.tx.previous = this.firstRAFCycle
       ? this.animatableProperties.tx.current
       : lerp(
-        this.animatableProperties.tx.previous,
-        this.animatableProperties.tx.current,
-        this.animatableProperties.tx.amt
-      );
+          this.animatableProperties.tx.previous,
+          this.animatableProperties.tx.current,
+          this.animatableProperties.tx.amt
+        );
     this.animatableProperties.ty.previous = this.firstRAFCycle
       ? this.animatableProperties.ty.current
       : lerp(
-        this.animatableProperties.ty.previous,
-        this.animatableProperties.ty.current,
-        this.animatableProperties.ty.amt
-      );
+          this.animatableProperties.ty.previous,
+          this.animatableProperties.ty.current,
+          this.animatableProperties.ty.amt
+        );
     this.animatableProperties.rotation.previous = this.firstRAFCycle
       ? this.animatableProperties.rotation.current
       : lerp(
-        this.animatableProperties.rotation.previous,
-        this.animatableProperties.rotation.current,
-        this.animatableProperties.rotation.amt
-      );
+          this.animatableProperties.rotation.previous,
+          this.animatableProperties.rotation.current,
+          this.animatableProperties.rotation.amt
+        );
     this.animatableProperties.brightness.previous = this.firstRAFCycle
       ? this.animatableProperties.brightness.current
       : lerp(
-        this.animatableProperties.brightness.previous,
-        this.animatableProperties.brightness.current,
-        this.animatableProperties.brightness.amt
-      );
+          this.animatableProperties.brightness.previous,
+          this.animatableProperties.brightness.current,
+          this.animatableProperties.brightness.amt
+        );
     gsap.set(this.DOM.reveal, {
       x: this.animatableProperties.tx.previous,
       y: this.animatableProperties.ty.previous,

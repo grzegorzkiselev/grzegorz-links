@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @font-face {
+      font-family: "New Spirit";
+      src: url("NewSpirit.woff2") format("woff2");
+      font-display: swap;
+    }
+
+    * {
+      padding: 0;
+      border: 0;
+      box-sizing: border-box;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: initial
+    }
+
+    :root {
+      --XH: 0.284em;
+      --B: 0.225em;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    .text {
+      width: 100%;
+      display: block;
+      vertical-align: top;
+      position: relative;
+      font-family: "New Spirit";
+      font-weight: 400;
+      font-size: var(--font-size);
+      line-height: var(--line-height);
+      outline: none;
+      color: inherit;
+      white-space: nowrap;
+    }
+
+    .offset {
+      margin: 200px;
+    }
+
+    .relative {
+      position: relative;
+    }
+
+    .computaton {
+      --XH: 0.284em;
+      --B: 0.225em;
+      --font-size: 48px;
+      font-size: var(--font-size);
+      --line-height: 0.7em;
+      line-height: var(--line-height);
+      /* --units-per-em: 1000;
+      --ascent: 775;
+      --descent: -225;
+      --cap-height: 708;
+      --x-height: 491; */
+
+      --line-gap: calc((var(--line-height) - var(--font-size)) / 2);
+      --top-offset: calc(var(--line-gap) + var(--XH));
+      --bottom-offset: calc(var(--line-gap) + var(--B));
+    }
+
+    .fill {
+      background-color: rgba(255, 0, 255, 0.2);
+      position: absolute;
+      display: block;
+      z-index: 1;
+    }
+
+    .bounding-box {
+      width: 72px;
+      height: 168px;
+      top: 0;
+      height: var(--font-size);
+    }
+
+    .line-height {
+      height: var(--line-height);
+      left: 74px;
+      width: 72px;
+    }
+
+    .ruler {
+      display: block;
+      position: absolute;
+      height: 1px;
+      width: 100%;
+      background-color: red;
+    }
+
+    .x-height {
+      top: var(--top-offset)
+    }
+
+    .baseline {
+      bottom: var(--bottom-offset)
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <div class="relative offset computaton">
+      <span class="fill line-height"></span>
+      <span class="fill bounding-box"></span>
+      <span class="text">Xxfg</span>
+      <span class="ruler ascender"></span>
+      <span class="ruler cap-height"></span>
+      <span class="ruler x-height"></span>
+      <span class="ruler descender"></span>
+      <span class="ruler baseline"></span>
+    </div>
+  </section>
+</body>
+
+</html>

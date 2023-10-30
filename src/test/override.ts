@@ -1,0 +1,21 @@
+var fontSize = 240;
+var lineHeight = 1.2;
+var unitsPerEm = 1000;
+var ascent = 775;
+var descent = -255;
+var capHeight = 708;
+var xHeight = 491;
+
+const y = lineHeight,
+  x = d / g,
+  w = f / g,
+  v = p / g,
+  O = b / g,
+  H = -1 * O,
+  m = (p + Math.abs(b)) / g,
+  S = ((y - m) / 2) * a,
+  q = S + H * a,
+  R = q + v * a,
+  j = q + x * a,
+  k = q + w * a,
+  z = q + O * a;

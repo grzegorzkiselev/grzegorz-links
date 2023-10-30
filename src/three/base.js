@@ -1,52 +1,56 @@
-// import * as THREE from '../../static/utilities/three.min.js'
-import { Scene, OrthographicCamera, Vector3, sRGBEncoding, ReinhardToneMapping, WebGLRenderer } from "../../static/utilities/three.min.js";
 import {
-  OrbitControls
-} from '../../static/utilities/OrbitControls.js'
+  Scene,
+  OrthographicCamera,
+  Vector3,
+  sRGBEncoding,
+  ReinhardToneMapping,
+  WebGLRenderer,
+} from "../utilities/three.min.js";
+import { OrbitControls } from "../utilities/OrbitControls.js";
 
-const frame = document.querySelector(".display__project");
+var frame = document.querySelector(".display__project");
 
-const sizes = {
+var sizes = {
   width: frame.clientWidth * 2,
-  height: frame.clientHeight * 2
-}
+  height: frame.clientHeight * 2,
+};
 
 class Base {
   constructor(canvas) {
-    this.scene = new Scene()
+    this.scene = new Scene();
     this.sceneScale = 1;
 
     this.camera = new OrthographicCamera();
     this.camera.position.set(0, 0, -4);
     this.camera.lookAt(new Vector3());
-    this.camera.near = -15
-    this.camera.far = 15
-    this.scene.add(this.camera)
+    this.camera.near = -15;
+    this.camera.far = 15;
+    this.scene.add(this.camera);
 
     this.renderer = new WebGLRenderer({
       canvas: canvas,
-      antialias: true
-    })
+      antialias: true,
+    });
 
-    this.renderer.setSize(sizes.width, sizes.height)
+    this.renderer.setSize(sizes.width, sizes.height);
     this.renderer.setClearColor("hsl(0, 0%, 95%)", 1);
-    this.renderer.outputEncoding = sRGBEncoding
-    this.renderer.toneMapping = ReinhardToneMapping
-    this.renderer.toneMappingExposure = 3
+    this.renderer.outputEncoding = sRGBEncoding;
+    this.renderer.toneMapping = ReinhardToneMapping;
+    this.renderer.toneMappingExposure = 3;
 
-    this.controls = new OrbitControls(this.camera, canvas)
-    this.enableDamping = true
+    this.controls = new OrbitControls(this.camera, canvas);
+    this.enableDamping = true;
 
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       // Update sizes
-      sizes.width = frame.clientWidth
-      sizes.height = frame.clientHeight
+      sizes.width = frame.clientWidth;
+      sizes.height = frame.clientHeight;
 
       // Update camera
-      this.camera.aspect = sizes.width / sizes.height
+      this.camera.aspect = sizes.width / sizes.height;
 
       // Ortho zoom
-      const zoom = 1.0;
+      var zoom = 1.0;
 
       // Bounds
       this.camera.left = -zoom * this.camera.aspect;
@@ -67,12 +71,10 @@ class Base {
       this.camera.updateProjectionMatrix();
 
       // Update renderer
-      this.renderer.setSize(sizes.width, sizes.height)
-      this.renderer.setPixelRatio(2)
-    })
+      this.renderer.setSize(sizes.width, sizes.height);
+      this.renderer.setPixelRatio(2);
+    });
   }
 }
 
-export {
-  Base
-};
+export { Base };

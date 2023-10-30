@@ -1,15 +1,11 @@
 import "./../static/fonts/NewSpirit.woff2";
 import "./../static/fonts/arialnarrow-subset.woff2";
 import "./style.css";
-import "./../static/utilities/clock.js";
+import "./header/header.js";
 
-let isMobile = false;
+var isMobile = false;
 
-if (
-  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    navigator.userAgent
-  )
-) {
+if (navigator.maxTouchPoints >= 1) {
   isMobile = true;
   document.querySelector(".preloader").remove();
 } else {
@@ -17,8 +13,18 @@ if (
   import("./hover/menu.js").then(({ default: Menu }) => {
     new Menu(menuEl);
   });
-  const menuEl = document.querySelector(".links");
+  var menuEl = document.querySelector(".links");
 }
+
+// if (
+//   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+//     navigator.userAgent
+//   )
+// ) {
+
+// } else {
+
+// }
 
 import("./aspect-ratio/aspect-ratio.js");
 import("./three/cubes.js");

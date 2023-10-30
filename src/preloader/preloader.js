@@ -7,21 +7,22 @@ import {
   Mesh,
   PlaneBufferGeometry,
   WebGLRenderer,
-} from "../../static/utilities/three.min.js";
+} from "../utilities/three.min.js";
 import fragmentShader from "./fragmentShader.glsl";
 import vertexShader from "./vertexShader.glsl";
 import { gsap } from "gsap";
 
-const canvas = document.querySelector(".preloader");
+var canvas = document.querySelector(".preloader");
 
-const scene = new Scene();
+var scene = new Scene();
+var pixelRatio = window.devicePixelRatio;
 
-let stopModule = false;
+var stopModule = false;
 document.addEventListener("moduleLoaded", (e) => {
   gsap.delayedCall(3, () => {
     gsap.to(overlayMaterial.uniforms.uRadius, {
       duration: 2,
-      value: 4.0,
+      value: 8.0,
     });
     gsap.to(overlayMaterial.uniforms.uBlur, {
       duration: 1.5,
@@ -34,20 +35,20 @@ document.addEventListener("moduleLoaded", (e) => {
   });
 });
 
-const frame = document.querySelector(".preloader");
+var frame = document.querySelector(".preloader");
 
-const sizes = {
-  width: window.innerWidth * 2,
-  height: window.innerHeight * 2,
+var sizes = {
+  width: window.innerWidth,
+  height: window.innerHeight,
 };
 
-const mouse = new Vector2(sizes.width / 2, sizes.height / 2);
+var mouse = new Vector2(sizes.width, sizes.height);
 window.addEventListener("mousemove", (event) => {
   mouse.x = event.clientX / window.innerWidth - 0.5;
   mouse.y = -(event.clientY / window.innerHeight - 0.5);
 });
 
-const overlayMaterial = new ShaderMaterial({
+var overlayMaterial = new ShaderMaterial({
   precision: "lowp",
   side: DoubleSide,
   uniforms: {
@@ -74,34 +75,34 @@ const overlayMaterial = new ShaderMaterial({
   vertexShader: vertexShader,
   fragmentShader: fragmentShader,
   defines: {
-    PR: window.devicePixelRatio.toFixed(2),
+    PR: pixelRatio.toFixed(2),
   },
 });
 
-const overlay = new Mesh(new PlaneBufferGeometry(2, 2, 1, 1), overlayMaterial);
+var overlay = new Mesh(new PlaneBufferGeometry(2, 2, 1, 1), overlayMaterial);
 canvas.style.backgroundColor = "unset";
 scene.add(overlay);
 
 window.addEventListener("resize", () => {
   sizes.width = frame.clientWidth;
   sizes.height = frame.clientHeight;
-  renderer.setSize(sizes.width, sizes.height);
-  renderer.setPixelRatio(2);
+  renderer.setSize(sizes.width * pixelRatio, sizes.height * pixelRatio);
+  renderer.setPixelRatio(pixelRatio);
 });
 
-const camera = new PerspectiveCamera(0, sizes.width / sizes.height, 0, 0);
+var camera = new PerspectiveCamera(0, sizes.width / sizes.height, 0, 0);
 scene.add(camera);
 
-const renderer = new WebGLRenderer({
+var renderer = new WebGLRenderer({
   canvas: canvas,
   antialias: false,
   alpha: true,
   powerPreference: "high-performance",
 });
 
-renderer.setSize(sizes.width, sizes.height);
+renderer.setSize(sizes.width * pixelRatio, sizes.height * pixelRatio);
 
-const tick = () => {
+var tick = () => {
   if (!stopModule) {
     overlay.material.uniforms.uTime.value += 0.01;
     renderer.render(scene, camera);
