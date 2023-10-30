@@ -10,32 +10,11 @@ import {
 } from "../../static/utilities/three.min.js";
 import fragmentShader from "./fragmentShader.glsl";
 import vertexShader from "./vertexShader.glsl";
-import { gsap } from "gsap";
 
 var canvas = document.querySelector(".preloader");
 
 var scene = new Scene();
 var pixelRatio = window.devicePixelRatio;
-
-var stopModule = false;
-document.addEventListener("moduleLoaded", (e) => {
-  gsap.delayedCall(3, () => {
-    gsap.to(overlayMaterial.uniforms.uRadius, {
-      duration: 2,
-      value: 8.0,
-    });
-    gsap.to(overlayMaterial.uniforms.uBlur, {
-      duration: 1.5,
-      value: 0.0,
-    });
-    setTimeout(() => {
-      canvas.remove();
-      stopModule = true;
-    }, 2000);
-  });
-});
-
-var frame = document.querySelector(".preloader");
 
 var sizes = {
   width: window.innerWidth,
@@ -84,17 +63,21 @@ canvas.style.backgroundColor = "unset";
 scene.add(overlay);
 
 window.addEventListener("resize", () => {
-  sizes.width = frame.clientWidth;
-  sizes.height = frame.clientHeight;
+  sizes.width = window.innerWidth;
+  sizes.height = window.innerHeight;
+  overlayMaterial.uRes = new Vector2(window.innerWidth, window.innerHeight);
+  overlayMaterial.uMouse = mouse;
   renderer.setSize(sizes.width * pixelRatio, sizes.height * pixelRatio);
   renderer.setPixelRatio(pixelRatio);
 });
 canvas.addEventListener("scroll", (event) => {
   event.preventDefault();
 });
+
 canvas.addEventListener("wheel", (event) => {
   event.preventDefault();
 });
+
 var camera = new PerspectiveCamera(0, sizes.width / sizes.height, 0, 0);
 scene.add(camera);
 
@@ -107,12 +90,36 @@ var renderer = new WebGLRenderer({
 
 renderer.setSize(sizes.width * pixelRatio, sizes.height * pixelRatio);
 
-var tick = () => {
-  if (!stopModule) {
-    overlay.material.uniforms.uTime.value += 0.01;
-    renderer.render(scene, camera);
-    window.requestAnimationFrame(tick);
-  }
+var tickBeforeStop = () => {
+  overlay.material.uniforms.uTime.value += 0.01;
+  renderer.render(scene, camera);
+  window.requestAnimationFrame(tick);
 };
 
+var getStepValue = (duration, toValue) => toValue / ((duration * 60) / toValue);
+
+var radiusStep = getStepValue(4, 4);
+var blurStep = getStepValue(8, 2);
+var timerId = 0;
+
+var tickAfterStop = () => {
+  overlay.material.uniforms.uBlur.value -= blurStep;
+  overlay.material.uniforms.uRadius.value += radiusStep;
+
+  overlay.material.uniforms.uTime.value += 0.01;
+  renderer.render(scene, camera);
+  timerId = window.requestAnimationFrame(tick);
+};
+
+var tick = tickBeforeStop;
+
 tick();
+
+document.addEventListener("moduleLoaded", (e) => {
+  tick = tickAfterStop;
+  setTimeout(() => {
+    tick = () => {};
+    canvas.remove();
+    window.cancelAnimationFrame(timerId);
+  }, 6000);
+});
