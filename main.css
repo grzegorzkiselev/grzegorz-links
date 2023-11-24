@@ -66,34 +66,6 @@ svg {
   --descent: -255;
   --CH: 708;
   --XH: 491;
-  /* const lineHeightRatio = lineHeight; */
-  --line-height-ratio: var(--line-height);
-  /* const capHeightRatio = capHeight / unitsPerEm; */
-  --cap-height-ratio: calc(var(--CH) / var(--units-per-em));
-  /* const xHeightRatio = xHeight / unitsPerEm; */
-  --x-height-ratio: calc(var(--XH) / var(--units-per-em));
-  /* const ascenderRatio = ascent / unitsPerEm; */
-  --ascender-ratio: calc(var(--ascent) / var(--units-per-em));
-  /* const descenderRatio = descent / unitsPerEm; */
-  --descender-ratio: calc(var(--descent) / var(--units-per-em));
-  /* const baselineRatio = descenderRatio * -1; */
-  --baseline-ratio: calc(var(--descender-ratio) * -1);
-  /* const boundingBoxRatio = (ascent + Math.abs(descent)) / unitsPerEm; */
-  --bounding-box-ratio: calc(var(--ascent) * max(var(--descent), (var(--descent) * -1)) / var(--units-per-em));
-  /* const lineGapRatio = lineHeightRatio - boundingBoxRatio; */
-  --line-gap-ratio: calc(var(--line-height-ratio) - var(--bounding-box-ratio));
-  /* const originOffset = (lineGapRatio / 2) * fontSize; */
-  --origin-offset: calc((var(--line-gap-ratio) / 2) * var(--font-size));
-  /* const baselineOffset = originOffset + baselineRatio * fontSize; */
-  --baseline-offset: calc(var(--origin-offset) + var(--baseline-ratio) * var(--font-size));
-  /* const ascenderOffset = baselineOffset + ascenderRatio * fontSize; */
-  --ascender-offset: calc(var(--baseline-offset) + var(--ascender-ratio) * var(--font-size));
-  /* const capHeightOffset = baselineOffset + capHeightRatio * fontSize; */
-  --cap-height-offset: calc(var(--baseline-offset) + var(--cap-height-ratio) * var(--font-size));
-  /* const xHeightOffset = baselineOffset + xHeightRatio * fontSize; */
-  --x-height-offset: calc(var(--baseline-offset) + var(--x-height-ratio) * var(--font-size));
-  /* const descenderOffset = baselineOffset + descenderRatio * fontSize; */
-  --descender-offset: calc(var(--baseline-offset) + var(--descender-ratio) * var(--font-size));
 }
 
 p, a {
@@ -157,6 +129,10 @@ p, a {
   /* row-gap: 1vh; */
   overflow-x: auto;
   scrollbar-width: none;
+}
+
+.header__menu::-webkit-scrollbar {
+  display: none;
 }
 
 .header__menu > p {
