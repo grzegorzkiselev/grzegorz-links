@@ -21,6 +21,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   letter-spacing: -0.2pt;
 }
@@ -153,6 +154,15 @@ p, a {
   z-index: 0;
   fill: var(--font-color);
   color: inherit;
+}
+
+/* takes no effect, but to be sure */
+.mytime {
+  font-variant-numeric: tabular-nums;
+  -moz-font-feature-settings: "tnum";
+  -ms-font-feature-settings: "tnum";
+  -webkit-font-feature-settings: "tnum";
+  font-feature-settings: "tnum";
 }
 
 /* @media screen and (max-width: 400px) {
