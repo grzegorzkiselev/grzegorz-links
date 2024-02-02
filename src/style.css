@@ -229,8 +229,14 @@ p, a {
 .intro {
 
 }
+.intro a { 
+  display: inline-block;
+  margin-right: 0; 
+  margin-left: 0;
+}
 
-.intro span {
+.intro span,
+.intro a {
   color: #24DC43;
 }
 
@@ -349,6 +355,12 @@ p, a {
 /* #resize-value-hide { */
 /* display: none; */
 /* } */
+
+.hover-reveal,
+.hover-reveal__inner,
+.hover-reveal__img {
+  display: block;
+}
 
 .hover-reveal {
   position: fixed;
