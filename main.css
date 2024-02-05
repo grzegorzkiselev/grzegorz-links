@@ -21,6 +21,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   letter-spacing: -0.2pt;
 }
@@ -155,6 +156,15 @@ p, a {
   color: inherit;
 }
 
+/* takes no effect, but to be sure */
+.mytime {
+  font-variant-numeric: tabular-nums;
+  -moz-font-feature-settings: "tnum";
+  -ms-font-feature-settings: "tnum";
+  -webkit-font-feature-settings: "tnum";
+  font-feature-settings: "tnum";
+}
+
 /* @media screen and (max-width: 400px) {
   .current-city,
   .mytime {
@@ -229,8 +239,14 @@ p, a {
 .intro {
 
 }
+.intro a { 
+  display: inline-block;
+  margin-right: 0; 
+  margin-left: 0;
+}
 
-.intro span {
+.intro span,
+.intro a {
   color: #24DC43;
 }
 
@@ -349,6 +365,12 @@ p, a {
 /* #resize-value-hide { */
 /* display: none; */
 /* } */
+
+.hover-reveal,
+.hover-reveal__inner,
+.hover-reveal__img {
+  display: block;
+}
 
 .hover-reveal {
   position: fixed;
