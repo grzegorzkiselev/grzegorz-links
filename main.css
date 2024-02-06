@@ -5,6 +5,12 @@
   --hover-color: #6282F0;
   --selection-text-color: var(--font-color);
   --selection-background-color: rgba(36, 220, 67, 0.65);
+
+  scrollbar-width: none;
+}
+
+:root::-webkit-scrollbar {
+  display: none;
 }
 
 html {
@@ -313,15 +319,22 @@ p, a {
   height: fit-content;
 }
 
+.intro a,
 .links__link a,
 .links__link-text {
-  color: inherit;
-  text-decoration-color: var(--font-color);
+  text-decoration-color: inherit;
   text-underline-offset: calc(5.6vh - 3.5vh);
   text-decoration-thickness: 1px;
   transition: text-decoration 0.01s linear;
 }
 
+.links__link a,
+.links__link-text {
+  color: inherit;
+}
+
+.intro a:hover,
+.intro a:focus-visible,
 .links__link-text:focus-visible,
 .links__link-text:hover,
 .item__link:focus-visible,
