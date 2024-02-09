@@ -326,6 +326,7 @@ p, a {
   text-underline-offset: calc(5.6vh - 3.5vh);
   text-decoration-thickness: 1px;
   transition: text-decoration 0.01s linear;
+  cursor: pointer;
 }
 
 .links__link a,
